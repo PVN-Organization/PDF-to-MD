@@ -6,22 +6,21 @@
   "table_score": 10.0,
   "vietnamese_score": 8.0,
   "ai_review": {
-    "completeness": 2,
-    "accuracy": 4,
-    "structure": 5,
+    "completeness": 1,
+    "accuracy": 1,
+    "structure": 1,
     "tables": 10,
-    "overall": 4,
+    "overall": 1,
     "issues": [
-      "**Thiếu sót nghiêm trọng về nội dung:** Phần lớn tài liệu (Điều 2-8, phần lớn Điều 10, và Điều 11-24) bị thiếu hoàn toàn trong nội dung Markdown so với các trang hình ảnh gốc.",
-      "**Điều 1 không đầy đủ:** Các định nghĩa cho 'Đơn vị', 'Hoạt động sáng kiến, sáng chế', 'Người đại diện của Tập đoàn', 'Tập đoàn' bị thiếu trong Điều 1 của Markdown so với trang 1 của hình ảnh gốc.",
-      "**Thông tin ngày tháng không chính xác/thừa:** 'Hà Nội, 08/2012' được thêm vào đầu tài liệu Markdown nhưng không xuất hiện trên bất kỳ trang hình ảnh nào là ngày chính của tài liệu.",
-      "**Lỗi cấu trúc và chính xác trong Điều 9.2:** Markdown đã ngắt điểm 2.b) một cách không chính xác bằng một đường ngang (`---`) và sau đó gán nhãn phần tiếp theo là `c)`, dẫn đến việc có hai mục `c)` trong danh sách. Mục `c)` đầu tiên lẽ ra phải là phần tiếp theo của `b)`. Điều này gây ra lỗi về số thứ tự và luồng nội dung.",
-      "**Điều 10 không đầy đủ:** Chỉ có điểm 1 của Điều 10 được trình bày; các điểm 2, 3, 4, 5 bị thiếu.",
-      "**Mục lục không đầy đủ:** Mục lục trong Markdown liệt kê Chương I, II, VI nhưng bỏ qua Chương III, IV, V, và nhiều điều khoản được liệt kê trong mục lục không có nội dung trong phần thân tài liệu."
+      "**Nội dung không khớp:** Markdown không phải là bản chuyển đổi của các trang hình ảnh được cung cấp. Markdown chứa các phần nội dung (ví dụ: 'Chương I', 'Điều 1. Giải thích từ ngữ', 'BM.01-SK/PVN', 'BM.02-SK/PVN') không có trong các trang hình ảnh. Ngược lại, nhiều phần quan trọng từ các trang hình ảnh (ví dụ: '3. Một giải pháp được coi là...', 'Điều 4. Sáng chế ngành Dầu khí Việt Nam', 'Điều 5. Tác giả sáng kiến') hoàn toàn bị thiếu trong Markdown.",
+      "**Cấu trúc phân cấp sai:** Cấu trúc của Markdown bị lỗi nghiêm trọng. Các mục như '1. Sáng kiến cấp cơ sở', '2. Sáng kiến cấp Tập đoàn', '3. Sáng kiến mà Tác giả là Người đứng đầu Đơn vị', '2. Đối với các Sáng kiến cấp Tập đoàn', '3. Mức thù lao, tiền thưởng...' được trình bày như các mục danh sách cấp cao nhất, trong khi chúng phải là các mục con dưới các tiêu đề 'Điều' cụ thể (ví dụ: Điều 6, Điều 9, Điều 11 hoặc Điều 12) theo tài liệu gốc.",
+      "**Đánh số danh sách không chính xác:** Có hai nhãn 'c)' liên tiếp sau '2.b)' trong Markdown, điều này không chính xác. Việc đánh số danh sách tổng thể không nhất quán và không phản ánh cấu trúc của tài liệu gốc.",
+      "**Nội dung bị cắt cụt:** Markdown kết thúc đột ngột với '#### Điều 12. Thù lao cho người', cho thấy nội dung bị thiếu hoặc không hoàn chỉnh.",
+      "**Không thể đánh giá độ chính xác văn bản:** Do sự không khớp nghiêm trọng về nội dung và cấu trúc, không thể đánh giá độ chính xác của văn bản Markdown so với các trang hình ảnh được cung cấp. Markdown không phải là một bản trình bày chính xác của nguồn được cung cấp."
     ]
   },
-  "overall_score": 7.24,
+  "overall_score": 6.64,
   "issues": [
-    "Phát hiện 3 lần ký tự encoding bị lỗi (Ã, ƒ, Â)"
+    "Phát hiện 3 lần ký tự mojibake encoding bị lỗi"
   ]
 }

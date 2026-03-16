@@ -1,0 +1,22 @@
+{
+  "filename": "QĐ_6164_ 2019 Quy che giai thuong KHCN Dau khi 1 (1).pdf",
+  "total_pages": 69,
+  "text_completeness": 0.8,
+  "structure_score": 8.0,
+  "table_score": 10.0,
+  "vietnamese_score": 8.0,
+  "ai_review": {
+    "completeness": 5,
+    "accuracy": 9,
+    "structure": 10,
+    "tables": 10,
+    "overall": 7,
+    "issues": [
+      "Nội dung Markdown thiếu một phần đáng kể văn bản từ cuối trang hình ảnh gốc đầu tiên. Cụ thể, các đoạn văn bản sau Điều 8, bao gồm tiêu đề 'Hiệu lực thi hành' và đoạn văn bản tiếp theo, đã bị thiếu."
+    ]
+  },
+  "overall_score": 8.1,
+  "issues": [
+    "Phát hiện 41 lần ký tự mojibake encoding bị lỗi"
+  ]
+}

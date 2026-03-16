@@ -1,0 +1,27 @@
+{
+  "filename": "QĐ_2281  Quy chế NV KHCN PVN_27032025.pdf",
+  "total_pages": 104,
+  "text_completeness": 0.8,
+  "structure_score": 6.0,
+  "table_score": 5.0,
+  "vietnamese_score": 8.0,
+  "ai_review": {
+    "completeness": 3,
+    "accuracy": 8,
+    "structure": 4,
+    "tables": 1,
+    "overall": 4,
+    "issues": [
+      "Thiếu tiêu đề 'Điều 7. Trách nhiệm và quyền hạn của Tổng Giám đốc'. Nội dung của Điều 7 được trình bày như một danh sách cấp cao nhất mà không có tiêu đề phù hợp.",
+      "Nội dung của Điều 7 (bao gồm các mục 1, 2, 3 và các gạch đầu dòng con) bị lặp lại hoàn toàn trong Markdown trước tiêu đề 'Điều 8'. Đây là một lỗi nghiêm trọng về cấu trúc và đầy đủ.",
+      "Dưới 'Điều 8. Trách nhiệm và quyền hạn của các Phó Tổng Giám đốc', mục 3, có 3 trong số 4 gạch đầu dòng bị thiếu trong Markdown so với tài liệu gốc.",
+      "Bảng trong Markdown ('Nhóm tiêu chí đánh giá', 'Điểm đánh giá', 'Hệ số', 'Điểm', 'Tổng điểm', 'Điểm tối đa') không tồn tại trong bất kỳ trang ảnh gốc nào được cung cấp. Ngoài ra, hàng thứ hai của bảng trong Markdown bị định dạng sai (chỉ là một chuỗi dài các dấu gạch ngang).",
+      "Do việc lặp lại nội dung của Điều 7, cấu trúc danh sách và cấp bậc bị sai lệch so với tài liệu gốc."
+    ]
+  },
+  "overall_score": 6.35,
+  "issues": [
+    "10 bảng có số cột không đồng nhất giữa các dòng",
+    "Phát hiện 17 lần ký tự mojibake encoding bị lỗi"
+  ]
+}

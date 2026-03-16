@@ -1,18 +1,16 @@
 <!-- Chuyển đổi tự động từ PDF sang Markdown -->
 <!-- File gốc: QĐ 1736_2021 Quy che To chuc va Hoat dong cua HD KHCN TD DKQGVN.pdf -->
 <!-- Số trang: 15 | Kích thước: 4.46 MB -->
-<!-- Thời gian: 2026-03-16 11:33:16 -->
+<!-- Thời gian: 2026-03-16 16:36:09 -->
 
 
 ---
 
-TẬP ĐOÀN DẦU KHÍ VIỆT NAM
-Số: **1736**/QĐ-DKVN
-
-CỘNG HOÀ XÃ HỘI CHỦ NGHĨA VIỆT NAM
-Độc lập - Tự do - Hạnh phúc
-
-Hà Nội, ngày **07** tháng **4** năm 2021
+|  |  |
+|---|---|
+| TẬP ĐOÀN DẦU KHÍ VIỆT NAM | **CỘNG HOÀ XÃ HỘI CHỦ NGHĨA VIỆT NAM** |
+| Số: 1736/QĐ-DKVN | **Độc lập - Tự do - Hạnh phúc** |
+|  | *Hà Nội, ngày 07 tháng 4 năm 2021* |
 
 **QUYẾT ĐỊNH**
 **Về việc ban hành “Quy chế Tổ chức và hoạt động của Hội đồng Khoa học Công nghệ Tập đoàn Dầu khí Quốc gia Việt Nam”**

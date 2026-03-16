@@ -222,16 +222,7 @@ async def main() -> None:
     # Validate API key
     config.validate()
 
-    # Pre-flight quota check (non-fatal: OCR fallback available)
-    console.print(f"[dim]Kiểm tra quota API ({config.gemini_model})...[/dim]", end=" ")
-    if config.check_quota():
-        console.print("[green]OK[/green]")
-    else:
-        console.print("[yellow]CẢNH BÁO[/yellow]")
-        console.print(
-            "[yellow]Gemini API quota có thể đã hết. Pipeline sẽ dùng OCR text "
-            "làm fallback khi Gemini thất bại.[/yellow]"
-        )
+    console.print(f"[dim]Model: {config.gemini_model}[/dim]")
 
     from src.pipeline import process_batch, process_pdf
 

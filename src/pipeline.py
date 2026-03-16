@@ -135,7 +135,7 @@ async def process_pdf(
         # Phase 6: Assemble
         task = progress.add_task("[6/7] Ghép nối markdown...", total=None)
         final_markdown = assemble(chunk_results, analysis)
-        output_path = output_dir / "output.md"
+        output_path = output_dir / f"output_{stem}.md"
         output_path.write_text(final_markdown, encoding="utf-8")
         progress.update(
             task, completed=True,

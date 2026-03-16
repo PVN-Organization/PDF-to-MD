@@ -1,18 +1,16 @@
 <!-- Chuyển đổi tự động từ PDF sang Markdown -->
 <!-- File gốc: QĐ_6389_2012 Quy che quan ly SKSC PVN 3 1.pdf -->
 <!-- Số trang: 21 | Kích thước: 0.4 MB -->
-<!-- Thời gian: 2026-03-16 11:24:39 -->
+<!-- Thời gian: 2026-03-16 17:22:36 -->
 
 
 ---
 
-TẬP ĐOÀN DẦU KHÍ VIỆT NAM
-Số: **6389**/QĐ-DKVN
-
-CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM
-Độc lập - Tự do - Hạnh phúc
-
-Hà Nội, ngày 14 tháng 8 năm 2012
+|  |  |
+|---|---|
+| TẬP ĐOÀN DẦU KHÍ VIỆT NAM | **CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM** |
+| Số: 6389/QĐ-DKVN | **Độc lập - Tự do - Hạnh phúc** |
+|  | *Hà Nội, ngày 14 tháng 8 năm 2012* |
 
 QUYẾT ĐỊNH
 Về việc Phê duyệt và ban hành Quy chế quản lý hoạt động sáng kiến, sáng chế của Tập đoàn Dầu khí Việt Nam (PVN)

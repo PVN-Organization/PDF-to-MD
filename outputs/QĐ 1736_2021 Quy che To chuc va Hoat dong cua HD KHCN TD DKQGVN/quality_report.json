@@ -7,25 +7,29 @@
   "vietnamese_score": 8.0,
   "ai_review": {
     "completeness": 3,
-    "accuracy": 8,
-    "structure": 6,
+    "accuracy": 6,
+    "structure": 3,
     "tables": 10,
-    "overall": 6,
+    "overall": 4,
     "issues": [
-      "**Incomplete content:** The Markdown is a fragmented conversion. It misses significant portions of the provided images, specifically:",
-      "- The 'Nơi nhận' list on the first page is cut short.",
-      "- The signature block (TM. HỘI ĐỒNG THÀNH VIÊN, CHỦ TỊCH, Hoàng Quốc Vượng, seal) on the first page is entirely missing.",
-      "- The entire content of Image 2 (which is page 11 of the original document) is missing from the Markdown.",
-      "- The Markdown abruptly cuts off in the middle of item 1 of 'Điều 5' (from Image 3 / page 2 of the document), leaving the rest of 'Điều 5' and subsequent content unconverted.",
-      "- Conversely, the Markdown includes 'Điều 2. Phạm vi, đối tượng áp dụng' and 'Điều 3. Giải thích từ ngữ' which are not present in the provided image files, indicating a non-sequential or selective conversion.",
-      "**Incorrect structural interpretation for 'Điều X.':** 'Điều X.' (e.g., Điều 1, Điều 2, Điều 3 of the Decision, and Điều 2, Điều 3, Điều 4, Điều 5 of the Quy chế) are rendered as H4 headings (`####`) in Markdown. In the original document, these are bolded paragraph starters, not distinct headings, which affects the document's logical structure.",
-      "**Inconsistent bolding:** For 'Điều X.' in the Decision part (page 1), the Markdown bolds the entire line (e.g., `#### Điều 1. Ban hành kèm theo...`), whereas in the image, only 'Điều 1.' is bolded, and the rest of the sentence is regular text.",
-      "**Layout/Centering:** Centering of main headings (e.g., 'QUYẾT ĐỊNH', 'CHƯƠNG II') is not captured in Markdown, which is a common limitation but affects the visual fidelity of the conversion."
+      "**Thiếu nội dung nghiêm trọng:** Các Điều 4, Điều 5 (một phần), Điều 9, Điều 10 (một phần), Điều 11 (một phần), Điều 12 và Điều 13 hoàn toàn bị thiếu hoặc chỉ có các điểm nhỏ bị đặt sai vị trí.",
+      "**Kết thúc đột ngột:** Nội dung Markdown kết thúc đột ngột ở giữa một câu/điểm (điểm 4 của Điều 11 bị đặt sai vị trí và không hoàn chỉnh).",
+      "**Lỗi cấu trúc và đánh số:**",
+      "   - Các điểm 5, 6, 7 (thực chất là của Điều 5) bị đặt sai vị trí và đánh số không chính xác, nằm ngay sau định nghĩa '5. TTHĐ' (thuộc Điều 3).",
+      "   - Điểm 3 (thực chất là của Điều 10) bị đặt sai vị trí dưới 'Điều 8. Thường trực Hội đồng'.",
+      "   - Điểm 4 (thực chất là của Điều 11) bị đặt sai vị trí dưới 'Điều 8. Thường trực Hội đồng' và không hoàn chỉnh.",
+      "   - Thiếu các tiêu đề cấp bậc cho các Điều 4, Điều 5, Điều 9, Điều 10, Điều 11, Điều 12, Điều 13.",
+      "**Lỗi chính tả/diễn đạt:**",
+      "   - Trong điểm 5 (của Điều 5 bị đặt sai vị trí), cụm từ 'đầu đào, tạo sự' phải là 'đầu tư, đào tạo, sử dụng'.",
+      "   - Trong điểm 6 (của Điều 5 bị đặt sai vị trí), cụm từ 'phong cách chức danh khoa học' phải là 'phong tặng chức danh khoa học'.",
+      "   - Trong Điều 7, điểm 1, 'Ban Tổ chức và Quản trị Nguồn nhân lực' phải là 'Ban Tổ chức và Quản lý Nguồn nhân lực'.",
+      "   - Trong Điều 7, điểm 4, gạch đầu dòng thứ ba, 'Kỳ họp cuối nhiệm kỳ' nên là 'kỳ họp cuối nhiệm kỳ' (lỗi viết hoa).",
+      "   - Trong Điều 7, điểm 4, gạch đầu dòng thứ tư, 'ứng viên chỉ được giới thiệu vào một Tiểu ban KHCN.' nên là 'mỗi ứng viên chỉ được giới thiệu vào một Tiểu ban KHCN.' (lỗi diễn đạt nhỏ)."
     ]
   },
-  "overall_score": 8.3,
+  "overall_score": 7.9,
   "issues": [
     "Markdown dài hơn nhiều so với text PDF gốc — có thể có nội dung thừa",
-    "Phát hiện 1 lần ký tự encoding bị lỗi (Ã, ƒ, Â)"
+    "Phát hiện 1 lần ký tự mojibake encoding bị lỗi"
   ]
 }
