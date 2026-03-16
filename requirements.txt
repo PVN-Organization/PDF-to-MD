@@ -1,0 +1,8 @@
+pymupdf
+google-genai
+python-dotenv
+rich
+tenacity
+pytesseract
+Pillow
+pandas

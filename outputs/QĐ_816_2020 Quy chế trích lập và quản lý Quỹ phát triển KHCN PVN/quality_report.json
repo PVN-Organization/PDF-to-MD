@@ -1,0 +1,15 @@
+{
+  "filename": "QĐ_816_2020 Quy chế trích lập và quản lý Quỹ phát triển KHCN PVN.pdf",
+  "total_pages": 40,
+  "text_completeness": 1.0,
+  "structure_score": 8.0,
+  "table_score": 10.0,
+  "vietnamese_score": 8.0,
+  "ai_review": null,
+  "overall_score": 8.7,
+  "issues": [
+    "Tìm thấy 142 lần từ \"Điều\" nhưng không có heading Điều nào",
+    "Phát hiện 1 lần ký tự mojibake encoding bị lỗi",
+    "AI review thất bại: 429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'Your project has exceeded its spending cap.', 'status': 'RESOURCE_EXHAUSTED'}}"
+  ]
+}

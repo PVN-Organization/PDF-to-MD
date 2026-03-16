@@ -1,0 +1,27 @@
+{
+  "filename": "QĐ_6389_2012 Quy che quan ly SKSC PVN 3 1.pdf",
+  "total_pages": 21,
+  "text_completeness": 0.946,
+  "structure_score": 4.5,
+  "table_score": 10.0,
+  "vietnamese_score": 8.0,
+  "ai_review": {
+    "completeness": 2,
+    "accuracy": 4,
+    "structure": 5,
+    "tables": 10,
+    "overall": 4,
+    "issues": [
+      "**Thiếu sót nghiêm trọng về nội dung:** Phần lớn tài liệu (Điều 2-8, phần lớn Điều 10, và Điều 11-24) bị thiếu hoàn toàn trong nội dung Markdown so với các trang hình ảnh gốc.",
+      "**Điều 1 không đầy đủ:** Các định nghĩa cho 'Đơn vị', 'Hoạt động sáng kiến, sáng chế', 'Người đại diện của Tập đoàn', 'Tập đoàn' bị thiếu trong Điều 1 của Markdown so với trang 1 của hình ảnh gốc.",
+      "**Thông tin ngày tháng không chính xác/thừa:** 'Hà Nội, 08/2012' được thêm vào đầu tài liệu Markdown nhưng không xuất hiện trên bất kỳ trang hình ảnh nào là ngày chính của tài liệu.",
+      "**Lỗi cấu trúc và chính xác trong Điều 9.2:** Markdown đã ngắt điểm 2.b) một cách không chính xác bằng một đường ngang (`---`) và sau đó gán nhãn phần tiếp theo là `c)`, dẫn đến việc có hai mục `c)` trong danh sách. Mục `c)` đầu tiên lẽ ra phải là phần tiếp theo của `b)`. Điều này gây ra lỗi về số thứ tự và luồng nội dung.",
+      "**Điều 10 không đầy đủ:** Chỉ có điểm 1 của Điều 10 được trình bày; các điểm 2, 3, 4, 5 bị thiếu.",
+      "**Mục lục không đầy đủ:** Mục lục trong Markdown liệt kê Chương I, II, VI nhưng bỏ qua Chương III, IV, V, và nhiều điều khoản được liệt kê trong mục lục không có nội dung trong phần thân tài liệu."
+    ]
+  },
+  "overall_score": 7.24,
+  "issues": [
+    "Phát hiện 3 lần ký tự encoding bị lỗi (Ã, ƒ, Â)"
+  ]
+}

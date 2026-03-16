@@ -1,0 +1,31 @@
+{
+  "filename": "QĐ 1736_2021 Quy che To chuc va Hoat dong cua HD KHCN TD DKQGVN.pdf",
+  "total_pages": 15,
+  "text_completeness": 1.0,
+  "structure_score": 7.0,
+  "table_score": 10.0,
+  "vietnamese_score": 8.0,
+  "ai_review": {
+    "completeness": 3,
+    "accuracy": 8,
+    "structure": 6,
+    "tables": 10,
+    "overall": 6,
+    "issues": [
+      "**Incomplete content:** The Markdown is a fragmented conversion. It misses significant portions of the provided images, specifically:",
+      "- The 'Nơi nhận' list on the first page is cut short.",
+      "- The signature block (TM. HỘI ĐỒNG THÀNH VIÊN, CHỦ TỊCH, Hoàng Quốc Vượng, seal) on the first page is entirely missing.",
+      "- The entire content of Image 2 (which is page 11 of the original document) is missing from the Markdown.",
+      "- The Markdown abruptly cuts off in the middle of item 1 of 'Điều 5' (from Image 3 / page 2 of the document), leaving the rest of 'Điều 5' and subsequent content unconverted.",
+      "- Conversely, the Markdown includes 'Điều 2. Phạm vi, đối tượng áp dụng' and 'Điều 3. Giải thích từ ngữ' which are not present in the provided image files, indicating a non-sequential or selective conversion.",
+      "**Incorrect structural interpretation for 'Điều X.':** 'Điều X.' (e.g., Điều 1, Điều 2, Điều 3 of the Decision, and Điều 2, Điều 3, Điều 4, Điều 5 of the Quy chế) are rendered as H4 headings (`####`) in Markdown. In the original document, these are bolded paragraph starters, not distinct headings, which affects the document's logical structure.",
+      "**Inconsistent bolding:** For 'Điều X.' in the Decision part (page 1), the Markdown bolds the entire line (e.g., `#### Điều 1. Ban hành kèm theo...`), whereas in the image, only 'Điều 1.' is bolded, and the rest of the sentence is regular text.",
+      "**Layout/Centering:** Centering of main headings (e.g., 'QUYẾT ĐỊNH', 'CHƯƠNG II') is not captured in Markdown, which is a common limitation but affects the visual fidelity of the conversion."
+    ]
+  },
+  "overall_score": 8.3,
+  "issues": [
+    "Markdown dài hơn nhiều so với text PDF gốc — có thể có nội dung thừa",
+    "Phát hiện 1 lần ký tự encoding bị lỗi (Ã, ƒ, Â)"
+  ]
+}
