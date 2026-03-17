@@ -81,7 +81,6 @@ class SpotCheckReport:
         )
 
     def save_log(self, path: Path) -> None:
-        """Save a human-readable text log."""
         lines = [
             f"=== Spot-Check Log: {self.filename} ===",
             f"Tổng: {self.total_checks} vị trí | "
@@ -108,6 +107,14 @@ class SpotCheckReport:
             lines.append(f"  WARNING: {self.warning_count}")
         lines.append(f"  OK: {self.ok_count}")
         return "\n".join(lines)
+
+    @property
+    def failed_pages(self) -> set[int]:
+        """Return set of page_nums that had critical or warning issues."""
+        return {
+            r.page_num for r in self.results
+            if r.severity in ("critical", "warning") and r.issues
+        }
 
 
 def _build_page_map(chunk_results: list[ChunkResult], md_lines: list[str]) -> list[tuple[int, int, int]]:
@@ -140,7 +147,6 @@ def _build_page_map(chunk_results: list[ChunkResult], md_lines: list[str]) -> li
 
 
 def _find_page_for_line(page_map: list[tuple[int, int, int]], target_line: int) -> int:
-    """Find which PDF page corresponds to a given markdown line number."""
     for line_start, line_end, page_num in page_map:
         if line_start <= target_line < line_end:
             return page_num
@@ -149,12 +155,19 @@ def _find_page_for_line(page_map: list[tuple[int, int, int]], target_line: int) 
     return 0
 
 
+def _find_lines_for_page(page_map: list[tuple[int, int, int]], target_page: int) -> tuple[int, int] | None:
+    """Find the markdown line range for a given PDF page number."""
+    for line_start, line_end, page_num in page_map:
+        if page_num == target_page:
+            return line_start, line_end
+    return None
+
+
 def _pick_check_positions(
     md_lines: list[str],
     chunk_results: list[ChunkResult],
     count: int,
 ) -> list[int]:
-    """Pick N line positions to check, biased toward interesting locations."""
     total = len(md_lines)
     if total == 0:
         return []
@@ -194,7 +207,6 @@ def _pick_check_positions(
 
 
 def _extract_snippet(md_lines: list[str], center: int, window: int = 35) -> tuple[int, int, str]:
-    """Extract a window of lines around a center position."""
     start = max(0, center - window)
     end = min(len(md_lines), center + window)
     snippet = "\n".join(md_lines[start:end])
@@ -209,7 +221,6 @@ def _call_spot_check(
     line_start: int,
     line_end: int,
 ) -> dict | None:
-    """Call Gemini to spot-check a markdown snippet against a page image."""
     prompt = SPOT_CHECK_PROMPT.replace("{line_start}", str(line_start + 1))
     prompt = prompt.replace("{line_end}", str(line_end))
     prompt = prompt.replace("{markdown_snippet}", snippet[:4000])
@@ -235,6 +246,71 @@ def _call_spot_check(
     except Exception as e:
         logger.warning("Spot-check Gemini call failed: %s", e)
         return None
+
+
+def _do_check(
+    client: genai.Client,
+    model_name: str,
+    doc: fitz.Document,
+    md_lines: list[str],
+    page_num: int,
+    line_start: int,
+    line_end: int,
+    check_idx: int,
+    total: int,
+    dpi: int,
+) -> SpotCheckResult | None:
+    """Run a single spot-check against one page, return SpotCheckResult."""
+    snippet = "\n".join(md_lines[line_start:line_end])
+
+    logger.info(
+        "Spot-check %d/%d: trang %d, dòng %d-%d — đang gọi Gemini...",
+        check_idx, total, page_num + 1, line_start + 1, line_end,
+    )
+
+    if page_num < 0 or page_num >= doc.page_count:
+        logger.warning("Spot-check: trang %d ngoài phạm vi, bỏ qua", page_num + 1)
+        return None
+
+    page = doc.load_page(page_num)
+    pix = page.get_pixmap(dpi=dpi)
+    page_image = pix.tobytes("png")
+
+    result_data = _call_spot_check(
+        client, model_name, page_image, snippet, line_start, line_end,
+    )
+
+    severity = "ok"
+    issues: list[SpotCheckIssue] = []
+
+    if result_data:
+        severity = result_data.get("severity", "ok")
+        for iss in result_data.get("issues", []):
+            issues.append(SpotCheckIssue(
+                type=iss.get("type", "unknown"),
+                description=iss.get("description", ""),
+                severity=iss.get("severity", "warning"),
+            ))
+
+    check_result = SpotCheckResult(
+        page_num=page_num,
+        md_line_start=line_start,
+        md_line_end=line_end,
+        severity=severity,
+        issues=issues,
+        md_snippet=snippet[:500],
+    )
+
+    if issues:
+        for iss in issues:
+            logger.info(
+                "  [%s] Trang %d: %s — %s",
+                iss.severity.upper(), page_num + 1, iss.type, iss.description,
+            )
+    else:
+        logger.info("Spot-check %d/%d: trang %d — OK", check_idx, total, page_num + 1)
+
+    return check_result
 
 
 def run_spot_check(
@@ -271,74 +347,117 @@ def run_spot_check(
         line_start, line_end, snippet = _extract_snippet(md_lines, pos)
         page_num = _find_page_for_line(page_map, pos)
 
-        logger.info(
-            "Spot-check %d/%d: trang %d, dòng %d-%d — đang gọi Gemini...",
-            check_idx, len(positions), page_num + 1, line_start + 1, line_end,
+        result = _do_check(
+            client, config.gemini_verify_model, doc, md_lines,
+            page_num, line_start, line_end,
+            check_idx, len(positions), config.spot_check_dpi,
         )
-
-        if page_num < 0 or page_num >= doc.page_count:
-            logger.warning(
-                "Spot-check %d/%d: trang %d ngoài phạm vi (%d trang), bỏ qua",
-                check_idx, len(positions), page_num + 1, doc.page_count,
-            )
+        if result is None:
             continue
 
-        page = doc.load_page(page_num)
-        pix = page.get_pixmap(dpi=config.spot_check_dpi)
-        page_image = pix.tobytes("png")
-
-        result_data = _call_spot_check(
-            client, config.gemini_model,
-            page_image, snippet, line_start, line_end,
-        )
-
-        severity = "ok"
-        issues: list[SpotCheckIssue] = []
-
-        if result_data:
-            severity = result_data.get("severity", "ok")
-            for iss in result_data.get("issues", []):
-                issues.append(SpotCheckIssue(
-                    type=iss.get("type", "unknown"),
-                    description=iss.get("description", ""),
-                    severity=iss.get("severity", "warning"),
-                ))
-
-        check_result = SpotCheckResult(
-            page_num=page_num,
-            md_line_start=line_start,
-            md_line_end=line_end,
-            severity=severity,
-            issues=issues,
-            md_snippet=snippet[:500],
-        )
-        report.results.append(check_result)
+        report.results.append(result)
         report.total_checks += 1
-
-        if severity == "critical":
+        if result.severity == "critical":
             report.critical_count += 1
-        elif severity == "warning":
+        elif result.severity == "warning":
             report.warning_count += 1
         else:
             report.ok_count += 1
-
-        if issues:
-            for iss in issues:
-                logger.info(
-                    "  [%s] Trang %d: %s — %s",
-                    iss.severity.upper(), page_num + 1,
-                    iss.type, iss.description,
-                )
-        else:
-            logger.info(
-                "Spot-check %d/%d: trang %d — OK, không phát hiện lỗi",
-                check_idx, len(positions), page_num + 1,
-            )
 
     doc.close()
 
     logger.info(
         "Spot-check hoàn thành: %d vị trí, %d critical, %d warning, %d ok",
+        report.total_checks, report.critical_count,
+        report.warning_count, report.ok_count,
+    )
+
+    return report
+
+
+def _build_even_page_map(total_lines: int, total_pages: int) -> list[tuple[int, int, int]]:
+    """Build page_map by dividing markdown lines evenly across pages.
+
+    Used for recheck when original chunk_results page_map is stale
+    (after auto-fix modified the markdown).
+    """
+    if total_pages <= 0 or total_lines <= 0:
+        return []
+    lines_per_page = max(total_lines // total_pages, 1)
+    mapping = []
+    for p in range(total_pages):
+        start = p * lines_per_page
+        end = (p + 1) * lines_per_page if p < total_pages - 1 else total_lines
+        mapping.append((start, min(end, total_lines), p))
+    return mapping
+
+
+def recheck_pages(
+    pdf_path: str | Path,
+    markdown: str,
+    chunk_results: list[ChunkResult],
+    config: Config,
+    page_nums: set[int],
+    skip_pages: set[int] | None = None,
+) -> SpotCheckReport:
+    """Re-check specific PDF pages (instead of random positions).
+
+    Uses an even page-map based on current markdown length (not original
+    chunk_results) so line ranges stay valid after auto-fix rounds.
+    Pages in skip_pages are excluded (already deemed unfixable).
+    """
+    pdf_path = Path(pdf_path)
+    md_lines = markdown.split("\n")
+    pages_to_check = sorted(page_nums - (skip_pages or set()))
+
+    report = SpotCheckReport(filename=pdf_path.name, total_checks=0)
+
+    if not pages_to_check or not config.gemini_api_key:
+        return report
+
+    try:
+        client = genai.Client(api_key=config.gemini_api_key)
+    except Exception as e:
+        logger.warning("Could not init Gemini client for recheck: %s", e)
+        return report
+
+    doc = fitz.open(str(pdf_path))
+
+    even_map = _build_even_page_map(len(md_lines), doc.page_count)
+
+    for check_idx, pn in enumerate(pages_to_check, 1):
+        line_range = _find_lines_for_page(even_map, pn)
+        if line_range is None:
+            logger.warning("Recheck: không tìm thấy dòng cho trang %d, bỏ qua", pn + 1)
+            continue
+        line_start, line_end = line_range
+
+        if line_start >= line_end or line_start < 0:
+            logger.warning("Recheck: trang %d, line range lỗi (%d-%d), bỏ qua",
+                           pn + 1, line_start, line_end)
+            continue
+
+        result = _do_check(
+            client, config.gemini_verify_model, doc, md_lines,
+            pn, line_start, line_end,
+            check_idx, len(pages_to_check), config.spot_check_dpi,
+        )
+        if result is None:
+            continue
+
+        report.results.append(result)
+        report.total_checks += 1
+        if result.severity == "critical":
+            report.critical_count += 1
+        elif result.severity == "warning":
+            report.warning_count += 1
+        else:
+            report.ok_count += 1
+
+    doc.close()
+
+    logger.info(
+        "Recheck hoàn thành: %d trang, %d critical, %d warning, %d ok",
         report.total_checks, report.critical_count,
         report.warning_count, report.ok_count,
     )

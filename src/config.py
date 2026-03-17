@@ -45,8 +45,12 @@ class Config:
     spot_check_count: int = 5
     spot_check_dpi: int = 150
 
+    # Integrity check
+    integrity_check: bool = True
+
     # Final check loop
     max_fix_rounds: int = 3
+    min_acceptable_score: float = 8.0
 
     def validate(self) -> None:
         if not self.gemini_api_key:

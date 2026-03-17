@@ -1,0 +1,41 @@
+{
+  "filename": "QĐ_6389_2012 Quy che quan ly SKSC PVN 3 1.pdf",
+  "total_checks": 2,
+  "critical_count": 1,
+  "warning_count": 0,
+  "ok_count": 1,
+  "results": [
+    {
+      "page_num": 18,
+      "md_line_start": 198,
+      "md_line_end": 209,
+      "severity": "critical",
+      "issues": [
+        {
+          "type": "missing_content",
+          "description": "Nội dung \"Chương VI ĐIỀU KHOẢN THI HÀNH Điều 24. Điều khoản thi hành 1. Quy chế này bao gồm 6 Chương, 24 Điều và 02 Biểu mẫu kèm theo. 2. Trong quá trình thực hiện, Đơn vị/Người đại diện của Tập đoàn có trách nhiệm báo cáo cáo Tập đoàn các vấn đề phát sinh và/hoặc chưa hợp lý để Tập đoàn xem xét và ra quyết định bổ sung, sửa đổi kịp thời nhằm thúc đẩy hoạt động sáng kiến, sáng chế, góp phần tiết giảm chi phí và nâng cao hiệu quả hoạt động sản xuất kinh doanh của Đơn vị và Tập đoàn./.\" có trong hình ảnh nhưng bị thiếu trong Markdown.",
+          "severity": "critical"
+        },
+        {
+          "type": "running_header",
+          "description": "Dòng \"Quy chế quản lý hoạt động sáng kiến, sáng chế\" bị lọt vào nội dung.",
+          "severity": "warning"
+        },
+        {
+          "type": "missing_content",
+          "description": "Nội dung \"18 / 20\" có trong hình ảnh nhưng bị thiếu trong Markdown.",
+          "severity": "critical"
+        }
+      ],
+      "md_snippet_preview": "## I. Tình hình hoạt động sáng kiến, sáng chế:\n- Tổ chức chỉ đạo hoạt động sáng kiến, sáng chế.\nQuy chế quản lý hoạt động sáng kiến, sáng chế\nBM.02-SK/PVN\n\nTẬP ĐOÀN DẦU KHÍ\nQUỐC GIA VIỆT NAM\n\nCỘNG HOÀ"
+    },
+    {
+      "page_num": 20,
+      "md_line_start": 220,
+      "md_line_end": 242,
+      "severity": "ok",
+      "issues": [],
+      "md_snippet_preview": "# II. Các kết quả cụ thể:\n- Tổng số sáng kiến đã đăng ký:\n- Tổng số sáng chế đã đăng ký:\n- Tổng số sáng kiến đã được công nhận:\n- Tổng số sáng chế đã được cấp Bằng độc quyền sáng chế:\n- Số sáng kiến, "
+    }
+  ]
+}

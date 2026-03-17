@@ -1,153 +1,345 @@
-2026-03-17 11:53:28,003 [INFO] src.pipeline: ============================================================
-2026-03-17 11:53:28,004 [INFO] src.pipeline: Pipeline online: QĐ_6389_2012 Quy che quan ly SKSC PVN 3 1.pdf
-2026-03-17 11:53:28,004 [INFO] src.pipeline: Model: gemini-3-flash-preview | Spot-check: True | Auto-fix: True | Max rounds: 2
-2026-03-17 11:53:28,005 [INFO] src.pipeline: ============================================================
-2026-03-17 11:53:28,006 [INFO] src.pipeline: Phase 1: Phân tích PDF
-2026-03-17 11:53:28,120 [INFO] src.analyzer: Analyzed QĐ_6389_2012 Quy che quan ly SKSC PVN 3 1.pdf: 21 pages, 0.4 MB, 0% scanned, ~5553 tokens
-2026-03-17 11:53:28,121 [INFO] src.pipeline: Phase 1 done: 21 trang, 0.4 MB, 0% scanned
-2026-03-17 11:53:28,122 [INFO] src.pipeline: Phase 2: Lên kế hoạch chunk
-2026-03-17 11:53:28,235 [INFO] src.planner: Created 3 chunks for QĐ_6389_2012 Quy che quan ly SKSC PVN 3 1.pdf (21 pages)
-2026-03-17 11:53:28,235 [INFO] src.pipeline: Phase 2 done: 3 chunks, 0 trang có bảng
-2026-03-17 11:53:28,238 [INFO] src.pipeline: Phase 3: Render trang thành ảnh (DPI=300)
-2026-03-17 11:53:31,808 [INFO] src.renderer: Rendered 21 pages for QĐ_6389_2012 Quy che quan ly SKSC PVN 3 1.pdf
-2026-03-17 11:53:31,808 [INFO] src.pipeline: Phase 3 done: 21 trang rendered
-2026-03-17 11:53:31,810 [INFO] src.pipeline: Phase 4: Trích xuất table hints + OCR fallback
-2026-03-17 11:53:31,864 [DEBUG] src.extractor: Extracted page 0: 1956 chars, confidence=0.80, type=mixed
-2026-03-17 11:53:31,870 [DEBUG] src.extractor: Extracted page 1: 86 chars, confidence=0.80, type=mixed
-2026-03-17 11:53:31,912 [DEBUG] src.extractor: Extracted page 2: 1935 chars, confidence=0.80, type=mixed
-2026-03-17 11:53:31,956 [DEBUG] src.extractor: Extracted page 3: 2072 chars, confidence=0.80, type=mixed
-2026-03-17 11:53:32,000 [DEBUG] src.extractor: Extracted page 4: 2170 chars, confidence=0.80, type=mixed
-2026-03-17 11:53:32,085 [DEBUG] src.extractor: Extracted page 5: 2109 chars, confidence=0.80, type=mixed
-2026-03-17 11:53:32,095 [DEBUG] src.extractor: Extracted page 6: 366 chars, confidence=0.80, type=mixed
-2026-03-17 11:53:32,138 [DEBUG] src.extractor: Extracted page 7: 2032 chars, confidence=0.80, type=mixed
-2026-03-17 11:53:32,200 [DEBUG] src.extractor: Extracted page 8: 2329 chars, confidence=0.80, type=mixed
-2026-03-17 11:53:32,262 [DEBUG] src.extractor: Extracted page 9: 2352 chars, confidence=0.80, type=mixed
-2026-03-17 11:53:32,317 [DEBUG] src.extractor: Extracted page 10: 459 chars, confidence=0.80, type=mixed
-2026-03-17 11:53:32,365 [DEBUG] src.extractor: Extracted page 11: 2267 chars, confidence=0.80, type=mixed
-2026-03-17 11:53:32,411 [DEBUG] src.extractor: Extracted page 12: 2178 chars, confidence=0.80, type=mixed
-2026-03-17 11:53:32,438 [DEBUG] src.extractor: Extracted page 13: 1108 chars, confidence=0.80, type=mixed
-2026-03-17 11:53:32,487 [DEBUG] src.extractor: Extracted page 14: 2363 chars, confidence=0.80, type=mixed
-2026-03-17 11:53:32,506 [DEBUG] src.extractor: Extracted page 15: 726 chars, confidence=0.80, type=mixed
-2026-03-17 11:53:32,551 [DEBUG] src.extractor: Extracted page 16: 2200 chars, confidence=0.80, type=mixed
-2026-03-17 11:53:32,561 [DEBUG] src.extractor: Extracted page 17: 357 chars, confidence=0.80, type=mixed
-2026-03-17 11:53:32,575 [DEBUG] src.extractor: Extracted page 18: 538 chars, confidence=0.80, type=mixed
-2026-03-17 11:53:32,626 [DEBUG] src.extractor: Extracted page 19: 2459 chars, confidence=0.80, type=mixed
-2026-03-17 11:53:32,657 [DEBUG] src.extractor: Extracted page 20: 1432 chars, confidence=0.80, type=mixed
-2026-03-17 11:53:32,659 [INFO] src.pipeline: Phase 4 done: 0/3 chunks có bảng
-2026-03-17 11:53:32,661 [INFO] src.pipeline: Phase 5: Gemini convert (gemini-3-flash-preview)
-2026-03-17 11:53:32,713 [INFO] src.converter: Using cached result for chunk 0
-2026-03-17 11:53:32,714 [INFO] src.converter: Waiting 12s before next chunk (rate limit)...
-2026-03-17 11:53:44,716 [INFO] src.converter: Using cached result for chunk 1
-2026-03-17 11:53:44,717 [INFO] src.converter: Waiting 12s before next chunk (rate limit)...
-2026-03-17 11:53:56,720 [INFO] src.converter: Using cached result for chunk 2
-2026-03-17 11:53:56,722 [INFO] src.pipeline: Phase 5 done: 3/3 OK, 0 OCR fallback
-2026-03-17 11:53:56,728 [INFO] src.pipeline: Phase 6: Ghép nối markdown
-2026-03-17 11:53:56,750 [INFO] src.pipeline: Phase 6 done: 32775 ký tự, saved to outputs/QĐ_6389_2012 Quy che quan ly SKSC PVN 3 1/output_QĐ_6389_2012 Quy che quan ly SKSC PVN 3 1.md
-2026-03-17 11:53:56,754 [INFO] src.pipeline: Phase 7: Spot-check (5 vị trí ngẫu nhiên)
-2026-03-17 11:53:56,773 [INFO] src.spot_check: Spot-check 1/5: trang 1, dòng 1-43 — đang gọi Gemini...
-2026-03-17 11:53:56,848 [INFO] google_genai.models: AFC is enabled with max remote calls: 10.
-2026-03-17 11:53:56,851 [DEBUG] httpcore.connection: connect_tcp.started host='generativelanguage.googleapis.com' port=443 local_address=None timeout=None socket_options=None
-2026-03-17 11:53:56,905 [DEBUG] httpcore.connection: connect_tcp.complete return_value=<httpcore._backends.sync.SyncStream object at 0x124586b10>
-2026-03-17 11:53:56,906 [DEBUG] httpcore.connection: start_tls.started ssl_context=<ssl.SSLContext object at 0x12453e0f0> server_hostname='generativelanguage.googleapis.com' timeout=None
-2026-03-17 11:53:56,971 [DEBUG] httpcore.connection: start_tls.complete return_value=<httpcore._backends.sync.SyncStream object at 0x1083dcad0>
-2026-03-17 11:53:56,972 [DEBUG] httpcore.http11: send_request_headers.started request=<Request [b'POST']>
-2026-03-17 11:53:56,973 [DEBUG] httpcore.http11: send_request_headers.complete
-2026-03-17 11:53:56,973 [DEBUG] httpcore.http11: send_request_body.started request=<Request [b'POST']>
-2026-03-17 11:53:57,295 [DEBUG] httpcore.http11: send_request_body.complete
-2026-03-17 11:53:57,296 [DEBUG] httpcore.http11: receive_response_headers.started request=<Request [b'POST']>
-2026-03-17 11:53:57,412 [DEBUG] httpcore.http11: receive_response_headers.complete return_value=(b'HTTP/1.1', 403, b'Forbidden', [(b'Vary', b'Origin'), (b'Vary', b'X-Origin'), (b'Vary', b'Referer'), (b'Content-Type', b'application/json; charset=UTF-8'), (b'Content-Encoding', b'gzip'), (b'Date', b'Tue, 17 Mar 2026 04:53:57 GMT'), (b'Server', b'scaffolding on HTTPServer2'), (b'X-XSS-Protection', b'0'), (b'X-Frame-Options', b'SAMEORIGIN'), (b'X-Content-Type-Options', b'nosniff'), (b'Server-Timing', b'gfet4t7; dur=391'), (b'Alt-Svc', b'h3=":443"; ma=2592000,h3-29=":443"; ma=2592000'), (b'Transfer-Encoding', b'chunked')])
-2026-03-17 11:53:57,416 [INFO] httpx: HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3-flash-preview:generateContent "HTTP/1.1 403 Forbidden"
-2026-03-17 11:53:57,417 [DEBUG] httpcore.http11: receive_response_body.started request=<Request [b'POST']>
-2026-03-17 11:53:57,418 [DEBUG] httpcore.http11: receive_response_body.complete
-2026-03-17 11:53:57,418 [DEBUG] httpcore.http11: response_closed.started
-2026-03-17 11:53:57,419 [DEBUG] httpcore.http11: response_closed.complete
-2026-03-17 11:53:57,419 [WARNING] src.spot_check: Spot-check Gemini call failed: 403 PERMISSION_DENIED. {'error': {'code': 403, 'message': 'Your API key was reported as leaked. Please use another API key.', 'status': 'PERMISSION_DENIED'}}
-2026-03-17 11:53:57,420 [INFO] src.spot_check: Spot-check 1/5: trang 1 — OK, không phát hiện lỗi
-2026-03-17 11:53:57,422 [INFO] src.spot_check: Spot-check 2/5: trang 5, dòng 51-120 — đang gọi Gemini...
-2026-03-17 11:53:57,494 [INFO] google_genai.models: AFC is enabled with max remote calls: 10.
-2026-03-17 11:53:57,496 [DEBUG] httpcore.http11: send_request_headers.started request=<Request [b'POST']>
-2026-03-17 11:53:57,497 [DEBUG] httpcore.http11: send_request_headers.complete
-2026-03-17 11:53:57,497 [DEBUG] httpcore.http11: send_request_body.started request=<Request [b'POST']>
-2026-03-17 11:53:57,549 [DEBUG] httpcore.http11: send_request_body.complete
-2026-03-17 11:53:57,549 [DEBUG] httpcore.http11: receive_response_headers.started request=<Request [b'POST']>
-2026-03-17 11:53:57,664 [DEBUG] httpcore.http11: receive_response_headers.complete return_value=(b'HTTP/1.1', 403, b'Forbidden', [(b'Vary', b'Origin'), (b'Vary', b'X-Origin'), (b'Vary', b'Referer'), (b'Content-Type', b'application/json; charset=UTF-8'), (b'Content-Encoding', b'gzip'), (b'Date', b'Tue, 17 Mar 2026 04:53:57 GMT'), (b'Server', b'scaffolding on HTTPServer2'), (b'X-XSS-Protection', b'0'), (b'X-Frame-Options', b'SAMEORIGIN'), (b'X-Content-Type-Options', b'nosniff'), (b'Server-Timing', b'gfet4t7; dur=119'), (b'Alt-Svc', b'h3=":443"; ma=2592000,h3-29=":443"; ma=2592000'), (b'Transfer-Encoding', b'chunked')])
-2026-03-17 11:53:57,666 [INFO] httpx: HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3-flash-preview:generateContent "HTTP/1.1 403 Forbidden"
-2026-03-17 11:53:57,666 [DEBUG] httpcore.http11: receive_response_body.started request=<Request [b'POST']>
-2026-03-17 11:53:57,667 [DEBUG] httpcore.http11: receive_response_body.complete
-2026-03-17 11:53:57,667 [DEBUG] httpcore.http11: response_closed.started
-2026-03-17 11:53:57,668 [DEBUG] httpcore.http11: response_closed.complete
-2026-03-17 11:53:57,668 [WARNING] src.spot_check: Spot-check Gemini call failed: 403 PERMISSION_DENIED. {'error': {'code': 403, 'message': 'Your API key was reported as leaked. Please use another API key.', 'status': 'PERMISSION_DENIED'}}
-2026-03-17 11:53:57,669 [INFO] src.spot_check: Spot-check 2/5: trang 5 — OK, không phát hiện lỗi
-2026-03-17 11:53:57,669 [INFO] src.spot_check: Spot-check 3/5: trang 12, dòng 187-256 — đang gọi Gemini...
-2026-03-17 11:53:57,742 [INFO] google_genai.models: AFC is enabled with max remote calls: 10.
-2026-03-17 11:53:57,744 [DEBUG] httpcore.http11: send_request_headers.started request=<Request [b'POST']>
-2026-03-17 11:53:57,745 [DEBUG] httpcore.http11: send_request_headers.complete
-2026-03-17 11:53:57,745 [DEBUG] httpcore.http11: send_request_body.started request=<Request [b'POST']>
-2026-03-17 11:53:57,746 [DEBUG] httpcore.http11: send_request_body.complete
-2026-03-17 11:53:57,746 [DEBUG] httpcore.http11: receive_response_headers.started request=<Request [b'POST']>
-2026-03-17 11:53:57,943 [DEBUG] httpcore.http11: receive_response_headers.complete return_value=(b'HTTP/1.1', 403, b'Forbidden', [(b'Vary', b'Origin'), (b'Vary', b'X-Origin'), (b'Vary', b'Referer'), (b'Content-Type', b'application/json; charset=UTF-8'), (b'Content-Encoding', b'gzip'), (b'Date', b'Tue, 17 Mar 2026 04:53:57 GMT'), (b'Server', b'scaffolding on HTTPServer2'), (b'X-XSS-Protection', b'0'), (b'X-Frame-Options', b'SAMEORIGIN'), (b'X-Content-Type-Options', b'nosniff'), (b'Server-Timing', b'gfet4t7; dur=130'), (b'Alt-Svc', b'h3=":443"; ma=2592000,h3-29=":443"; ma=2592000'), (b'Transfer-Encoding', b'chunked')])
-2026-03-17 11:53:57,945 [INFO] httpx: HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3-flash-preview:generateContent "HTTP/1.1 403 Forbidden"
-2026-03-17 11:53:57,946 [DEBUG] httpcore.http11: receive_response_body.started request=<Request [b'POST']>
-2026-03-17 11:53:57,946 [DEBUG] httpcore.http11: receive_response_body.complete
-2026-03-17 11:53:57,947 [DEBUG] httpcore.http11: response_closed.started
-2026-03-17 11:53:57,947 [DEBUG] httpcore.http11: response_closed.complete
-2026-03-17 11:53:57,948 [WARNING] src.spot_check: Spot-check Gemini call failed: 403 PERMISSION_DENIED. {'error': {'code': 403, 'message': 'Your API key was reported as leaked. Please use another API key.', 'status': 'PERMISSION_DENIED'}}
-2026-03-17 11:53:57,948 [INFO] src.spot_check: Spot-check 3/5: trang 12 — OK, không phát hiện lỗi
-2026-03-17 11:53:57,949 [INFO] src.spot_check: Spot-check 4/5: trang 15, dòng 241-310 — đang gọi Gemini...
-2026-03-17 11:53:58,019 [INFO] google_genai.models: AFC is enabled with max remote calls: 10.
-2026-03-17 11:53:58,021 [DEBUG] httpcore.http11: send_request_headers.started request=<Request [b'POST']>
-2026-03-17 11:53:58,022 [DEBUG] httpcore.http11: send_request_headers.complete
-2026-03-17 11:53:58,022 [DEBUG] httpcore.http11: send_request_body.started request=<Request [b'POST']>
-2026-03-17 11:53:58,023 [DEBUG] httpcore.http11: send_request_body.complete
-2026-03-17 11:53:58,023 [DEBUG] httpcore.http11: receive_response_headers.started request=<Request [b'POST']>
-2026-03-17 11:53:58,286 [DEBUG] httpcore.http11: receive_response_headers.complete return_value=(b'HTTP/1.1', 403, b'Forbidden', [(b'Vary', b'Origin'), (b'Vary', b'X-Origin'), (b'Vary', b'Referer'), (b'Content-Type', b'application/json; charset=UTF-8'), (b'Content-Encoding', b'gzip'), (b'Date', b'Tue, 17 Mar 2026 04:53:58 GMT'), (b'Server', b'scaffolding on HTTPServer2'), (b'X-XSS-Protection', b'0'), (b'X-Frame-Options', b'SAMEORIGIN'), (b'X-Content-Type-Options', b'nosniff'), (b'Server-Timing', b'gfet4t7; dur=119'), (b'Alt-Svc', b'h3=":443"; ma=2592000,h3-29=":443"; ma=2592000'), (b'Transfer-Encoding', b'chunked')])
-2026-03-17 11:53:58,288 [INFO] httpx: HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3-flash-preview:generateContent "HTTP/1.1 403 Forbidden"
-2026-03-17 11:53:58,289 [DEBUG] httpcore.http11: receive_response_body.started request=<Request [b'POST']>
-2026-03-17 11:53:58,289 [DEBUG] httpcore.http11: receive_response_body.complete
-2026-03-17 11:53:58,290 [DEBUG] httpcore.http11: response_closed.started
-2026-03-17 11:53:58,290 [DEBUG] httpcore.http11: response_closed.complete
-2026-03-17 11:53:58,291 [WARNING] src.spot_check: Spot-check Gemini call failed: 403 PERMISSION_DENIED. {'error': {'code': 403, 'message': 'Your API key was reported as leaked. Please use another API key.', 'status': 'PERMISSION_DENIED'}}
-2026-03-17 11:53:58,291 [INFO] src.spot_check: Spot-check 4/5: trang 15 — OK, không phát hiện lỗi
-2026-03-17 11:53:58,292 [INFO] src.spot_check: Spot-check 5/5: trang 21, dòng 377-420 — đang gọi Gemini...
-2026-03-17 11:53:58,351 [INFO] google_genai.models: AFC is enabled with max remote calls: 10.
-2026-03-17 11:53:58,353 [DEBUG] httpcore.http11: send_request_headers.started request=<Request [b'POST']>
-2026-03-17 11:53:58,353 [DEBUG] httpcore.http11: send_request_headers.complete
-2026-03-17 11:53:58,354 [DEBUG] httpcore.http11: send_request_body.started request=<Request [b'POST']>
-2026-03-17 11:53:58,354 [DEBUG] httpcore.http11: send_request_body.complete
-2026-03-17 11:53:58,354 [DEBUG] httpcore.http11: receive_response_headers.started request=<Request [b'POST']>
-2026-03-17 11:53:58,510 [DEBUG] httpcore.http11: receive_response_headers.complete return_value=(b'HTTP/1.1', 403, b'Forbidden', [(b'Vary', b'Origin'), (b'Vary', b'X-Origin'), (b'Vary', b'Referer'), (b'Content-Type', b'application/json; charset=UTF-8'), (b'Content-Encoding', b'gzip'), (b'Date', b'Tue, 17 Mar 2026 04:53:58 GMT'), (b'Server', b'scaffolding on HTTPServer2'), (b'X-XSS-Protection', b'0'), (b'X-Frame-Options', b'SAMEORIGIN'), (b'X-Content-Type-Options', b'nosniff'), (b'Server-Timing', b'gfet4t7; dur=108'), (b'Alt-Svc', b'h3=":443"; ma=2592000,h3-29=":443"; ma=2592000'), (b'Transfer-Encoding', b'chunked')])
-2026-03-17 11:53:58,512 [INFO] httpx: HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3-flash-preview:generateContent "HTTP/1.1 403 Forbidden"
-2026-03-17 11:53:58,512 [DEBUG] httpcore.http11: receive_response_body.started request=<Request [b'POST']>
-2026-03-17 11:53:58,513 [DEBUG] httpcore.http11: receive_response_body.complete
-2026-03-17 11:53:58,513 [DEBUG] httpcore.http11: response_closed.started
-2026-03-17 11:53:58,513 [DEBUG] httpcore.http11: response_closed.complete
-2026-03-17 11:53:58,514 [WARNING] src.spot_check: Spot-check Gemini call failed: 403 PERMISSION_DENIED. {'error': {'code': 403, 'message': 'Your API key was reported as leaked. Please use another API key.', 'status': 'PERMISSION_DENIED'}}
-2026-03-17 11:53:58,514 [INFO] src.spot_check: Spot-check 5/5: trang 21 — OK, không phát hiện lỗi
-2026-03-17 11:53:58,515 [INFO] src.spot_check: Spot-check hoàn thành: 5 vị trí, 0 critical, 0 warning, 5 ok
-2026-03-17 11:53:58,519 [INFO] src.pipeline: Phase 7 done: 5 OK, 0 critical, 0 warning
-2026-03-17 11:53:58,521 [INFO] src.pipeline: Phase 10: Quality check (trên bản cuối cùng)
-2026-03-17 11:53:58,897 [INFO] google_genai.models: AFC is enabled with max remote calls: 10.
-2026-03-17 11:53:58,903 [DEBUG] httpcore.connection: connect_tcp.started host='generativelanguage.googleapis.com' port=443 local_address=None timeout=None socket_options=None
-2026-03-17 11:53:58,957 [DEBUG] httpcore.connection: connect_tcp.complete return_value=<httpcore._backends.sync.SyncStream object at 0x12456ae10>
-2026-03-17 11:53:58,957 [DEBUG] httpcore.connection: start_tls.started ssl_context=<ssl.SSLContext object at 0x12453e600> server_hostname='generativelanguage.googleapis.com' timeout=None
-2026-03-17 11:53:59,123 [DEBUG] httpcore.connection: start_tls.complete return_value=<httpcore._backends.sync.SyncStream object at 0x12459c590>
-2026-03-17 11:53:59,123 [DEBUG] httpcore.http11: send_request_headers.started request=<Request [b'POST']>
-2026-03-17 11:53:59,124 [DEBUG] httpcore.http11: send_request_headers.complete
-2026-03-17 11:53:59,124 [DEBUG] httpcore.http11: send_request_body.started request=<Request [b'POST']>
-2026-03-17 11:53:59,636 [DEBUG] httpcore.http11: send_request_body.complete
-2026-03-17 11:53:59,637 [DEBUG] httpcore.http11: receive_response_headers.started request=<Request [b'POST']>
-2026-03-17 11:53:59,771 [DEBUG] httpcore.http11: receive_response_headers.complete return_value=(b'HTTP/1.1', 403, b'Forbidden', [(b'Vary', b'Origin'), (b'Vary', b'X-Origin'), (b'Vary', b'Referer'), (b'Content-Type', b'application/json; charset=UTF-8'), (b'Content-Encoding', b'gzip'), (b'Date', b'Tue, 17 Mar 2026 04:53:59 GMT'), (b'Server', b'scaffolding on HTTPServer2'), (b'X-XSS-Protection', b'0'), (b'X-Frame-Options', b'SAMEORIGIN'), (b'X-Content-Type-Options', b'nosniff'), (b'Server-Timing', b'gfet4t7; dur=597'), (b'Alt-Svc', b'h3=":443"; ma=2592000,h3-29=":443"; ma=2592000'), (b'Transfer-Encoding', b'chunked')])
-2026-03-17 11:53:59,773 [INFO] httpx: HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3-flash-preview:generateContent "HTTP/1.1 403 Forbidden"
-2026-03-17 11:53:59,774 [DEBUG] httpcore.http11: receive_response_body.started request=<Request [b'POST']>
-2026-03-17 11:53:59,775 [DEBUG] httpcore.http11: receive_response_body.complete
-2026-03-17 11:53:59,775 [DEBUG] httpcore.http11: response_closed.started
-2026-03-17 11:53:59,775 [DEBUG] httpcore.http11: response_closed.complete
-2026-03-17 11:53:59,776 [WARNING] src.quality: AI review failed: 403 PERMISSION_DENIED. {'error': {'code': 403, 'message': 'Your API key was reported as leaked. Please use another API key.', 'status': 'PERMISSION_DENIED'}}
-2026-03-17 11:53:59,777 [INFO] src.quality: Quality report for QĐ_6389_2012 Quy che quan ly SKSC PVN 3 1.pdf: overall=8.3, completeness=93.4%, structure=7.0, tables=10.0, vietnamese=8.0
-2026-03-17 11:53:59,780 [INFO] src.pipeline: Phase 10 done: overall=8.3/10
-2026-03-17 11:53:59,784 [INFO] src.pipeline: ============================================================
-2026-03-17 11:53:59,785 [INFO] src.pipeline: Pipeline hoàn thành: QĐ_6389_2012 Quy che quan ly SKSC PVN 3 1.pdf — 31.8s
-2026-03-17 11:53:59,785 [INFO] src.pipeline:   Markdown: 32775 ký tự
-2026-03-17 11:53:59,786 [INFO] src.pipeline:   Chất lượng: 8.3/10
-2026-03-17 11:53:59,786 [INFO] src.pipeline:   Spot-check: 0 C / 0 W / 5 OK
-2026-03-17 11:53:59,786 [INFO] src.pipeline: ============================================================
+2026-03-17 14:27:13,161 [INFO] src.pipeline: ============================================================
+2026-03-17 14:27:13,162 [INFO] src.pipeline: Pipeline online: QĐ_6389_2012 Quy che quan ly SKSC PVN 3 1.pdf
+2026-03-17 14:27:13,162 [INFO] src.pipeline: Model convert: gemini-3-flash-preview | Model verify: gemini-2.5-flash-lite
+2026-03-17 14:27:13,163 [INFO] src.pipeline: Integrity: True | Spot-check: True | Auto-fix: True | Max rounds: 1 | Min score: 7.0
+2026-03-17 14:27:13,163 [INFO] src.pipeline: ============================================================
+2026-03-17 14:27:13,164 [INFO] src.pipeline: Phase 1: Phân tích PDF
+2026-03-17 14:27:13,307 [INFO] src.analyzer: Analyzed QĐ_6389_2012 Quy che quan ly SKSC PVN 3 1.pdf: 21 pages, 0.4 MB, 0% scanned, ~5553 tokens
+2026-03-17 14:27:13,308 [INFO] src.pipeline: Phase 1 done: 21 trang, 0.4 MB, 0% scanned
+2026-03-17 14:27:13,308 [INFO] src.pipeline: Phase 2: Lên kế hoạch chunk
+2026-03-17 14:27:13,420 [INFO] src.planner: Created 3 chunks for QĐ_6389_2012 Quy che quan ly SKSC PVN 3 1.pdf (21 pages)
+2026-03-17 14:27:13,421 [INFO] src.pipeline: Phase 2 done: 3 chunks, 0 trang có bảng
+2026-03-17 14:27:13,421 [INFO] src.pipeline: Phase 3: Render trang thành ảnh (DPI=300)
+2026-03-17 14:27:17,511 [INFO] src.renderer: Rendered 21 pages for QĐ_6389_2012 Quy che quan ly SKSC PVN 3 1.pdf
+2026-03-17 14:27:17,512 [INFO] src.pipeline: Phase 3 done: 21 trang rendered
+2026-03-17 14:27:17,512 [INFO] src.pipeline: Phase 4: Trích xuất table hints + OCR fallback
+2026-03-17 14:27:17,566 [DEBUG] src.extractor: Extracted page 0: 1956 chars, confidence=0.80, type=mixed
+2026-03-17 14:27:17,573 [DEBUG] src.extractor: Extracted page 1: 86 chars, confidence=0.80, type=mixed
+2026-03-17 14:27:17,617 [DEBUG] src.extractor: Extracted page 2: 1935 chars, confidence=0.80, type=mixed
+2026-03-17 14:27:17,661 [DEBUG] src.extractor: Extracted page 3: 2072 chars, confidence=0.80, type=mixed
+2026-03-17 14:27:17,706 [DEBUG] src.extractor: Extracted page 4: 2170 chars, confidence=0.80, type=mixed
+2026-03-17 14:27:17,792 [DEBUG] src.extractor: Extracted page 5: 2109 chars, confidence=0.80, type=mixed
+2026-03-17 14:27:17,802 [DEBUG] src.extractor: Extracted page 6: 366 chars, confidence=0.80, type=mixed
+2026-03-17 14:27:17,844 [DEBUG] src.extractor: Extracted page 7: 2032 chars, confidence=0.80, type=mixed
+2026-03-17 14:27:17,903 [DEBUG] src.extractor: Extracted page 8: 2329 chars, confidence=0.80, type=mixed
+2026-03-17 14:27:17,963 [DEBUG] src.extractor: Extracted page 9: 2352 chars, confidence=0.80, type=mixed
+2026-03-17 14:27:17,977 [DEBUG] src.extractor: Extracted page 10: 459 chars, confidence=0.80, type=mixed
+2026-03-17 14:27:18,023 [DEBUG] src.extractor: Extracted page 11: 2267 chars, confidence=0.80, type=mixed
+2026-03-17 14:27:18,068 [DEBUG] src.extractor: Extracted page 12: 2178 chars, confidence=0.80, type=mixed
+2026-03-17 14:27:18,139 [DEBUG] src.extractor: Extracted page 13: 1108 chars, confidence=0.80, type=mixed
+2026-03-17 14:27:18,186 [DEBUG] src.extractor: Extracted page 14: 2363 chars, confidence=0.80, type=mixed
+2026-03-17 14:27:18,205 [DEBUG] src.extractor: Extracted page 15: 726 chars, confidence=0.80, type=mixed
+2026-03-17 14:27:18,250 [DEBUG] src.extractor: Extracted page 16: 2200 chars, confidence=0.80, type=mixed
+2026-03-17 14:27:18,260 [DEBUG] src.extractor: Extracted page 17: 357 chars, confidence=0.80, type=mixed
+2026-03-17 14:27:18,274 [DEBUG] src.extractor: Extracted page 18: 538 chars, confidence=0.80, type=mixed
+2026-03-17 14:27:18,328 [DEBUG] src.extractor: Extracted page 19: 2459 chars, confidence=0.80, type=mixed
+2026-03-17 14:27:18,360 [DEBUG] src.extractor: Extracted page 20: 1432 chars, confidence=0.80, type=mixed
+2026-03-17 14:27:18,361 [INFO] src.pipeline: Phase 4 done: 0/3 chunks có bảng
+2026-03-17 14:27:18,361 [INFO] src.pipeline: Phase 5: Gemini convert (gemini-3-flash-preview)
+2026-03-17 14:27:18,439 [INFO] src.converter: Using cached result for chunk 0
+2026-03-17 14:27:18,440 [INFO] src.converter: Waiting 12s before next chunk (rate limit)...
+2026-03-17 14:27:30,445 [INFO] src.converter: Using cached result for chunk 1
+2026-03-17 14:27:30,447 [INFO] src.converter: Waiting 12s before next chunk (rate limit)...
+2026-03-17 14:27:42,452 [INFO] src.converter: Using cached result for chunk 2
+2026-03-17 14:27:42,458 [INFO] src.pipeline: Phase 5 done: 3/3 OK, 0 OCR fallback
+2026-03-17 14:27:42,463 [INFO] src.pipeline: Phase 6: Ghép nối markdown
+2026-03-17 14:27:42,485 [INFO] src.pipeline: Phase 6 done: 32775 ký tự, saved to outputs/QĐ_6389_2012 Quy che quan ly SKSC PVN 3 1/output_QĐ_6389_2012 Quy che quan ly SKSC PVN 3 1.md
+2026-03-17 14:27:42,487 [INFO] src.pipeline: Phase 7: Integrity Check (page + article coverage)
+2026-03-17 14:27:42,487 [INFO] src.integrity: Integrity — Page coverage: 21/21 trang covered
+2026-03-17 14:27:42,582 [INFO] src.integrity: Integrity — Article coverage: 24/0 Điều found in markdown
+2026-03-17 14:27:42,582 [INFO] src.integrity: Integrity — Không có trang nào cần bổ sung
+2026-03-17 14:27:42,583 [INFO] src.pipeline: Phase 7 done: 21/21 trang, thiếu 0 Điều, convert bổ sung 0 trang
+2026-03-17 14:27:42,584 [INFO] src.pipeline: Phase 8: Spot-check (5 vị trí ngẫu nhiên)
+2026-03-17 14:27:42,599 [INFO] src.spot_check: Spot-check 1/5: trang 3, dòng 21-90 — đang gọi Gemini...
+2026-03-17 14:27:42,657 [INFO] google_genai.models: AFC is enabled with max remote calls: 10.
+2026-03-17 14:27:42,660 [DEBUG] httpcore.connection: connect_tcp.started host='generativelanguage.googleapis.com' port=443 local_address=None timeout=None socket_options=None
+2026-03-17 14:27:42,757 [DEBUG] httpcore.connection: connect_tcp.complete return_value=<httpcore._backends.sync.SyncStream object at 0x128270810>
+2026-03-17 14:27:42,758 [DEBUG] httpcore.connection: start_tls.started ssl_context=<ssl.SSLContext object at 0x1281464e0> server_hostname='generativelanguage.googleapis.com' timeout=None
+2026-03-17 14:27:42,836 [DEBUG] httpcore.connection: start_tls.complete return_value=<httpcore._backends.sync.SyncStream object at 0x109e8c050>
+2026-03-17 14:27:42,836 [DEBUG] httpcore.http11: send_request_headers.started request=<Request [b'POST']>
+2026-03-17 14:27:42,838 [DEBUG] httpcore.http11: send_request_headers.complete
+2026-03-17 14:27:42,838 [DEBUG] httpcore.http11: send_request_body.started request=<Request [b'POST']>
+2026-03-17 14:27:43,021 [DEBUG] httpcore.http11: send_request_body.complete
+2026-03-17 14:27:43,022 [DEBUG] httpcore.http11: receive_response_headers.started request=<Request [b'POST']>
+2026-03-17 14:27:46,940 [DEBUG] httpcore.http11: receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Content-Type', b'application/json; charset=UTF-8'), (b'Vary', b'Origin'), (b'Vary', b'X-Origin'), (b'Vary', b'Referer'), (b'Content-Encoding', b'gzip'), (b'Date', b'Tue, 17 Mar 2026 07:27:46 GMT'), (b'Server', b'scaffolding on HTTPServer2'), (b'X-XSS-Protection', b'0'), (b'X-Frame-Options', b'SAMEORIGIN'), (b'X-Content-Type-Options', b'nosniff'), (b'Server-Timing', b'gfet4t7; dur=4075'), (b'Alt-Svc', b'h3=":443"; ma=2592000,h3-29=":443"; ma=2592000'), (b'Transfer-Encoding', b'chunked')])
+2026-03-17 14:27:46,942 [INFO] httpx: HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-lite:generateContent "HTTP/1.1 200 OK"
+2026-03-17 14:27:46,943 [DEBUG] httpcore.http11: receive_response_body.started request=<Request [b'POST']>
+2026-03-17 14:27:46,944 [DEBUG] httpcore.http11: receive_response_body.complete
+2026-03-17 14:27:46,944 [DEBUG] httpcore.http11: response_closed.started
+2026-03-17 14:27:46,945 [DEBUG] httpcore.http11: response_closed.complete
+2026-03-17 14:27:46,948 [INFO] src.spot_check:   [CRITICAL] Trang 3: missing_content — Nội dung "Chương IV Các biện pháp thúc đẩy hoạt động sáng kiến, sáng chế" và các điều khoản thuộc chương này (Điều 16-20) bị thiếu.
+2026-03-17 14:27:46,949 [INFO] src.spot_check:   [CRITICAL] Trang 3: missing_content — Nội dung "Chương V Quản lý hoạt động sáng kiến, sáng chế" và các điều khoản thuộc chương này (Điều 21-23) bị thiếu.
+2026-03-17 14:27:46,950 [INFO] src.spot_check:   [CRITICAL] Trang 3: missing_content — Nội dung "Chương VI Điều khoản thi hành" và các điều khoản thuộc chương này (Điều 24) bị thiếu.
+2026-03-17 14:27:46,950 [INFO] src.spot_check:   [CRITICAL] Trang 3: missing_content — Nội dung "BM.01-SK/PVN: Đơn yêu cầu công nhận sáng kiến" bị thiếu.
+2026-03-17 14:27:46,951 [INFO] src.spot_check:   [CRITICAL] Trang 3: missing_content — Nội dung "BM.02-SK/PVN: Báo cáo kết quả hoạt động sáng kiến, sáng chế" bị thiếu.
+2026-03-17 14:27:46,951 [INFO] src.spot_check: Spot-check 2/5: trang 6, dòng 66-135 — đang gọi Gemini...
+2026-03-17 14:27:47,028 [INFO] google_genai.models: AFC is enabled with max remote calls: 10.
+2026-03-17 14:27:47,031 [DEBUG] httpcore.http11: send_request_headers.started request=<Request [b'POST']>
+2026-03-17 14:27:47,031 [DEBUG] httpcore.http11: send_request_headers.complete
+2026-03-17 14:27:47,032 [DEBUG] httpcore.http11: send_request_body.started request=<Request [b'POST']>
+2026-03-17 14:27:47,161 [DEBUG] httpcore.http11: send_request_body.complete
+2026-03-17 14:27:47,162 [DEBUG] httpcore.http11: receive_response_headers.started request=<Request [b'POST']>
+2026-03-17 14:28:00,374 [DEBUG] httpcore.http11: receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Content-Type', b'application/json; charset=UTF-8'), (b'Vary', b'Origin'), (b'Vary', b'X-Origin'), (b'Vary', b'Referer'), (b'Content-Encoding', b'gzip'), (b'Date', b'Tue, 17 Mar 2026 07:28:00 GMT'), (b'Server', b'scaffolding on HTTPServer2'), (b'X-XSS-Protection', b'0'), (b'X-Frame-Options', b'SAMEORIGIN'), (b'X-Content-Type-Options', b'nosniff'), (b'Server-Timing', b'gfet4t7; dur=13315'), (b'Alt-Svc', b'h3=":443"; ma=2592000,h3-29=":443"; ma=2592000'), (b'Transfer-Encoding', b'chunked')])
+2026-03-17 14:28:00,379 [INFO] httpx: HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-lite:generateContent "HTTP/1.1 200 OK"
+2026-03-17 14:28:00,380 [DEBUG] httpcore.http11: receive_response_body.started request=<Request [b'POST']>
+2026-03-17 14:28:00,381 [DEBUG] httpcore.http11: receive_response_body.complete
+2026-03-17 14:28:00,382 [DEBUG] httpcore.http11: response_closed.started
+2026-03-17 14:28:00,383 [DEBUG] httpcore.http11: response_closed.complete
+2026-03-17 14:28:00,386 [INFO] src.spot_check:   [CRITICAL] Trang 6: missing_content — Nội dung "c) Không trùng với giải pháp của người khác đã được áp dụng hoặc áp dụng thử, hoặc đưa vào kế hoạch áp dụng, phổ biến hoặc chuẩn bị các điều kiện để áp dụng, phổ biến; d) Không trùng với nội dung của giải pháp trong đơn đăng ký sáng kiến nộp trước." có trong hình ảnh nhưng bị thiếu trong Markdown.
+2026-03-17 14:28:00,387 [INFO] src.spot_check:   [CRITICAL] Trang 6: missing_content — Nội dung "3. Một giải pháp được coi là mang lại lợi ích thiết thực nếu áp dụng mang lại hiệu quả kinh tế (lợi ích kinh tế tính ra được bằng tiền/số tiền làm lợi trực tiếp, nâng cao năng suất lao động, giảm chi phí sản xuất, nâng cao chất lượng sản phẩm, dịch vụ, các tiêu chí, thông số kỹ thuật cao hơn trước...), hoặc lợi ích xã hội (góp phần bảo vệ chủ quyền, an ninh quốc gia, an ninh năng lượng quốc gia, nâng cao điều kiện an toàn lao động, cải thiện điều kiện sống, làm việc, bảo vệ môi trường, sức khỏe con người...)." có trong hình ảnh nhưng bị thiếu trong Markdown.
+2026-03-17 14:28:00,389 [INFO] src.spot_check:   [CRITICAL] Trang 6: missing_content — Nội dung "Điều 4. Sáng chế ngành Dầu khí Việt Nam" có trong hình ảnh nhưng bị thiếu trong Markdown.
+2026-03-17 14:28:00,390 [INFO] src.spot_check:   [CRITICAL] Trang 6: missing_content — Nội dung "Sáng chế ngành Dầu khí Việt Nam là giải pháp kỹ thuật dưới dạng sản phẩm hoặc quy trình nhằm giải quyết một vấn đề xác định bằng việc ứng dụng các quy luật tự nhiên; có tính mới, có trình độ sáng tạo và có khả năng áp dụng trong ngành Dầu khí Việt Nam; và được Cơ quan quản lý về sở hữu trí tuệ cấp Bằng độc quyền sáng chế hoặc Bằng độc quyền giải pháp hữu ích." có trong hình ảnh nhưng bị thiếu trong Markdown.
+2026-03-17 14:28:00,391 [INFO] src.spot_check:   [CRITICAL] Trang 6: missing_content — Nội dung "Điều 5. Tác giả sáng kiến" có trong hình ảnh nhưng bị thiếu trong Markdown.
+2026-03-17 14:28:00,392 [INFO] src.spot_check:   [CRITICAL] Trang 6: missing_content — Nội dung "1. Tác giả sáng kiến là người trực tiếp tạo ra sáng kiến bằng chính lao động sáng tạo của mình." có trong hình ảnh nhưng bị thiếu trong Markdown.
+2026-03-17 14:28:00,392 [INFO] src.spot_check:   [CRITICAL] Trang 6: missing_content — Nội dung "2. Đồng tác giả sáng kiến là những Tác giả cùng nhau tạo ra sáng kiến. Chỉ những đồng tác giả sáng kiến có tỷ lệ đóng góp từ 05% (năm %) trở lên mới được Tập đoàn xem xét cấp Giấy chứng nhận sáng kiến." có trong hình ảnh nhưng bị thiếu trong Markdown.
+2026-03-17 14:28:00,394 [INFO] src.spot_check:   [CRITICAL] Trang 6: missing_content — Nội dung "3. Người chỉ hỗ trợ trong quá trình tạo ra sáng kiến không được coi là Tác giả sáng kiến." có trong hình ảnh nhưng bị thiếu trong Markdown.
+2026-03-17 14:28:00,395 [INFO] src.spot_check:   [CRITICAL] Trang 6: missing_content — Nội dung "Điều 6. Sáng kiến cấp cơ sở và Sáng kiến cấp Tập đoàn" có trong hình ảnh nhưng bị thiếu trong Markdown.
+2026-03-17 14:28:00,396 [INFO] src.spot_check:   [CRITICAL] Trang 6: missing_content — Nội dung "1. Sáng kiến cấp cơ sở: là sáng kiến do Tập đoàn/Đơn vị tiếp nhận đơn yêu cầu công nhận sáng kiến, thẩm định và ra quyết định công nhận." có trong hình ảnh nhưng bị thiếu trong Markdown.
+2026-03-17 14:28:00,396 [INFO] src.spot_check:   [CRITICAL] Trang 6: missing_content — Nội dung "2. Sáng kiến cấp Tập đoàn: là sáng kiến cấp cơ sở đáp ứng các tiêu chí sau đây: a) Mang lại lợi ích kinh tế trong năm đầu tiên áp dụng (số tiền làm lợi trực tiếp) ít nhất từ 5 (năm) tỷ đồng trở lên; và/hoặc" có trong hình ảnh nhưng bị thiếu trong Markdown.
+2026-03-17 14:28:00,397 [INFO] src.spot_check:   [CRITICAL] Trang 6: embedded_page_number — Số trang "5 / 20" bị nhúng vào giữa câu văn.
+2026-03-17 14:28:00,398 [INFO] src.spot_check: Spot-check 3/5: trang 10, dòng 148-217 — đang gọi Gemini...
+2026-03-17 14:28:00,471 [INFO] google_genai.models: AFC is enabled with max remote calls: 10.
+2026-03-17 14:28:00,475 [DEBUG] httpcore.http11: send_request_headers.started request=<Request [b'POST']>
+2026-03-17 14:28:00,476 [DEBUG] httpcore.http11: send_request_headers.complete
+2026-03-17 14:28:00,477 [DEBUG] httpcore.http11: send_request_body.started request=<Request [b'POST']>
+2026-03-17 14:28:00,478 [DEBUG] httpcore.http11: send_request_body.complete
+2026-03-17 14:28:00,479 [DEBUG] httpcore.http11: receive_response_headers.started request=<Request [b'POST']>
+2026-03-17 14:30:13,664 [DEBUG] httpcore.http11: receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Content-Type', b'application/json; charset=UTF-8'), (b'Vary', b'Origin'), (b'Vary', b'X-Origin'), (b'Vary', b'Referer'), (b'Content-Encoding', b'gzip'), (b'Date', b'Tue, 17 Mar 2026 07:30:13 GMT'), (b'Server', b'scaffolding on HTTPServer2'), (b'X-XSS-Protection', b'0'), (b'X-Frame-Options', b'SAMEORIGIN'), (b'X-Content-Type-Options', b'nosniff'), (b'Server-Timing', b'gfet4t7; dur=133141'), (b'Alt-Svc', b'h3=":443"; ma=2592000,h3-29=":443"; ma=2592000'), (b'Transfer-Encoding', b'chunked')])
+2026-03-17 14:30:13,677 [INFO] httpx: HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-lite:generateContent "HTTP/1.1 200 OK"
+2026-03-17 14:30:13,679 [DEBUG] httpcore.http11: receive_response_body.started request=<Request [b'POST']>
+2026-03-17 14:30:13,682 [DEBUG] httpcore.http11: receive_response_body.complete
+2026-03-17 14:30:13,683 [DEBUG] httpcore.http11: response_closed.started
+2026-03-17 14:30:13,684 [DEBUG] httpcore.http11: response_closed.complete
+2026-03-17 14:30:13,696 [WARNING] src.spot_check: Spot-check Gemini call failed: Expecting ',' delimiter: line 4853 column 6 (char 211036)
+2026-03-17 14:30:13,698 [INFO] src.spot_check: Spot-check 3/5: trang 10 — OK
+2026-03-17 14:30:13,698 [INFO] src.spot_check: Spot-check 4/5: trang 16, dòng 265-334 — đang gọi Gemini...
+2026-03-17 14:30:13,762 [INFO] google_genai.models: AFC is enabled with max remote calls: 10.
+2026-03-17 14:30:13,765 [DEBUG] httpcore.http11: send_request_headers.started request=<Request [b'POST']>
+2026-03-17 14:30:13,765 [DEBUG] httpcore.http11: send_request_headers.complete
+2026-03-17 14:30:13,765 [DEBUG] httpcore.http11: send_request_body.started request=<Request [b'POST']>
+2026-03-17 14:30:13,766 [DEBUG] httpcore.http11: send_request_body.complete
+2026-03-17 14:30:13,766 [DEBUG] httpcore.http11: receive_response_headers.started request=<Request [b'POST']>
+2026-03-17 14:33:14,794 [DEBUG] httpcore.http11: receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Content-Type', b'application/json; charset=UTF-8'), (b'Vary', b'Origin'), (b'Vary', b'X-Origin'), (b'Vary', b'Referer'), (b'Content-Encoding', b'gzip'), (b'Date', b'Tue, 17 Mar 2026 07:33:14 GMT'), (b'Server', b'scaffolding on HTTPServer2'), (b'X-XSS-Protection', b'0'), (b'X-Frame-Options', b'SAMEORIGIN'), (b'X-Content-Type-Options', b'nosniff'), (b'Server-Timing', b'gfet4t7; dur=180994'), (b'Alt-Svc', b'h3=":443"; ma=2592000,h3-29=":443"; ma=2592000'), (b'Transfer-Encoding', b'chunked')])
+2026-03-17 14:33:14,809 [INFO] httpx: HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-lite:generateContent "HTTP/1.1 200 OK"
+2026-03-17 14:33:14,810 [DEBUG] httpcore.http11: receive_response_body.started request=<Request [b'POST']>
+2026-03-17 14:33:14,812 [DEBUG] httpcore.http11: receive_response_body.complete
+2026-03-17 14:33:14,813 [DEBUG] httpcore.http11: response_closed.started
+2026-03-17 14:33:14,813 [DEBUG] httpcore.http11: response_closed.complete
+2026-03-17 14:33:14,824 [WARNING] src.spot_check: Spot-check Gemini call failed: Expecting ',' delimiter: line 7268 column 6 (char 211211)
+2026-03-17 14:33:14,825 [INFO] src.spot_check: Spot-check 4/5: trang 16 — OK
+2026-03-17 14:33:14,826 [INFO] src.spot_check: Spot-check 5/5: trang 21, dòng 353-420 — đang gọi Gemini...
+2026-03-17 14:33:14,889 [INFO] google_genai.models: AFC is enabled with max remote calls: 10.
+2026-03-17 14:33:14,891 [DEBUG] httpcore.http11: send_request_headers.started request=<Request [b'POST']>
+2026-03-17 14:33:14,892 [DEBUG] httpcore.http11: send_request_headers.complete
+2026-03-17 14:33:14,892 [DEBUG] httpcore.http11: send_request_body.started request=<Request [b'POST']>
+2026-03-17 14:33:14,893 [DEBUG] httpcore.http11: send_request_body.complete
+2026-03-17 14:33:14,893 [DEBUG] httpcore.http11: receive_response_headers.started request=<Request [b'POST']>
+2026-03-17 14:33:17,485 [DEBUG] httpcore.http11: receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Content-Type', b'application/json; charset=UTF-8'), (b'Vary', b'Origin'), (b'Vary', b'X-Origin'), (b'Vary', b'Referer'), (b'Content-Encoding', b'gzip'), (b'Date', b'Tue, 17 Mar 2026 07:33:17 GMT'), (b'Server', b'scaffolding on HTTPServer2'), (b'X-XSS-Protection', b'0'), (b'X-Frame-Options', b'SAMEORIGIN'), (b'X-Content-Type-Options', b'nosniff'), (b'Server-Timing', b'gfet4t7; dur=2498'), (b'Alt-Svc', b'h3=":443"; ma=2592000,h3-29=":443"; ma=2592000'), (b'Transfer-Encoding', b'chunked')])
+2026-03-17 14:33:17,493 [INFO] httpx: HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-lite:generateContent "HTTP/1.1 200 OK"
+2026-03-17 14:33:17,495 [DEBUG] httpcore.http11: receive_response_body.started request=<Request [b'POST']>
+2026-03-17 14:33:17,496 [DEBUG] httpcore.http11: receive_response_body.complete
+2026-03-17 14:33:17,497 [DEBUG] httpcore.http11: response_closed.started
+2026-03-17 14:33:17,498 [DEBUG] httpcore.http11: response_closed.complete
+2026-03-17 14:33:17,500 [INFO] src.spot_check:   [CRITICAL] Trang 21: missing_content — Nội dung từ dòng 353 đến dòng 420 của file Markdown không có trong hình ảnh.
+2026-03-17 14:33:17,500 [INFO] src.spot_check:   [WARNING] Trang 21: running_header — Dòng 'Quy chế quản lý hoạt động sáng kiến, sáng chế' bị lọt vào nội dung.
+2026-03-17 14:33:17,501 [INFO] src.spot_check:   [CRITICAL] Trang 21: structure_error — Cấu trúc Heading level sai. Heading 'I. Tình hình hoạt động sáng kiến, sáng chế:' và 'II. Các kết quả cụ thể:' và 'III. Kiến nghị và kết luận:' có cấp độ heading sai so với hình ảnh gốc.
+2026-03-17 14:33:17,503 [INFO] src.spot_check:   [CRITICAL] Trang 21: structure_error — Cấu trúc list nesting sai. Các mục con của 'III. Kiến nghị và kết luận:' có cấp độ list sai so với hình ảnh gốc.
+2026-03-17 14:33:17,506 [INFO] src.spot_check: Spot-check hoàn thành: 5 vị trí, 3 critical, 0 warning, 2 ok
+2026-03-17 14:33:17,507 [DEBUG] httpcore.connection: close.started
+2026-03-17 14:33:17,508 [DEBUG] httpcore.connection: close.complete
+2026-03-17 14:33:17,518 [INFO] src.pipeline: Phase 8 done: 2 OK, 3 critical, 0 warning
+2026-03-17 14:33:17,520 [INFO] src.pipeline: Phase 9: Auto-fix (3 lỗi phát hiện)
+2026-03-17 14:33:17,601 [INFO] src.auto_fix: Auto-fix: Trang 21, dòng 353-420 | 4 lỗi: missing_content + running_header + structure_error
+2026-03-17 14:33:17,601 [INFO] google_genai.models: AFC is enabled with max remote calls: 10.
+2026-03-17 14:33:17,603 [DEBUG] httpcore.connection: connect_tcp.started host='generativelanguage.googleapis.com' port=443 local_address=None timeout=None socket_options=None
+2026-03-17 14:33:17,677 [DEBUG] httpcore.connection: connect_tcp.complete return_value=<httpcore._backends.sync.SyncStream object at 0x1282ab210>
+2026-03-17 14:33:17,678 [DEBUG] httpcore.connection: start_tls.started ssl_context=<ssl.SSLContext object at 0x128146f90> server_hostname='generativelanguage.googleapis.com' timeout=None
+2026-03-17 14:33:17,766 [DEBUG] httpcore.connection: start_tls.complete return_value=<httpcore._backends.sync.SyncStream object at 0x128157c50>
+2026-03-17 14:33:17,767 [DEBUG] httpcore.http11: send_request_headers.started request=<Request [b'POST']>
+2026-03-17 14:33:17,767 [DEBUG] httpcore.http11: send_request_headers.complete
+2026-03-17 14:33:17,768 [DEBUG] httpcore.http11: send_request_body.started request=<Request [b'POST']>
+2026-03-17 14:33:17,989 [DEBUG] httpcore.http11: send_request_body.complete
+2026-03-17 14:33:17,990 [DEBUG] httpcore.http11: receive_response_headers.started request=<Request [b'POST']>
+2026-03-17 14:33:20,786 [DEBUG] httpcore.http11: receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Content-Type', b'application/json; charset=UTF-8'), (b'Vary', b'Origin'), (b'Vary', b'X-Origin'), (b'Vary', b'Referer'), (b'Content-Encoding', b'gzip'), (b'Date', b'Tue, 17 Mar 2026 07:33:20 GMT'), (b'Server', b'scaffolding on HTTPServer2'), (b'X-XSS-Protection', b'0'), (b'X-Frame-Options', b'SAMEORIGIN'), (b'X-Content-Type-Options', b'nosniff'), (b'Server-Timing', b'gfet4t7; dur=2945'), (b'Alt-Svc', b'h3=":443"; ma=2592000,h3-29=":443"; ma=2592000'), (b'Transfer-Encoding', b'chunked')])
+2026-03-17 14:33:20,794 [INFO] httpx: HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-lite:generateContent "HTTP/1.1 200 OK"
+2026-03-17 14:33:20,796 [DEBUG] httpcore.http11: receive_response_body.started request=<Request [b'POST']>
+2026-03-17 14:33:20,798 [DEBUG] httpcore.http11: receive_response_body.complete
+2026-03-17 14:33:20,799 [DEBUG] httpcore.http11: response_closed.started
+2026-03-17 14:33:20,801 [DEBUG] httpcore.http11: response_closed.complete
+2026-03-17 14:33:20,803 [INFO] src.auto_fix:   -> ĐÃ SỬA: 4 lỗi trang 21 (1435 ký tự)
+2026-03-17 14:33:20,886 [INFO] src.auto_fix: Auto-fix: Trang 6, dòng 66-135 | 12 lỗi: missing_content + embedded_page_number
+2026-03-17 14:33:20,888 [INFO] google_genai.models: AFC is enabled with max remote calls: 10.
+2026-03-17 14:33:20,890 [DEBUG] httpcore.http11: send_request_headers.started request=<Request [b'POST']>
+2026-03-17 14:33:20,890 [DEBUG] httpcore.http11: send_request_headers.complete
+2026-03-17 14:33:20,890 [DEBUG] httpcore.http11: send_request_body.started request=<Request [b'POST']>
+2026-03-17 14:33:20,978 [DEBUG] httpcore.http11: send_request_body.complete
+2026-03-17 14:33:20,978 [DEBUG] httpcore.http11: receive_response_headers.started request=<Request [b'POST']>
+2026-03-17 14:33:25,119 [DEBUG] httpcore.http11: receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Content-Type', b'application/json; charset=UTF-8'), (b'Vary', b'Origin'), (b'Vary', b'X-Origin'), (b'Vary', b'Referer'), (b'Content-Encoding', b'gzip'), (b'Date', b'Tue, 17 Mar 2026 07:33:25 GMT'), (b'Server', b'scaffolding on HTTPServer2'), (b'X-XSS-Protection', b'0'), (b'X-Frame-Options', b'SAMEORIGIN'), (b'X-Content-Type-Options', b'nosniff'), (b'Server-Timing', b'gfet4t7; dur=4145'), (b'Alt-Svc', b'h3=":443"; ma=2592000,h3-29=":443"; ma=2592000'), (b'Transfer-Encoding', b'chunked')])
+2026-03-17 14:33:25,125 [INFO] httpx: HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-lite:generateContent "HTTP/1.1 200 OK"
+2026-03-17 14:33:25,126 [DEBUG] httpcore.http11: receive_response_body.started request=<Request [b'POST']>
+2026-03-17 14:33:25,128 [DEBUG] httpcore.http11: receive_response_body.complete
+2026-03-17 14:33:25,129 [DEBUG] httpcore.http11: response_closed.started
+2026-03-17 14:33:25,133 [DEBUG] httpcore.http11: response_closed.complete
+2026-03-17 14:33:25,135 [INFO] src.auto_fix:   -> ĐÃ SỬA: 12 lỗi trang 6 (2039 ký tự)
+2026-03-17 14:33:25,197 [INFO] src.auto_fix: Auto-fix: Trang 3, dòng 21-90 | 5 lỗi: missing_content
+2026-03-17 14:33:25,197 [INFO] google_genai.models: AFC is enabled with max remote calls: 10.
+2026-03-17 14:33:25,199 [DEBUG] httpcore.http11: send_request_headers.started request=<Request [b'POST']>
+2026-03-17 14:33:25,200 [DEBUG] httpcore.http11: send_request_headers.complete
+2026-03-17 14:33:25,200 [DEBUG] httpcore.http11: send_request_body.started request=<Request [b'POST']>
+2026-03-17 14:33:25,201 [DEBUG] httpcore.http11: send_request_body.complete
+2026-03-17 14:33:25,201 [DEBUG] httpcore.http11: receive_response_headers.started request=<Request [b'POST']>
+2026-03-17 14:33:27,705 [DEBUG] httpcore.http11: receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Content-Type', b'application/json; charset=UTF-8'), (b'Vary', b'Origin'), (b'Vary', b'X-Origin'), (b'Vary', b'Referer'), (b'Content-Encoding', b'gzip'), (b'Date', b'Tue, 17 Mar 2026 07:33:27 GMT'), (b'Server', b'scaffolding on HTTPServer2'), (b'X-XSS-Protection', b'0'), (b'X-Frame-Options', b'SAMEORIGIN'), (b'X-Content-Type-Options', b'nosniff'), (b'Server-Timing', b'gfet4t7; dur=2433'), (b'Alt-Svc', b'h3=":443"; ma=2592000,h3-29=":443"; ma=2592000'), (b'Transfer-Encoding', b'chunked')])
+2026-03-17 14:33:27,714 [INFO] httpx: HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-lite:generateContent "HTTP/1.1 200 OK"
+2026-03-17 14:33:27,716 [DEBUG] httpcore.http11: receive_response_body.started request=<Request [b'POST']>
+2026-03-17 14:33:27,719 [DEBUG] httpcore.http11: receive_response_body.complete
+2026-03-17 14:33:27,720 [DEBUG] httpcore.http11: response_closed.started
+2026-03-17 14:33:27,720 [DEBUG] httpcore.http11: response_closed.complete
+2026-03-17 14:33:27,722 [INFO] src.auto_fix:   -> ĐÃ SỬA: 5 lỗi trang 3 (1799 ký tự)
+2026-03-17 14:33:27,725 [INFO] src.auto_fix: Auto-fix hoàn thành: 21 lỗi, 21 đã sửa, 0 thất bại, 0 bỏ qua
+2026-03-17 14:33:27,726 [DEBUG] httpcore.connection: close.started
+2026-03-17 14:33:27,727 [DEBUG] httpcore.connection: close.complete
+2026-03-17 14:33:27,738 [INFO] src.pipeline: Phase 9 done: 21 sửa, 0 thất bại, 0 bỏ qua
+2026-03-17 14:33:27,739 [INFO] src.pipeline: Phase 10: Smart fix loop (tối đa 1 vòng, min score 7.0)
+2026-03-17 14:33:27,740 [INFO] src.pipeline:   Vòng 1/1: recheck 3 trang (skip 0 unfixable)...
+2026-03-17 14:33:27,764 [INFO] src.spot_check: Spot-check 1/3: trang 3, dòng 31-45 — đang gọi Gemini...
+2026-03-17 14:33:27,825 [INFO] google_genai.models: AFC is enabled with max remote calls: 10.
+2026-03-17 14:33:27,827 [DEBUG] httpcore.connection: connect_tcp.started host='generativelanguage.googleapis.com' port=443 local_address=None timeout=None socket_options=None
+2026-03-17 14:33:27,875 [DEBUG] httpcore.connection: connect_tcp.complete return_value=<httpcore._backends.sync.SyncStream object at 0x12835c350>
+2026-03-17 14:33:27,876 [DEBUG] httpcore.connection: start_tls.started ssl_context=<ssl.SSLContext object at 0x1281456d0> server_hostname='generativelanguage.googleapis.com' timeout=None
+2026-03-17 14:33:27,939 [DEBUG] httpcore.connection: start_tls.complete return_value=<httpcore._backends.sync.SyncStream object at 0x12835f510>
+2026-03-17 14:33:27,939 [DEBUG] httpcore.http11: send_request_headers.started request=<Request [b'POST']>
+2026-03-17 14:33:27,940 [DEBUG] httpcore.http11: send_request_headers.complete
+2026-03-17 14:33:27,941 [DEBUG] httpcore.http11: send_request_body.started request=<Request [b'POST']>
+2026-03-17 14:33:28,206 [DEBUG] httpcore.http11: send_request_body.complete
+2026-03-17 14:33:28,207 [DEBUG] httpcore.http11: receive_response_headers.started request=<Request [b'POST']>
+2026-03-17 14:33:33,439 [DEBUG] httpcore.http11: receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Content-Type', b'application/json; charset=UTF-8'), (b'Vary', b'Origin'), (b'Vary', b'X-Origin'), (b'Vary', b'Referer'), (b'Content-Encoding', b'gzip'), (b'Date', b'Tue, 17 Mar 2026 07:33:33 GMT'), (b'Server', b'scaffolding on HTTPServer2'), (b'X-XSS-Protection', b'0'), (b'X-Frame-Options', b'SAMEORIGIN'), (b'X-Content-Type-Options', b'nosniff'), (b'Server-Timing', b'gfet4t7; dur=5453'), (b'Alt-Svc', b'h3=":443"; ma=2592000,h3-29=":443"; ma=2592000'), (b'Transfer-Encoding', b'chunked')])
+2026-03-17 14:33:33,442 [INFO] httpx: HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-lite:generateContent "HTTP/1.1 200 OK"
+2026-03-17 14:33:33,442 [DEBUG] httpcore.http11: receive_response_body.started request=<Request [b'POST']>
+2026-03-17 14:33:33,444 [DEBUG] httpcore.http11: receive_response_body.complete
+2026-03-17 14:33:33,444 [DEBUG] httpcore.http11: response_closed.started
+2026-03-17 14:33:33,444 [DEBUG] httpcore.http11: response_closed.complete
+2026-03-17 14:33:33,445 [INFO] src.spot_check: Spot-check 1/3: trang 3 — OK
+2026-03-17 14:33:33,446 [INFO] src.spot_check: Spot-check 2/3: trang 6, dòng 76-90 — đang gọi Gemini...
+2026-03-17 14:33:33,521 [INFO] google_genai.models: AFC is enabled with max remote calls: 10.
+2026-03-17 14:33:33,523 [DEBUG] httpcore.http11: send_request_headers.started request=<Request [b'POST']>
+2026-03-17 14:33:33,524 [DEBUG] httpcore.http11: send_request_headers.complete
+2026-03-17 14:33:33,524 [DEBUG] httpcore.http11: send_request_body.started request=<Request [b'POST']>
+2026-03-17 14:33:33,645 [DEBUG] httpcore.http11: send_request_body.complete
+2026-03-17 14:33:33,646 [DEBUG] httpcore.http11: receive_response_headers.started request=<Request [b'POST']>
+2026-03-17 14:33:40,652 [DEBUG] httpcore.http11: receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Content-Type', b'application/json; charset=UTF-8'), (b'Vary', b'Origin'), (b'Vary', b'X-Origin'), (b'Vary', b'Referer'), (b'Content-Encoding', b'gzip'), (b'Date', b'Tue, 17 Mar 2026 07:33:40 GMT'), (b'Server', b'scaffolding on HTTPServer2'), (b'X-XSS-Protection', b'0'), (b'X-Frame-Options', b'SAMEORIGIN'), (b'X-Content-Type-Options', b'nosniff'), (b'Server-Timing', b'gfet4t7; dur=7037'), (b'Alt-Svc', b'h3=":443"; ma=2592000,h3-29=":443"; ma=2592000'), (b'Transfer-Encoding', b'chunked')])
+2026-03-17 14:33:40,657 [INFO] httpx: HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-lite:generateContent "HTTP/1.1 200 OK"
+2026-03-17 14:33:40,659 [DEBUG] httpcore.http11: receive_response_body.started request=<Request [b'POST']>
+2026-03-17 14:33:40,660 [DEBUG] httpcore.http11: receive_response_body.complete
+2026-03-17 14:33:40,661 [DEBUG] httpcore.http11: response_closed.started
+2026-03-17 14:33:40,662 [DEBUG] httpcore.http11: response_closed.complete
+2026-03-17 14:33:40,666 [INFO] src.spot_check:   [CRITICAL] Trang 6: missing_content — Nội dung "Quy chế quản lý hoạt động sáng kiến, sáng chế" ở đầu trang bị thiếu.
+2026-03-17 14:33:40,668 [INFO] src.spot_check:   [CRITICAL] Trang 6: missing_content — Nội dung "c) Không trùng với giải pháp của người khác đã được áp dụng hoặc áp dụng thử, hoặc đưa vào kế hoạch áp dụng, phổ biến hoặc chuẩn bị các điều kiện để áp dụng, phổ biến;" bị thiếu.
+2026-03-17 14:33:40,669 [INFO] src.spot_check:   [CRITICAL] Trang 6: missing_content — Nội dung "d) Không trùng với nội dung của giải pháp trong đơn đăng ký sáng kiến nộp trước." bị thiếu.
+2026-03-17 14:33:40,670 [INFO] src.spot_check:   [CRITICAL] Trang 6: missing_content — Nội dung "3. Một giải pháp được coi là mang lại lợi ích thiết thực nếu áp dụng mang lại hiệu quả kinh tế (lợi ích kinh tế tính ra được bằng tiền/số tiền làm lợi trực tiếp, nâng cao năng suất lao động, giảm chi phí sản xuất, nâng cao chất lượng sản phẩm, dịch vụ, các tiêu chí, thông số kỹ thuật cao hơn trước...), hoặc lợi ích xã hội (góp phần bảo vệ chủ quyền, an ninh quốc gia, an ninh năng lượng quốc gia, nâng cao điều kiện an toàn lao động, cải thiện điều kiện sống, làm việc, bảo vệ môi trường, sức khỏe con người...)." bị thiếu.
+2026-03-17 14:33:40,671 [INFO] src.spot_check:   [CRITICAL] Trang 6: missing_content — Nội dung "Điều 4. Sáng chế ngành Dầu khí Việt Nam" bị thiếu.
+2026-03-17 14:33:40,672 [INFO] src.spot_check:   [CRITICAL] Trang 6: missing_content — Nội dung "Sáng chế ngành Dầu khí Việt Nam là giải pháp kỹ thuật dưới dạng sản phẩm hoặc quy trình nhằm giải quyết một vấn đề để xác định bằng việc ứng dụng các quy luật tự nhiên; có tính mới, có trình độ sáng tạo và có khả năng áp dụng trong ngành Dầu khí Việt Nam; và được Cơ quan quản lý về sở hữu trí tuệ cấp Bằng độc quyền sáng chế hoặc Bằng độc quyền giải pháp hữu ích." bị thiếu.
+2026-03-17 14:33:40,673 [INFO] src.spot_check:   [CRITICAL] Trang 6: wrong_number — Số thứ tự của mục 2 trong Điều 6 là "2" thay vì "b)".
+2026-03-17 14:33:40,674 [INFO] src.spot_check:   [CRITICAL] Trang 6: wrong_number — Số thứ tự của mục 2a trong Điều 6 là "a)" thay vì "2.a)".
+2026-03-17 14:33:40,675 [INFO] src.spot_check:   [CRITICAL] Trang 6: wrong_number — Số thứ tự của mục 2b trong Điều 6 là "b)" thay vì "2.b)".
+2026-03-17 14:33:40,675 [INFO] src.spot_check:   [WARNING] Trang 6: ocr_gibberish — Lỗi OCR: "năm %" thay vì "năm %"
+2026-03-17 14:33:40,676 [INFO] src.spot_check:   [WARNING] Trang 6: ocr_gibberish — Lỗi OCR: "(năm)" thay vì "(năm)"
+2026-03-17 14:33:40,677 [INFO] src.spot_check:   [WARNING] Trang 6: ocr_gibberish — Lỗi OCR: "năm đầu tiên" thay vì "năm đầu tiên"
+2026-03-17 14:33:40,677 [INFO] src.spot_check:   [WARNING] Trang 6: ocr_gibberish — Lỗi OCR: "tỷ đồng trở lên; và/hoặc" thay vì "tỷ đồng trở lên; và/hoặc"
+2026-03-17 14:33:40,678 [INFO] src.spot_check: Spot-check 3/3: trang 21, dòng 301-317 — đang gọi Gemini...
+2026-03-17 14:33:40,742 [INFO] google_genai.models: AFC is enabled with max remote calls: 10.
+2026-03-17 14:33:40,744 [DEBUG] httpcore.http11: send_request_headers.started request=<Request [b'POST']>
+2026-03-17 14:33:40,744 [DEBUG] httpcore.http11: send_request_headers.complete
+2026-03-17 14:33:40,744 [DEBUG] httpcore.http11: send_request_body.started request=<Request [b'POST']>
+2026-03-17 14:33:40,837 [DEBUG] httpcore.http11: send_request_body.complete
+2026-03-17 14:33:40,838 [DEBUG] httpcore.http11: receive_response_headers.started request=<Request [b'POST']>
+2026-03-17 14:33:42,131 [DEBUG] httpcore.http11: receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Content-Type', b'application/json; charset=UTF-8'), (b'Vary', b'Origin'), (b'Vary', b'X-Origin'), (b'Vary', b'Referer'), (b'Content-Encoding', b'gzip'), (b'Date', b'Tue, 17 Mar 2026 07:33:42 GMT'), (b'Server', b'scaffolding on HTTPServer2'), (b'X-XSS-Protection', b'0'), (b'X-Frame-Options', b'SAMEORIGIN'), (b'X-Content-Type-Options', b'nosniff'), (b'Server-Timing', b'gfet4t7; dur=1340'), (b'Alt-Svc', b'h3=":443"; ma=2592000,h3-29=":443"; ma=2592000'), (b'Transfer-Encoding', b'chunked')])
+2026-03-17 14:33:42,132 [INFO] httpx: HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-lite:generateContent "HTTP/1.1 200 OK"
+2026-03-17 14:33:42,133 [DEBUG] httpcore.http11: receive_response_body.started request=<Request [b'POST']>
+2026-03-17 14:33:42,133 [DEBUG] httpcore.http11: receive_response_body.complete
+2026-03-17 14:33:42,133 [DEBUG] httpcore.http11: response_closed.started
+2026-03-17 14:33:42,134 [DEBUG] httpcore.http11: response_closed.complete
+2026-03-17 14:33:42,134 [INFO] src.spot_check: Spot-check 3/3: trang 21 — OK
+2026-03-17 14:33:42,135 [INFO] src.spot_check: Recheck hoàn thành: 3 trang, 1 critical, 0 warning, 2 ok
+2026-03-17 14:33:42,135 [DEBUG] httpcore.connection: close.started
+2026-03-17 14:33:42,136 [DEBUG] httpcore.connection: close.complete
+2026-03-17 14:33:42,287 [INFO] src.pipeline:   Vòng 1: 1 critical, 0 warning, 2 OK
+2026-03-17 14:33:42,288 [INFO] src.pipeline:   Vòng 1: fix 1 trang (skip 0 unfixable)...
+2026-03-17 14:33:42,361 [INFO] src.auto_fix: Auto-fix: Trang 6, dòng 76-90 | 13 lỗi: missing_content + wrong_number + ocr_gibberish
+2026-03-17 14:33:42,361 [INFO] google_genai.models: AFC is enabled with max remote calls: 10.
+2026-03-17 14:33:42,364 [DEBUG] httpcore.connection: connect_tcp.started host='generativelanguage.googleapis.com' port=443 local_address=None timeout=None socket_options=None
+2026-03-17 14:33:42,443 [DEBUG] httpcore.connection: connect_tcp.complete return_value=<httpcore._backends.sync.SyncStream object at 0x1283a7f10>
+2026-03-17 14:33:42,443 [DEBUG] httpcore.connection: start_tls.started ssl_context=<ssl.SSLContext object at 0x128145520> server_hostname='generativelanguage.googleapis.com' timeout=None
+2026-03-17 14:33:42,537 [DEBUG] httpcore.connection: start_tls.complete return_value=<httpcore._backends.sync.SyncStream object at 0x1283f5ad0>
+2026-03-17 14:33:42,538 [DEBUG] httpcore.http11: send_request_headers.started request=<Request [b'POST']>
+2026-03-17 14:33:42,538 [DEBUG] httpcore.http11: send_request_headers.complete
+2026-03-17 14:33:42,538 [DEBUG] httpcore.http11: send_request_body.started request=<Request [b'POST']>
+2026-03-17 14:33:42,989 [DEBUG] httpcore.http11: send_request_body.complete
+2026-03-17 14:33:42,989 [DEBUG] httpcore.http11: receive_response_headers.started request=<Request [b'POST']>
+2026-03-17 14:33:47,562 [DEBUG] httpcore.http11: receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Content-Type', b'application/json; charset=UTF-8'), (b'Vary', b'Origin'), (b'Vary', b'X-Origin'), (b'Vary', b'Referer'), (b'Content-Encoding', b'gzip'), (b'Date', b'Tue, 17 Mar 2026 07:33:47 GMT'), (b'Server', b'scaffolding on HTTPServer2'), (b'X-XSS-Protection', b'0'), (b'X-Frame-Options', b'SAMEORIGIN'), (b'X-Content-Type-Options', b'nosniff'), (b'Server-Timing', b'gfet4t7; dur=4943'), (b'Alt-Svc', b'h3=":443"; ma=2592000,h3-29=":443"; ma=2592000'), (b'Transfer-Encoding', b'chunked')])
+2026-03-17 14:33:47,563 [INFO] httpx: HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-lite:generateContent "HTTP/1.1 200 OK"
+2026-03-17 14:33:47,564 [DEBUG] httpcore.http11: receive_response_body.started request=<Request [b'POST']>
+2026-03-17 14:33:47,565 [DEBUG] httpcore.http11: receive_response_body.complete
+2026-03-17 14:33:47,567 [DEBUG] httpcore.http11: response_closed.started
+2026-03-17 14:33:47,568 [DEBUG] httpcore.http11: response_closed.complete
+2026-03-17 14:33:47,571 [INFO] src.auto_fix:   -> ĐÃ SỬA: 13 lỗi trang 6 (2342 ký tự)
+2026-03-17 14:33:47,572 [INFO] src.auto_fix: Auto-fix hoàn thành: 13 lỗi, 13 đã sửa, 0 thất bại, 0 bỏ qua
+2026-03-17 14:33:47,573 [DEBUG] httpcore.connection: close.started
+2026-03-17 14:33:47,573 [DEBUG] httpcore.connection: close.complete
+2026-03-17 14:33:47,586 [INFO] src.pipeline:   Vòng 1 fix: 13 sửa, 0 thất bại, 0 bỏ qua
+2026-03-17 14:33:47,959 [INFO] google_genai.models: AFC is enabled with max remote calls: 10.
+2026-03-17 14:33:47,965 [DEBUG] httpcore.connection: connect_tcp.started host='generativelanguage.googleapis.com' port=443 local_address=None timeout=None socket_options=None
+2026-03-17 14:33:48,051 [DEBUG] httpcore.connection: connect_tcp.complete return_value=<httpcore._backends.sync.SyncStream object at 0x12817ecd0>
+2026-03-17 14:33:48,052 [DEBUG] httpcore.connection: start_tls.started ssl_context=<ssl.SSLContext object at 0x1281474a0> server_hostname='generativelanguage.googleapis.com' timeout=None
+2026-03-17 14:33:48,134 [DEBUG] httpcore.connection: start_tls.complete return_value=<httpcore._backends.sync.SyncStream object at 0x12828e790>
+2026-03-17 14:33:48,135 [DEBUG] httpcore.http11: send_request_headers.started request=<Request [b'POST']>
+2026-03-17 14:33:48,135 [DEBUG] httpcore.http11: send_request_headers.complete
+2026-03-17 14:33:48,135 [DEBUG] httpcore.http11: send_request_body.started request=<Request [b'POST']>
+2026-03-17 14:33:48,724 [DEBUG] httpcore.http11: send_request_body.complete
+2026-03-17 14:33:48,724 [DEBUG] httpcore.http11: receive_response_headers.started request=<Request [b'POST']>
+2026-03-17 14:34:02,672 [DEBUG] httpcore.http11: receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Content-Type', b'application/json; charset=UTF-8'), (b'Vary', b'Origin'), (b'Vary', b'X-Origin'), (b'Vary', b'Referer'), (b'Content-Encoding', b'gzip'), (b'Date', b'Tue, 17 Mar 2026 07:34:02 GMT'), (b'Server', b'scaffolding on HTTPServer2'), (b'X-XSS-Protection', b'0'), (b'X-Frame-Options', b'SAMEORIGIN'), (b'X-Content-Type-Options', b'nosniff'), (b'Server-Timing', b'gfet4t7; dur=14466'), (b'Alt-Svc', b'h3=":443"; ma=2592000,h3-29=":443"; ma=2592000'), (b'Transfer-Encoding', b'chunked')])
+2026-03-17 14:34:02,684 [INFO] httpx: HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3-flash-preview:generateContent "HTTP/1.1 200 OK"
+2026-03-17 14:34:02,686 [DEBUG] httpcore.http11: receive_response_body.started request=<Request [b'POST']>
+2026-03-17 14:34:02,688 [DEBUG] httpcore.http11: receive_response_body.complete
+2026-03-17 14:34:02,689 [DEBUG] httpcore.http11: response_closed.started
+2026-03-17 14:34:02,691 [DEBUG] httpcore.http11: response_closed.complete
+2026-03-17 14:34:02,702 [DEBUG] httpcore.connection: close.started
+2026-03-17 14:34:02,703 [DEBUG] httpcore.connection: close.complete
+2026-03-17 14:34:02,704 [INFO] src.quality: Quality report for QĐ_6389_2012 Quy che quan ly SKSC PVN 3 1.pdf: overall=7.3, completeness=78.8%, structure=7.0, tables=10.0, vietnamese=8.0
+2026-03-17 14:34:02,704 [INFO] src.pipeline:   Vòng 1 quality: 7.3/10 (ngưỡng: 7.0)
+2026-03-17 14:34:02,705 [INFO] src.pipeline:   Đạt ngưỡng 7.0 -> kết thúc sớm
+2026-03-17 14:34:02,706 [INFO] src.pipeline: Phase 10 done: 1 vòng, 0 unfixable pages
+2026-03-17 14:34:02,707 [INFO] src.pipeline: Phase 11: Final Integrity Check (sau smart fix)
+2026-03-17 14:34:02,708 [INFO] src.integrity: Integrity — Page coverage: 21/21 trang covered
+2026-03-17 14:34:02,806 [INFO] src.integrity: Integrity — Article coverage: 24/0 Điều found in markdown
+2026-03-17 14:34:02,807 [INFO] src.integrity: Integrity — Không có trang nào cần bổ sung
+2026-03-17 14:34:02,807 [INFO] src.pipeline: Phase 11 done: 21/21 trang, thiếu 0 Điều, convert bổ sung 0 trang
+2026-03-17 14:34:02,808 [INFO] src.pipeline: Phase 12: Quality check (trên bản cuối cùng)
+2026-03-17 14:34:03,185 [INFO] google_genai.models: AFC is enabled with max remote calls: 10.
+2026-03-17 14:34:03,191 [DEBUG] httpcore.connection: connect_tcp.started host='generativelanguage.googleapis.com' port=443 local_address=None timeout=None socket_options=None
+2026-03-17 14:34:03,240 [DEBUG] httpcore.connection: connect_tcp.complete return_value=<httpcore._backends.sync.SyncStream object at 0x128191dd0>
+2026-03-17 14:34:03,241 [DEBUG] httpcore.connection: start_tls.started ssl_context=<ssl.SSLContext object at 0x128145d90> server_hostname='generativelanguage.googleapis.com' timeout=None
+2026-03-17 14:34:03,305 [DEBUG] httpcore.connection: start_tls.complete return_value=<httpcore._backends.sync.SyncStream object at 0x128376ad0>
+2026-03-17 14:34:03,306 [DEBUG] httpcore.http11: send_request_headers.started request=<Request [b'POST']>
+2026-03-17 14:34:03,307 [DEBUG] httpcore.http11: send_request_headers.complete
+2026-03-17 14:34:03,308 [DEBUG] httpcore.http11: send_request_body.started request=<Request [b'POST']>
+2026-03-17 14:34:03,781 [DEBUG] httpcore.http11: send_request_body.complete
+2026-03-17 14:34:03,783 [DEBUG] httpcore.http11: receive_response_headers.started request=<Request [b'POST']>
+2026-03-17 14:34:15,856 [DEBUG] httpcore.http11: receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Content-Type', b'application/json; charset=UTF-8'), (b'Vary', b'Origin'), (b'Vary', b'X-Origin'), (b'Vary', b'Referer'), (b'Content-Encoding', b'gzip'), (b'Date', b'Tue, 17 Mar 2026 07:34:15 GMT'), (b'Server', b'scaffolding on HTTPServer2'), (b'X-XSS-Protection', b'0'), (b'X-Frame-Options', b'SAMEORIGIN'), (b'X-Content-Type-Options', b'nosniff'), (b'Server-Timing', b'gfet4t7; dur=12498'), (b'Alt-Svc', b'h3=":443"; ma=2592000,h3-29=":443"; ma=2592000'), (b'Transfer-Encoding', b'chunked')])
+2026-03-17 14:34:15,862 [INFO] httpx: HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3-flash-preview:generateContent "HTTP/1.1 200 OK"
+2026-03-17 14:34:15,864 [DEBUG] httpcore.http11: receive_response_body.started request=<Request [b'POST']>
+2026-03-17 14:34:15,866 [DEBUG] httpcore.http11: receive_response_body.complete
+2026-03-17 14:34:15,867 [DEBUG] httpcore.http11: response_closed.started
+2026-03-17 14:34:15,867 [DEBUG] httpcore.http11: response_closed.complete
+2026-03-17 14:34:15,869 [DEBUG] httpcore.connection: close.started
+2026-03-17 14:34:15,870 [DEBUG] httpcore.connection: close.complete
+2026-03-17 14:34:15,871 [INFO] src.quality: Quality report for QĐ_6389_2012 Quy che quan ly SKSC PVN 3 1.pdf: overall=7.3, completeness=78.8%, structure=7.0, tables=10.0, vietnamese=8.0
+2026-03-17 14:34:15,877 [INFO] src.pipeline: Phase 12 done: overall=7.3/10
+2026-03-17 14:34:15,884 [INFO] src.pipeline: ============================================================
+2026-03-17 14:34:15,885 [INFO] src.pipeline: Pipeline hoàn thành: QĐ_6389_2012 Quy che quan ly SKSC PVN 3 1.pdf — 422.7s
+2026-03-17 14:34:15,885 [INFO] src.pipeline:   Markdown: 27273 ký tự
+2026-03-17 14:34:15,886 [INFO] src.pipeline:   Chất lượng: 7.3/10
+2026-03-17 14:34:15,886 [INFO] src.pipeline:   Spot-check: 3 C / 0 W / 2 OK
+2026-03-17 14:34:15,886 [INFO] src.pipeline:   Auto-fix: 21/21 sửa
+2026-03-17 14:34:15,887 [INFO] src.pipeline:   Final check: 1 vòng
+2026-03-17 14:34:15,887 [INFO] src.pipeline:   Final: 1 C / 0 W / 2 OK
+2026-03-17 14:34:15,888 [INFO] src.pipeline: ============================================================

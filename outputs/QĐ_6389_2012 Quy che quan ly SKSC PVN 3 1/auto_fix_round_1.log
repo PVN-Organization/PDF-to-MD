@@ -1,0 +1,42 @@
+=== Auto-Fix Report: QĐ_6389_2012 Quy che quan ly SKSC PVN 3 1.pdf ===
+Total issues: 13
+Fixed: 13 | Failed: 0 | Skipped: 0
+
+[FIXED] #1 Trang 6, dòng 76-90 | missing_content: Nội dung "Quy chế quản lý hoạt động sáng kiến, sáng chế" ở đầu trang bị thiếu.
+  Log: Đã sửa (batched 13 issues, 2342 ký tự)
+
+[FIXED] #2 Trang 6, dòng 76-90 | missing_content: Nội dung "c) Không trùng với giải pháp của người khác đã được áp dụng hoặc áp dụng thử, hoặc đưa vào kế hoạch áp dụng, phổ biến hoặc chuẩn bị các điều kiện để áp dụng, phổ biến;" bị thiếu.
+  Log: Đã sửa (batched 13 issues, 2342 ký tự)
+
+[FIXED] #3 Trang 6, dòng 76-90 | missing_content: Nội dung "d) Không trùng với nội dung của giải pháp trong đơn đăng ký sáng kiến nộp trước." bị thiếu.
+  Log: Đã sửa (batched 13 issues, 2342 ký tự)
+
+[FIXED] #4 Trang 6, dòng 76-90 | missing_content: Nội dung "3. Một giải pháp được coi là mang lại lợi ích thiết thực nếu áp dụng mang lại hiệu quả kinh tế (lợi ích kinh tế tính ra được bằng tiền/số tiền làm lợi trực tiếp, nâng cao năng suất lao động, giảm chi phí sản xuất, nâng cao chất lượng sản phẩm, dịch vụ, các tiêu chí, thông số kỹ thuật cao hơn trước...), hoặc lợi ích xã hội (góp phần bảo vệ chủ quyền, an ninh quốc gia, an ninh năng lượng quốc gia, nâng cao điều kiện an toàn lao động, cải thiện điều kiện sống, làm việc, bảo vệ môi trường, sức khỏe con người...)." bị thiếu.
+  Log: Đã sửa (batched 13 issues, 2342 ký tự)
+
+[FIXED] #5 Trang 6, dòng 76-90 | missing_content: Nội dung "Điều 4. Sáng chế ngành Dầu khí Việt Nam" bị thiếu.
+  Log: Đã sửa (batched 13 issues, 2342 ký tự)
+
+[FIXED] #6 Trang 6, dòng 76-90 | missing_content: Nội dung "Sáng chế ngành Dầu khí Việt Nam là giải pháp kỹ thuật dưới dạng sản phẩm hoặc quy trình nhằm giải quyết một vấn đề để xác định bằng việc ứng dụng các quy luật tự nhiên; có tính mới, có trình độ sáng tạo và có khả năng áp dụng trong ngành Dầu khí Việt Nam; và được Cơ quan quản lý về sở hữu trí tuệ cấp Bằng độc quyền sáng chế hoặc Bằng độc quyền giải pháp hữu ích." bị thiếu.
+  Log: Đã sửa (batched 13 issues, 2342 ký tự)
+
+[FIXED] #7 Trang 6, dòng 76-90 | wrong_number: Số thứ tự của mục 2 trong Điều 6 là "2" thay vì "b)".
+  Log: Đã sửa (batched 13 issues, 2342 ký tự)
+
+[FIXED] #8 Trang 6, dòng 76-90 | wrong_number: Số thứ tự của mục 2a trong Điều 6 là "a)" thay vì "2.a)".
+  Log: Đã sửa (batched 13 issues, 2342 ký tự)
+
+[FIXED] #9 Trang 6, dòng 76-90 | wrong_number: Số thứ tự của mục 2b trong Điều 6 là "b)" thay vì "2.b)".
+  Log: Đã sửa (batched 13 issues, 2342 ký tự)
+
+[FIXED] #10 Trang 6, dòng 76-90 | ocr_gibberish: Lỗi OCR: "năm %" thay vì "năm %"
+  Log: Đã sửa (batched 13 issues, 2342 ký tự)
+
+[FIXED] #11 Trang 6, dòng 76-90 | ocr_gibberish: Lỗi OCR: "(năm)" thay vì "(năm)"
+  Log: Đã sửa (batched 13 issues, 2342 ký tự)
+
+[FIXED] #12 Trang 6, dòng 76-90 | ocr_gibberish: Lỗi OCR: "năm đầu tiên" thay vì "năm đầu tiên"
+  Log: Đã sửa (batched 13 issues, 2342 ký tự)
+
+[FIXED] #13 Trang 6, dòng 76-90 | ocr_gibberish: Lỗi OCR: "tỷ đồng trở lên; và/hoặc" thay vì "tỷ đồng trở lên; và/hoặc"
+  Log: Đã sửa (batched 13 issues, 2342 ký tự)

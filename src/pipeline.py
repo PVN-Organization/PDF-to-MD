@@ -15,10 +15,11 @@ from .auto_fix import AutoFixReport, auto_fix
 from .config import Config
 from .converter import convert_chunks
 from .extractor import ChunkExtraction, extract_chunk
+from .integrity import IntegrityReport, run_integrity_check
 from .planner import ChunkPlan, create_plan
 from .quality import QualityReport, check_quality
 from .renderer import RenderResult, render_pages
-from .spot_check import SpotCheckReport, run_spot_check
+from .spot_check import SpotCheckReport, run_spot_check, recheck_pages
 
 logger = logging.getLogger(__name__)
 console = Console()
@@ -70,9 +71,11 @@ async def process_pdf(
 
     logger.info("=" * 60)
     logger.info("Pipeline online: %s", pdf_path.name)
-    logger.info("Model: %s | Spot-check: %s | Auto-fix: %s | Max rounds: %d",
-                config.gemini_model, run_spot_check_flag, run_auto_fix_flag,
-                config.max_fix_rounds)
+    logger.info("Model convert: %s | Model verify: %s",
+                config.gemini_model, config.gemini_verify_model)
+    logger.info("Integrity: %s | Spot-check: %s | Auto-fix: %s | Max rounds: %d | Min score: %.1f",
+                config.integrity_check, run_spot_check_flag, run_auto_fix_flag,
+                config.max_fix_rounds, config.min_acceptable_score)
     logger.info("=" * 60)
 
     spot_check_report = None
@@ -89,36 +92,36 @@ async def process_pdf(
         console=console,
     ) as progress:
         # Phase 1: Analyze
-        task = progress.add_task(f"[1/10] Phân tích {pdf_path.name}...", total=None)
+        task = progress.add_task(f"[1/12] Phân tích {pdf_path.name}...", total=None)
         logger.info("Phase 1: Phân tích PDF")
         analysis = analyze_pdf(pdf_path)
-        progress.update(task, completed=True, description=f"[1/10] Phân tích: {analysis.total_pages} trang")
+        progress.update(task, completed=True, description=f"[1/12] Phân tích: {analysis.total_pages} trang")
         logger.info("Phase 1 done: %d trang, %.1f MB, %.0f%% scanned",
                      analysis.total_pages, analysis.file_size_mb, analysis.scanned_ratio * 100)
 
         # Phase 2: Plan chunks
-        task = progress.add_task("[2/10] Lên kế hoạch chia chunk...", total=None)
+        task = progress.add_task("[2/12] Lên kế hoạch chia chunk...", total=None)
         logger.info("Phase 2: Lên kế hoạch chunk")
         chunks = create_plan(analysis, config)
         table_count = sum(len(c.table_pages) for c in chunks)
         progress.update(
             task, completed=True,
-            description=f"[2/10] Kế hoạch: {len(chunks)} chunks, {table_count} trang có bảng",
+            description=f"[2/12] Kế hoạch: {len(chunks)} chunks, {table_count} trang có bảng",
         )
         logger.info("Phase 2 done: %d chunks, %d trang có bảng", len(chunks), table_count)
 
         # Phase 3: Render pages
-        task = progress.add_task("[3/10] Render trang thành ảnh...", total=None)
+        task = progress.add_task("[3/12] Render trang thành ảnh...", total=None)
         logger.info("Phase 3: Render trang thành ảnh (DPI=%d)", config.render_dpi)
         render_result = render_pages(pdf_path, chunks, config, output_subdir)
         progress.update(
             task, completed=True,
-            description=f"[3/10] Render: {len(render_result.pages)} trang",
+            description=f"[3/12] Render: {len(render_result.pages)} trang",
         )
         logger.info("Phase 3 done: %d trang rendered", len(render_result.pages))
 
         # Phase 4: Extract table hints + OCR fallback
-        task = progress.add_task("[4/10] Trích xuất table hints (PyMuPDF)...", total=None)
+        task = progress.add_task("[4/12] Trích xuất table hints (PyMuPDF)...", total=None)
         logger.info("Phase 4: Trích xuất table hints + OCR fallback")
         image_paths = {rp.page_num: rp.image_path for rp in render_result.pages}
         extractions: list[ChunkExtraction] = []
@@ -145,13 +148,13 @@ async def process_pdf(
         )
         progress.update(
             task, completed=True,
-            description=f"[4/10] Table hints: {table_chunk_count}/{len(extractions)} chunks có bảng",
+            description=f"[4/12] Table hints: {table_chunk_count}/{len(extractions)} chunks có bảng",
         )
         logger.info("Phase 4 done: %d/%d chunks có bảng", table_chunk_count, len(extractions))
 
         # Phase 5: Convert with Gemini
         task = progress.add_task(
-            f"[5/10] Gemini convert {len(chunks)} chunks ({config.gemini_model})...",
+            f"[5/12] Gemini convert {len(chunks)} chunks ({config.gemini_model})...",
             total=None,
         )
         logger.info("Phase 5: Gemini convert (%s)", config.gemini_model)
@@ -165,7 +168,7 @@ async def process_pdf(
         progress.update(
             task, completed=True,
             description=(
-                f"[5/10] Convert: {success_count}/{len(chunks)} OK"
+                f"[5/12] Convert: {success_count}/{len(chunks)} OK"
                 + (f", {fallback_count} OCR fallback" if fallback_count else "")
             ),
         )
@@ -173,23 +176,55 @@ async def process_pdf(
                      success_count, len(chunks), fallback_count)
 
         # Phase 6: Assemble
-        task = progress.add_task("[6/10] Ghép nối markdown...", total=None)
+        task = progress.add_task("[6/12] Ghép nối markdown...", total=None)
         logger.info("Phase 6: Ghép nối markdown")
         final_markdown = assemble(chunk_results, analysis)
         output_path = output_dir / f"output_{stem}.md"
         output_path.write_text(final_markdown, encoding="utf-8")
         progress.update(
             task, completed=True,
-            description=f"[6/10] Ghép nối: {len(final_markdown):,} ký tự",
+            description=f"[6/12] Ghép nối: {len(final_markdown):,} ký tự",
         )
         logger.info("Phase 6 done: %d ký tự, saved to %s", len(final_markdown), output_path)
 
-        # Phase 7: Spot-check (random verification)
+        # Phase 7: Integrity Check (page + article coverage)
+        integrity_report = None
+        if config.integrity_check:
+            task = progress.add_task("[7/12] Kiểm tra tính toàn vẹn (trang + Điều)...", total=None)
+            logger.info("Phase 7: Integrity Check (page + article coverage)")
+            final_markdown, integrity_report = run_integrity_check(
+                pdf_path, final_markdown, chunk_results, config,
+                render_result, analysis.total_pages,
+                doc_title=pdf_path.stem, cache_dir=cache_dir,
+                auto_fix=True,
+            )
+            if integrity_report.converted_count > 0:
+                output_path.write_text(final_markdown, encoding="utf-8")
+
+            desc = f"[7/12] Integrity: {integrity_report.covered_pages}/{integrity_report.total_pages} trang"
+            if integrity_report.missing_articles:
+                desc += f", thiếu {len(integrity_report.missing_articles)} Điều"
+            else:
+                desc += ", đủ Điều"
+            if integrity_report.converted_count > 0:
+                desc += f" → +{integrity_report.converted_count} trang bổ sung"
+            progress.update(task, completed=True, description=desc)
+            logger.info(
+                "Phase 7 done: %d/%d trang, thiếu %d Điều, convert bổ sung %d trang",
+                integrity_report.covered_pages, integrity_report.total_pages,
+                len(integrity_report.missing_articles), integrity_report.converted_count,
+            )
+        else:
+            task = progress.add_task("[7/12] Integrity check — bỏ qua", total=None)
+            progress.update(task, completed=True, description="[7/12] Integrity check — bỏ qua")
+            logger.info("Phase 7: Integrity check — bỏ qua (--no-integrity)")
+
+        # Phase 8: Spot-check (random verification)
         if run_spot_check_flag:
             task = progress.add_task(
-                f"[7/10] Spot-check {config.spot_check_count} vị trí...", total=None
+                f"[8/12] Spot-check {config.spot_check_count} vị trí...", total=None
             )
-            logger.info("Phase 7: Spot-check (%d vị trí ngẫu nhiên)", config.spot_check_count)
+            logger.info("Phase 8: Spot-check (%d vị trí ngẫu nhiên)", config.spot_check_count)
             spot_check_report = run_spot_check(
                 pdf_path, final_markdown, chunk_results, config
             )
@@ -198,17 +233,17 @@ async def process_pdf(
             sc_log_path = output_dir / "spot_check.log"
             spot_check_report.save_log(sc_log_path)
 
-            desc = f"[7/10] Spot-check: {spot_check_report.ok_count} OK"
+            desc = f"[8/12] Spot-check: {spot_check_report.ok_count} OK"
             if spot_check_report.critical_count:
                 desc += f", {spot_check_report.critical_count} critical"
             if spot_check_report.warning_count:
                 desc += f", {spot_check_report.warning_count} warning"
             progress.update(task, completed=True, description=desc)
-            logger.info("Phase 7 done: %d OK, %d critical, %d warning",
+            logger.info("Phase 8 done: %d OK, %d critical, %d warning",
                          spot_check_report.ok_count, spot_check_report.critical_count,
                          spot_check_report.warning_count)
 
-        # Phase 8: Auto-fix (first pass)
+        # Phase 9: Auto-fix (first pass)
         if (
             run_auto_fix_flag
             and spot_check_report
@@ -216,9 +251,9 @@ async def process_pdf(
         ):
             total_fixable = spot_check_report.critical_count + spot_check_report.warning_count
             task = progress.add_task(
-                f"[8/10] Auto-fix {total_fixable} lỗi...", total=None
+                f"[9/12] Auto-fix {total_fixable} lỗi...", total=None
             )
-            logger.info("Phase 8: Auto-fix (%d lỗi phát hiện)", total_fixable)
+            logger.info("Phase 9: Auto-fix (%d lỗi phát hiện)", total_fixable)
             final_markdown, auto_fix_report = auto_fix(
                 pdf_path, final_markdown, spot_check_report, config
             )
@@ -229,15 +264,17 @@ async def process_pdf(
 
             output_path.write_text(final_markdown, encoding="utf-8")
 
-            desc = f"[8/10] Auto-fix: {auto_fix_report.fixed_count} sửa"
+            desc = f"[9/12] Auto-fix: {auto_fix_report.fixed_count} sửa"
             if auto_fix_report.failed_count:
                 desc += f", {auto_fix_report.failed_count} thất bại"
             progress.update(task, completed=True, description=desc)
-            logger.info("Phase 8 done: %d sửa, %d thất bại, %d bỏ qua",
+            logger.info("Phase 9 done: %d sửa, %d thất bại, %d bỏ qua",
                          auto_fix_report.fixed_count, auto_fix_report.failed_count,
                          auto_fix_report.skipped_count)
 
-        # Phase 9: Final check loop — re-check, if still CRITICAL -> fix again (max N rounds)
+        # Phase 10: Smart final check loop
+        # Uses recheck_pages() on previously-failed pages, per-page retry tracking,
+        # and early exit when quality score is acceptable.
         if (
             run_spot_check_flag
             and run_auto_fix_flag
@@ -247,14 +284,29 @@ async def process_pdf(
         ):
             max_rounds = config.max_fix_rounds
             task = progress.add_task(
-                f"[9/10] Final check loop (tối đa {max_rounds} vòng)...", total=None
+                f"[10/12] Smart fix loop (tối đa {max_rounds} vòng)...", total=None
             )
-            logger.info("Phase 9: Final check loop (tối đa %d vòng)", max_rounds)
+            logger.info("Phase 10: Smart fix loop (tối đa %d vòng, min score %.1f)",
+                         max_rounds, config.min_acceptable_score)
+
+            pages_to_check = spot_check_report.failed_pages
+            fix_attempts: dict[int, int] = {}
+            unfixable_pages: set[int] = set()
 
             for round_num in range(1, max_rounds + 1):
-                logger.info("  Vòng %d/%d: spot-check lại...", round_num, max_rounds)
-                re_check = run_spot_check(
-                    pdf_path, final_markdown, chunk_results, config
+                active_pages = pages_to_check - unfixable_pages
+                if not active_pages:
+                    logger.info("  Vòng %d: không còn trang cần check -> kết thúc", round_num)
+                    fix_rounds = round_num
+                    break
+
+                logger.info("  Vòng %d/%d: recheck %d trang (skip %d unfixable)...",
+                             round_num, max_rounds, len(active_pages), len(unfixable_pages))
+
+                re_check = recheck_pages(
+                    pdf_path, final_markdown, chunk_results, config,
+                    page_nums=pages_to_check,
+                    skip_pages=unfixable_pages,
                 )
                 re_check.save(output_dir / f"final_check_round_{round_num}.json")
                 re_check.save_log(output_dir / f"final_check_round_{round_num}.log")
@@ -263,43 +315,109 @@ async def process_pdf(
                              round_num, re_check.critical_count,
                              re_check.warning_count, re_check.ok_count)
 
+                final_spot_report = re_check
+                fix_rounds = round_num
+
                 if re_check.critical_count == 0:
-                    logger.info("  Vòng %d: không còn CRITICAL -> kết thúc loop", round_num)
-                    final_spot_report = re_check
-                    fix_rounds = round_num
+                    logger.info("  Vòng %d: không còn CRITICAL -> kết thúc", round_num)
                     break
 
-                logger.info("  Vòng %d: còn %d CRITICAL -> tiếp tục fix...",
-                             round_num, re_check.critical_count)
+                still_bad_pages = re_check.failed_pages
+                for pn in still_bad_pages:
+                    fix_attempts[pn] = fix_attempts.get(pn, 0) + 1
+                    if fix_attempts[pn] >= 2:
+                        unfixable_pages.add(pn)
+                        logger.warning("  Trang %d: đã thử %d lần -> đánh dấu unfixable",
+                                        pn + 1, fix_attempts[pn])
+
+                fixable_in_round = still_bad_pages - unfixable_pages
+                if not fixable_in_round:
+                    logger.info("  Vòng %d: tất cả trang lỗi đều unfixable -> kết thúc", round_num)
+                    break
+
+                logger.info("  Vòng %d: fix %d trang (skip %d unfixable)...",
+                             round_num, len(fixable_in_round), len(unfixable_pages))
+
                 final_markdown, round_fix = auto_fix(
-                    pdf_path, final_markdown, re_check, config
+                    pdf_path, final_markdown, re_check, config,
+                    skip_pages=unfixable_pages,
                 )
                 round_fix.save(output_dir / f"auto_fix_round_{round_num}.json")
                 round_fix.save_log(output_dir / f"auto_fix_round_{round_num}.log")
 
                 output_path.write_text(final_markdown, encoding="utf-8")
 
-                logger.info("  Vòng %d fix: %d sửa, %d thất bại",
-                             round_num, round_fix.fixed_count, round_fix.failed_count)
+                logger.info("  Vòng %d fix: %d sửa, %d thất bại, %d bỏ qua",
+                             round_num, round_fix.fixed_count,
+                             round_fix.failed_count, round_fix.skipped_count)
 
-                final_spot_report = re_check
-                fix_rounds = round_num
+                pages_to_check = still_bad_pages
+
+                # Early exit: quick quality check
+                if run_quality_check and config.min_acceptable_score > 0:
+                    quick_qr = check_quality(pdf_path, final_markdown, analysis, config)
+                    logger.info("  Vòng %d quality: %.1f/10 (ngưỡng: %.1f)",
+                                 round_num, quick_qr.overall_score,
+                                 config.min_acceptable_score)
+                    if quick_qr.overall_score >= config.min_acceptable_score:
+                        logger.info("  Đạt ngưỡng %.1f -> kết thúc sớm",
+                                     config.min_acceptable_score)
+                        break
             else:
-                logger.warning("  Đã hết %d vòng, vẫn còn CRITICAL", max_rounds)
+                logger.warning("  Đã hết %d vòng", max_rounds)
+                if unfixable_pages:
+                    logger.warning("  Trang unfixable: %s",
+                                    ", ".join(str(p + 1) for p in sorted(unfixable_pages)))
 
-            desc = f"[9/10] Final check: {fix_rounds} vòng"
+            desc = f"[10/12] Smart fix: {fix_rounds} vòng"
+            if unfixable_pages:
+                desc += f", {len(unfixable_pages)} unfixable"
             if final_spot_report:
                 if final_spot_report.critical_count == 0:
                     desc += " — hết CRITICAL"
                 else:
                     desc += f" — còn {final_spot_report.critical_count} CRITICAL"
             progress.update(task, completed=True, description=desc)
-            logger.info("Phase 9 done: %d vòng fix", fix_rounds)
+            logger.info("Phase 10 done: %d vòng, %d unfixable pages",
+                         fix_rounds, len(unfixable_pages))
 
-        # Phase 10: Quality check (CUOI CUNG — chấm điểm trên bản đã fix xong)
+        # Phase 11: Final Integrity Check (sau smart fix, trước quality)
+        final_integrity_report = None
+        if config.integrity_check:
+            task = progress.add_task("[11/12] Final integrity check...", total=None)
+            logger.info("Phase 11: Final Integrity Check (sau smart fix)")
+            final_markdown, final_integrity_report = run_integrity_check(
+                pdf_path, final_markdown, chunk_results, config,
+                render_result, analysis.total_pages,
+                doc_title=pdf_path.stem, cache_dir=cache_dir,
+                auto_fix=True,
+            )
+            if final_integrity_report.converted_count > 0:
+                output_path.write_text(final_markdown, encoding="utf-8")
+
+            fi = final_integrity_report
+            desc = f"[11/12] Final integrity: {fi.covered_pages}/{fi.total_pages} trang"
+            if fi.missing_articles:
+                desc += f", thiếu {len(fi.missing_articles)} Điều"
+            else:
+                desc += ", đủ Điều"
+            if fi.converted_count > 0:
+                desc += f" → +{fi.converted_count} trang"
+            progress.update(task, completed=True, description=desc)
+            logger.info(
+                "Phase 11 done: %d/%d trang, thiếu %d Điều, convert bổ sung %d trang",
+                fi.covered_pages, fi.total_pages,
+                len(fi.missing_articles), fi.converted_count,
+            )
+        else:
+            task = progress.add_task("[11/12] Final integrity — bỏ qua", total=None)
+            progress.update(task, completed=True, description="[11/12] Final integrity — bỏ qua")
+            logger.info("Phase 11: Final integrity — bỏ qua (--no-integrity)")
+
+        # Phase 12: Quality check (CUOI CUNG — chấm điểm trên bản đã fix xong)
         if run_quality_check:
-            task = progress.add_task("[10/10] Chấm điểm chất lượng (final)...", total=None)
-            logger.info("Phase 10: Quality check (trên bản cuối cùng)")
+            task = progress.add_task("[12/12] Chấm điểm chất lượng (final)...", total=None)
+            logger.info("Phase 12: Quality check (trên bản cuối cùng)")
             quality_report = check_quality(
                 pdf_path, final_markdown, analysis, config
             )
@@ -307,9 +425,9 @@ async def process_pdf(
             quality_report.save(report_path)
             progress.update(
                 task, completed=True,
-                description=f"[10/10] Chất lượng: {quality_report.overall_score:.1f}/10",
+                description=f"[12/12] Chất lượng: {quality_report.overall_score:.1f}/10",
             )
-            logger.info("Phase 10 done: overall=%.1f/10", quality_report.overall_score)
+            logger.info("Phase 12 done: overall=%.1f/10", quality_report.overall_score)
 
     elapsed = time.time() - start_time
 

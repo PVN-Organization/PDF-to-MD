@@ -1,36 +1,66 @@
 === Auto-Fix Report: QĐ_6389_2012 Quy che quan ly SKSC PVN 3 1.pdf ===
-Total issues: 11
-Fixed: 11 | Failed: 0 | Skipped: 0
+Total issues: 21
+Fixed: 21 | Failed: 0 | Skipped: 0
 
-[FIXED] #1 Trang 20, dòng 324-393 | missing_content: Thiếu số hiệu Điều '11' và '13' trong đoạn văn cam kết cuối trang: 'quy định tại Điều và Điều Quy chế quản lý sáng kiến...'
-  Log: Đã sửa thành công (2966 ký tự)
+[FIXED] #1 Trang 21, dòng 353-420 | missing_content: Nội dung từ dòng 353 đến dòng 420 của file Markdown không có trong hình ảnh.
+  Log: Đã sửa (batched 4 issues, 1435 ký tự)
 
-[FIXED] #2 Trang 20, dòng 324-399 | missing_content: Thiếu dòng running header 'Quy chế quản lý hoạt động sáng kiến, sáng chế' ở đầu trang.
-  Log: Đã sửa thành công (3113 ký tự)
+[FIXED] #2 Trang 21, dòng 353-420 | running_header: Dòng 'Quy chế quản lý hoạt động sáng kiến, sáng chế' bị lọt vào nội dung.
+  Log: Đã sửa (batched 4 issues, 1435 ký tự)
 
-[FIXED] #3 Trang 20, dòng 324-395 | missing_content: Thiếu số trang '19 / 20' ở cuối trang.
-  Log: Đã sửa thành công (2957 ký tự)
+[FIXED] #3 Trang 21, dòng 353-420 | structure_error: Cấu trúc Heading level sai. Heading 'I. Tình hình hoạt động sáng kiến, sáng chế:' và 'II. Các kết quả cụ thể:' và 'III. Kiến nghị và kết luận:' có cấp độ heading sai so với hình ảnh gốc.
+  Log: Đã sửa (batched 4 issues, 1435 ký tự)
 
-[FIXED] #4 Trang 15, dòng 238-292 | missing_content: Thiếu phần lớn nội dung của trang 14: phần còn lại của Khoản 5 Điều 17, toàn bộ Điều 18 và Điều 19.
-  Log: Đã sửa thành công (5092 ký tự)
+[FIXED] #4 Trang 21, dòng 353-420 | structure_error: Cấu trúc list nesting sai. Các mục con của 'III. Kiến nghị và kết luận:' có cấp độ list sai so với hình ảnh gốc.
+  Log: Đã sửa (batched 4 issues, 1435 ký tự)
 
-[FIXED] #5 Trang 15, dòng 238-289 | ocr_gibberish: Văn bản bị cắt cụt ở cuối: 'Tích cực tham gia Hội thi sá'.
-  Log: Đã sửa thành công (5071 ký tự)
+[FIXED] #5 Trang 6, dòng 66-135 | missing_content: Nội dung "c) Không trùng với giải pháp của người khác đã được áp dụng hoặc áp dụng thử, hoặc đưa vào kế hoạch áp dụng, phổ biến hoặc chuẩn bị các điều kiện để áp dụng, phổ biến; d) Không trùng với nội dung của giải pháp trong đơn đăng ký sáng kiến nộp trước." có trong hình ảnh nhưng bị thiếu trong Markdown.
+  Log: Đã sửa (batched 12 issues, 2039 ký tự)
 
-[FIXED] #6 Trang 15, dòng 238-254 | structure_error: Markdown bao gồm nội dung từ các trang trước (Điều 13 đến Điều 16) không thuộc trang 14; xuất hiện các ký tự lạ '*(đã ký)*' không có trong văn bản gốc.
-  Log: Đã sửa thành công (2306 ký tự)
+[FIXED] #6 Trang 6, dòng 66-135 | missing_content: Nội dung "3. Một giải pháp được coi là mang lại lợi ích thiết thực nếu áp dụng mang lại hiệu quả kinh tế (lợi ích kinh tế tính ra được bằng tiền/số tiền làm lợi trực tiếp, nâng cao năng suất lao động, giảm chi phí sản xuất, nâng cao chất lượng sản phẩm, dịch vụ, các tiêu chí, thông số kỹ thuật cao hơn trước...), hoặc lợi ích xã hội (góp phần bảo vệ chủ quyền, an ninh quốc gia, an ninh năng lượng quốc gia, nâng cao điều kiện an toàn lao động, cải thiện điều kiện sống, làm việc, bảo vệ môi trường, sức khỏe con người...)." có trong hình ảnh nhưng bị thiếu trong Markdown.
+  Log: Đã sửa (batched 12 issues, 2039 ký tự)
 
-[FIXED] #7 Trang 15, dòng 238-256 | running_header: Thiếu dòng tiêu đề 'Quy chế quản lý hoạt động sáng kiến, sáng chế'.
-  Log: Đã sửa thành công (2353 ký tự)
+[FIXED] #7 Trang 6, dòng 66-135 | missing_content: Nội dung "Điều 4. Sáng chế ngành Dầu khí Việt Nam" có trong hình ảnh nhưng bị thiếu trong Markdown.
+  Log: Đã sửa (batched 12 issues, 2039 ký tự)
 
-[FIXED] #8 Trang 15, dòng 238-256 | embedded_page_number: Thiếu số trang '14 / 20' ở cuối trang.
-  Log: Đã sửa thành công (2315 ký tự)
+[FIXED] #8 Trang 6, dòng 66-135 | missing_content: Nội dung "Sáng chế ngành Dầu khí Việt Nam là giải pháp kỹ thuật dưới dạng sản phẩm hoặc quy trình nhằm giải quyết một vấn đề xác định bằng việc ứng dụng các quy luật tự nhiên; có tính mới, có trình độ sáng tạo và có khả năng áp dụng trong ngành Dầu khí Việt Nam; và được Cơ quan quản lý về sở hữu trí tuệ cấp Bằng độc quyền sáng chế hoặc Bằng độc quyền giải pháp hữu ích." có trong hình ảnh nhưng bị thiếu trong Markdown.
+  Log: Đã sửa (batched 12 issues, 2039 ký tự)
 
-[FIXED] #9 Trang 9, dòng 134-146 | missing_content: Toàn bộ nội dung trong hình ảnh (bao gồm các điểm 2, 3 của Điều 8 và toàn bộ Điều 9 trên trang 8) hoàn toàn thiếu trong đoạn Markdown được cung cấp. Đoạn Markdown lại chứa nội dung của các Điều 1, 3, 4, 5 và 6, vốn thuộc các trang trước đó của tài liệu.
-  Log: Đã sửa thành công (2242 ký tự)
+[FIXED] #9 Trang 6, dòng 66-135 | missing_content: Nội dung "Điều 5. Tác giả sáng kiến" có trong hình ảnh nhưng bị thiếu trong Markdown.
+  Log: Đã sửa (batched 12 issues, 2039 ký tự)
 
-[FIXED] #10 Trang 5, dòng 65-145 | missing_content: Toàn bộ nội dung của trang 4 trong hình ảnh (bao gồm định nghĩa 'Người đứng đầu Đơn vị', Điều 2 và Điều 3) hoàn toàn thiếu trong đoạn Markdown được cung cấp. Đoạn Markdown kết thúc đột ngột ở giữa Điều 1 (định nghĩa về Tập đoàn).
-  Log: Đã sửa thành công (6104 ký tự)
+[FIXED] #10 Trang 6, dòng 66-135 | missing_content: Nội dung "1. Tác giả sáng kiến là người trực tiếp tạo ra sáng kiến bằng chính lao động sáng tạo của mình." có trong hình ảnh nhưng bị thiếu trong Markdown.
+  Log: Đã sửa (batched 12 issues, 2039 ký tự)
 
-[FIXED] #11 Trang 1, dòng 1-52 | missing_content: Thiếu phần lớn nội dung trong mục 'Nơi nhận' (từ dòng '- P.TGĐ N.Q.Thập (e-copy);' đến hết) và toàn bộ phần chữ ký, chức danh của người ký (TM. HỘI ĐỒNG THÀNH VIÊN CHỦ TỊCH Phùng Đình Thực).
-  Log: Đã sửa thành công (2226 ký tự)
+[FIXED] #11 Trang 6, dòng 66-135 | missing_content: Nội dung "2. Đồng tác giả sáng kiến là những Tác giả cùng nhau tạo ra sáng kiến. Chỉ những đồng tác giả sáng kiến có tỷ lệ đóng góp từ 05% (năm %) trở lên mới được Tập đoàn xem xét cấp Giấy chứng nhận sáng kiến." có trong hình ảnh nhưng bị thiếu trong Markdown.
+  Log: Đã sửa (batched 12 issues, 2039 ký tự)
+
+[FIXED] #12 Trang 6, dòng 66-135 | missing_content: Nội dung "3. Người chỉ hỗ trợ trong quá trình tạo ra sáng kiến không được coi là Tác giả sáng kiến." có trong hình ảnh nhưng bị thiếu trong Markdown.
+  Log: Đã sửa (batched 12 issues, 2039 ký tự)
+
+[FIXED] #13 Trang 6, dòng 66-135 | missing_content: Nội dung "Điều 6. Sáng kiến cấp cơ sở và Sáng kiến cấp Tập đoàn" có trong hình ảnh nhưng bị thiếu trong Markdown.
+  Log: Đã sửa (batched 12 issues, 2039 ký tự)
+
+[FIXED] #14 Trang 6, dòng 66-135 | missing_content: Nội dung "1. Sáng kiến cấp cơ sở: là sáng kiến do Tập đoàn/Đơn vị tiếp nhận đơn yêu cầu công nhận sáng kiến, thẩm định và ra quyết định công nhận." có trong hình ảnh nhưng bị thiếu trong Markdown.
+  Log: Đã sửa (batched 12 issues, 2039 ký tự)
+
+[FIXED] #15 Trang 6, dòng 66-135 | missing_content: Nội dung "2. Sáng kiến cấp Tập đoàn: là sáng kiến cấp cơ sở đáp ứng các tiêu chí sau đây: a) Mang lại lợi ích kinh tế trong năm đầu tiên áp dụng (số tiền làm lợi trực tiếp) ít nhất từ 5 (năm) tỷ đồng trở lên; và/hoặc" có trong hình ảnh nhưng bị thiếu trong Markdown.
+  Log: Đã sửa (batched 12 issues, 2039 ký tự)
+
+[FIXED] #16 Trang 6, dòng 66-135 | embedded_page_number: Số trang "5 / 20" bị nhúng vào giữa câu văn.
+  Log: Đã sửa (batched 12 issues, 2039 ký tự)
+
+[FIXED] #17 Trang 3, dòng 21-90 | missing_content: Nội dung "Chương IV Các biện pháp thúc đẩy hoạt động sáng kiến, sáng chế" và các điều khoản thuộc chương này (Điều 16-20) bị thiếu.
+  Log: Đã sửa (batched 5 issues, 1799 ký tự)
+
+[FIXED] #18 Trang 3, dòng 21-90 | missing_content: Nội dung "Chương V Quản lý hoạt động sáng kiến, sáng chế" và các điều khoản thuộc chương này (Điều 21-23) bị thiếu.
+  Log: Đã sửa (batched 5 issues, 1799 ký tự)
+
+[FIXED] #19 Trang 3, dòng 21-90 | missing_content: Nội dung "Chương VI Điều khoản thi hành" và các điều khoản thuộc chương này (Điều 24) bị thiếu.
+  Log: Đã sửa (batched 5 issues, 1799 ký tự)
+
+[FIXED] #20 Trang 3, dòng 21-90 | missing_content: Nội dung "BM.01-SK/PVN: Đơn yêu cầu công nhận sáng kiến" bị thiếu.
+  Log: Đã sửa (batched 5 issues, 1799 ký tự)
+
+[FIXED] #21 Trang 3, dòng 21-90 | missing_content: Nội dung "BM.02-SK/PVN: Báo cáo kết quả hoạt động sáng kiến, sáng chế" bị thiếu.
+  Log: Đã sửa (batched 5 issues, 1799 ký tự)

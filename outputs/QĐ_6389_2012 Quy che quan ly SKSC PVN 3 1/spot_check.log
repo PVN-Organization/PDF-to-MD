@@ -1,17 +1,35 @@
 === Spot-Check Log: QĐ_6389_2012 Quy che quan ly SKSC PVN 3 1.pdf ===
-Tổng: 5 vị trí | Critical: 0 | Warning: 0 | OK: 5
+Tổng: 5 vị trí | Critical: 3 | Warning: 0 | OK: 2
 
-[OK] #1 Trang 1, dòng 1-43
+[CRITICAL] #1 Trang 3, dòng 21-90
+  - [critical] missing_content: Nội dung "Chương IV Các biện pháp thúc đẩy hoạt động sáng kiến, sáng chế" và các điều khoản thuộc chương này (Điều 16-20) bị thiếu.
+  - [critical] missing_content: Nội dung "Chương V Quản lý hoạt động sáng kiến, sáng chế" và các điều khoản thuộc chương này (Điều 21-23) bị thiếu.
+  - [critical] missing_content: Nội dung "Chương VI Điều khoản thi hành" và các điều khoản thuộc chương này (Điều 24) bị thiếu.
+  - [critical] missing_content: Nội dung "BM.01-SK/PVN: Đơn yêu cầu công nhận sáng kiến" bị thiếu.
+  - [critical] missing_content: Nội dung "BM.02-SK/PVN: Báo cáo kết quả hoạt động sáng kiến, sáng chế" bị thiếu.
+
+[CRITICAL] #2 Trang 6, dòng 66-135
+  - [critical] missing_content: Nội dung "c) Không trùng với giải pháp của người khác đã được áp dụng hoặc áp dụng thử, hoặc đưa vào kế hoạch áp dụng, phổ biến hoặc chuẩn bị các điều kiện để áp dụng, phổ biến; d) Không trùng với nội dung của giải pháp trong đơn đăng ký sáng kiến nộp trước." có trong hình ảnh nhưng bị thiếu trong Markdown.
+  - [critical] missing_content: Nội dung "3. Một giải pháp được coi là mang lại lợi ích thiết thực nếu áp dụng mang lại hiệu quả kinh tế (lợi ích kinh tế tính ra được bằng tiền/số tiền làm lợi trực tiếp, nâng cao năng suất lao động, giảm chi phí sản xuất, nâng cao chất lượng sản phẩm, dịch vụ, các tiêu chí, thông số kỹ thuật cao hơn trước...), hoặc lợi ích xã hội (góp phần bảo vệ chủ quyền, an ninh quốc gia, an ninh năng lượng quốc gia, nâng cao điều kiện an toàn lao động, cải thiện điều kiện sống, làm việc, bảo vệ môi trường, sức khỏe con người...)." có trong hình ảnh nhưng bị thiếu trong Markdown.
+  - [critical] missing_content: Nội dung "Điều 4. Sáng chế ngành Dầu khí Việt Nam" có trong hình ảnh nhưng bị thiếu trong Markdown.
+  - [critical] missing_content: Nội dung "Sáng chế ngành Dầu khí Việt Nam là giải pháp kỹ thuật dưới dạng sản phẩm hoặc quy trình nhằm giải quyết một vấn đề xác định bằng việc ứng dụng các quy luật tự nhiên; có tính mới, có trình độ sáng tạo và có khả năng áp dụng trong ngành Dầu khí Việt Nam; và được Cơ quan quản lý về sở hữu trí tuệ cấp Bằng độc quyền sáng chế hoặc Bằng độc quyền giải pháp hữu ích." có trong hình ảnh nhưng bị thiếu trong Markdown.
+  - [critical] missing_content: Nội dung "Điều 5. Tác giả sáng kiến" có trong hình ảnh nhưng bị thiếu trong Markdown.
+  - [critical] missing_content: Nội dung "1. Tác giả sáng kiến là người trực tiếp tạo ra sáng kiến bằng chính lao động sáng tạo của mình." có trong hình ảnh nhưng bị thiếu trong Markdown.
+  - [critical] missing_content: Nội dung "2. Đồng tác giả sáng kiến là những Tác giả cùng nhau tạo ra sáng kiến. Chỉ những đồng tác giả sáng kiến có tỷ lệ đóng góp từ 05% (năm %) trở lên mới được Tập đoàn xem xét cấp Giấy chứng nhận sáng kiến." có trong hình ảnh nhưng bị thiếu trong Markdown.
+  - [critical] missing_content: Nội dung "3. Người chỉ hỗ trợ trong quá trình tạo ra sáng kiến không được coi là Tác giả sáng kiến." có trong hình ảnh nhưng bị thiếu trong Markdown.
+  - [critical] missing_content: Nội dung "Điều 6. Sáng kiến cấp cơ sở và Sáng kiến cấp Tập đoàn" có trong hình ảnh nhưng bị thiếu trong Markdown.
+  - [critical] missing_content: Nội dung "1. Sáng kiến cấp cơ sở: là sáng kiến do Tập đoàn/Đơn vị tiếp nhận đơn yêu cầu công nhận sáng kiến, thẩm định và ra quyết định công nhận." có trong hình ảnh nhưng bị thiếu trong Markdown.
+  - [critical] missing_content: Nội dung "2. Sáng kiến cấp Tập đoàn: là sáng kiến cấp cơ sở đáp ứng các tiêu chí sau đây: a) Mang lại lợi ích kinh tế trong năm đầu tiên áp dụng (số tiền làm lợi trực tiếp) ít nhất từ 5 (năm) tỷ đồng trở lên; và/hoặc" có trong hình ảnh nhưng bị thiếu trong Markdown.
+  - [critical] embedded_page_number: Số trang "5 / 20" bị nhúng vào giữa câu văn.
+
+[OK] #3 Trang 10, dòng 148-217
   (không phát hiện lỗi)
 
-[OK] #2 Trang 5, dòng 51-120
+[OK] #4 Trang 16, dòng 265-334
   (không phát hiện lỗi)
 
-[OK] #3 Trang 12, dòng 187-256
-  (không phát hiện lỗi)
-
-[OK] #4 Trang 15, dòng 241-310
-  (không phát hiện lỗi)
-
-[OK] #5 Trang 21, dòng 377-420
-  (không phát hiện lỗi)
+[CRITICAL] #5 Trang 21, dòng 353-420
+  - [critical] missing_content: Nội dung từ dòng 353 đến dòng 420 của file Markdown không có trong hình ảnh.
+  - [warning] running_header: Dòng 'Quy chế quản lý hoạt động sáng kiến, sáng chế' bị lọt vào nội dung.
+  - [critical] structure_error: Cấu trúc Heading level sai. Heading 'I. Tình hình hoạt động sáng kiến, sáng chế:' và 'II. Các kết quả cụ thể:' và 'III. Kiến nghị và kết luận:' có cấp độ heading sai so với hình ảnh gốc.
+  - [critical] structure_error: Cấu trúc list nesting sai. Các mục con của 'III. Kiến nghị và kết luận:' có cấp độ list sai so với hình ảnh gốc.

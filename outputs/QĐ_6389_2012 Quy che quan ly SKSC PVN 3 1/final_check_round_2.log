@@ -1,0 +1,10 @@
+=== Spot-Check Log: QĐ_6389_2012 Quy che quan ly SKSC PVN 3 1.pdf ===
+Tổng: 2 vị trí | Critical: 1 | Warning: 0 | OK: 1
+
+[CRITICAL] #1 Trang 19, dòng 199-209
+  - [critical] missing_content: Nội dung "Chương VI ĐIỀU KHOẢN THI HÀNH Điều 24. Điều khoản thi hành 1. Quy chế này bao gồm 6 Chương, 24 Điều và 02 Biểu mẫu kèm theo. 2. Trong quá trình thực hiện, Đơn vị/Người đại diện của Tập đoàn có trách nhiệm báo cáo cáo Tập đoàn các vấn đề phát sinh và/hoặc chưa hợp lý để Tập đoàn xem xét và ra quyết định bổ sung, sửa đổi kịp thời nhằm thúc đẩy hoạt động sáng kiến, sáng chế, góp phần tiết giảm chi phí và nâng cao hiệu quả hoạt động sản xuất kinh doanh của Đơn vị và Tập đoàn./." có trong hình ảnh nhưng bị thiếu trong Markdown.
+  - [warning] running_header: Dòng "Quy chế quản lý hoạt động sáng kiến, sáng chế" bị lọt vào nội dung.
+  - [critical] missing_content: Nội dung "18 / 20" có trong hình ảnh nhưng bị thiếu trong Markdown.
+
+[OK] #2 Trang 21, dòng 221-242
+  (không phát hiện lỗi)

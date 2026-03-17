@@ -1,49 +1,157 @@
 {
   "filename": "QĐ_6389_2012 Quy che quan ly SKSC PVN 3 1.pdf",
   "total_checks": 5,
-  "critical_count": 0,
+  "critical_count": 3,
   "warning_count": 0,
-  "ok_count": 5,
+  "ok_count": 2,
   "results": [
     {
-      "page_num": 0,
-      "md_line_start": 0,
-      "md_line_end": 43,
-      "severity": "ok",
-      "issues": [],
-      "md_snippet_preview": "<!-- Chuyển đổi tự động từ PDF sang Markdown -->\n<!-- File gốc: QĐ_6389_2012 Quy che quan ly SKSC PVN 3 1.pdf -->\n<!-- Số trang: 21 | Kích thước: 0.4 MB -->\n<!-- Thời gian: 2026-03-17 11:53:56 -->\n\n\n-"
+      "page_num": 2,
+      "md_line_start": 20,
+      "md_line_end": 90,
+      "severity": "critical",
+      "issues": [
+        {
+          "type": "missing_content",
+          "description": "Nội dung \"Chương IV Các biện pháp thúc đẩy hoạt động sáng kiến, sáng chế\" và các điều khoản thuộc chương này (Điều 16-20) bị thiếu.",
+          "severity": "critical"
+        },
+        {
+          "type": "missing_content",
+          "description": "Nội dung \"Chương V Quản lý hoạt động sáng kiến, sáng chế\" và các điều khoản thuộc chương này (Điều 21-23) bị thiếu.",
+          "severity": "critical"
+        },
+        {
+          "type": "missing_content",
+          "description": "Nội dung \"Chương VI Điều khoản thi hành\" và các điều khoản thuộc chương này (Điều 24) bị thiếu.",
+          "severity": "critical"
+        },
+        {
+          "type": "missing_content",
+          "description": "Nội dung \"BM.01-SK/PVN: Đơn yêu cầu công nhận sáng kiến\" bị thiếu.",
+          "severity": "critical"
+        },
+        {
+          "type": "missing_content",
+          "description": "Nội dung \"BM.02-SK/PVN: Báo cáo kết quả hoạt động sáng kiến, sáng chế\" bị thiếu.",
+          "severity": "critical"
+        }
+      ],
+      "md_snippet_preview": "Căn cứ Quyết định số 199/2006/QĐ-TTg ngày 29/8/2006 của Thủ tướng Chính phủ về việc thành lập Công ty mẹ - Tập đoàn Dầu khí Việt Nam;\n\nCăn cứ Quyết định số 924/QĐ-TTg ngày 18/6/2010 của Thủ tướng Chín"
     },
     {
-      "page_num": 4,
-      "md_line_start": 50,
-      "md_line_end": 120,
-      "severity": "ok",
-      "issues": [],
-      "md_snippet_preview": "\n*(đã ký và đóng dấu)*\n\n**Phùng Đình Thực**\n\n---\n\nTẬP ĐOÀN DẦU KHÍ VIỆT NAM\n\n*(logo đơn vị)*\n\n**QUY CHẾ**\n**QUẢN LÝ HOẠT ĐỘNG SÁNG KIẾN, SÁNG CHẾ**\n\n*Hà Nội, 08/2012*\n\n---\n\n## MỤC LỤC\n\n| Chương | Nội "
+      "page_num": 5,
+      "md_line_start": 65,
+      "md_line_end": 135,
+      "severity": "critical",
+      "issues": [
+        {
+          "type": "missing_content",
+          "description": "Nội dung \"c) Không trùng với giải pháp của người khác đã được áp dụng hoặc áp dụng thử, hoặc đưa vào kế hoạch áp dụng, phổ biến hoặc chuẩn bị các điều kiện để áp dụng, phổ biến; d) Không trùng với nội dung của giải pháp trong đơn đăng ký sáng kiến nộp trước.\" có trong hình ảnh nhưng bị thiếu trong Markdown.",
+          "severity": "critical"
+        },
+        {
+          "type": "missing_content",
+          "description": "Nội dung \"3. Một giải pháp được coi là mang lại lợi ích thiết thực nếu áp dụng mang lại hiệu quả kinh tế (lợi ích kinh tế tính ra được bằng tiền/số tiền làm lợi trực tiếp, nâng cao năng suất lao động, giảm chi phí sản xuất, nâng cao chất lượng sản phẩm, dịch vụ, các tiêu chí, thông số kỹ thuật cao hơn trước...), hoặc lợi ích xã hội (góp phần bảo vệ chủ quyền, an ninh quốc gia, an ninh năng lượng quốc gia, nâng cao điều kiện an toàn lao động, cải thiện điều kiện sống, làm việc, bảo vệ môi trường, sức khỏe con người...).\" có trong hình ảnh nhưng bị thiếu trong Markdown.",
+          "severity": "critical"
+        },
+        {
+          "type": "missing_content",
+          "description": "Nội dung \"Điều 4. Sáng chế ngành Dầu khí Việt Nam\" có trong hình ảnh nhưng bị thiếu trong Markdown.",
+          "severity": "critical"
+        },
+        {
+          "type": "missing_content",
+          "description": "Nội dung \"Sáng chế ngành Dầu khí Việt Nam là giải pháp kỹ thuật dưới dạng sản phẩm hoặc quy trình nhằm giải quyết một vấn đề xác định bằng việc ứng dụng các quy luật tự nhiên; có tính mới, có trình độ sáng tạo và có khả năng áp dụng trong ngành Dầu khí Việt Nam; và được Cơ quan quản lý về sở hữu trí tuệ cấp Bằng độc quyền sáng chế hoặc Bằng độc quyền giải pháp hữu ích.\" có trong hình ảnh nhưng bị thiếu trong Markdown.",
+          "severity": "critical"
+        },
+        {
+          "type": "missing_content",
+          "description": "Nội dung \"Điều 5. Tác giả sáng kiến\" có trong hình ảnh nhưng bị thiếu trong Markdown.",
+          "severity": "critical"
+        },
+        {
+          "type": "missing_content",
+          "description": "Nội dung \"1. Tác giả sáng kiến là người trực tiếp tạo ra sáng kiến bằng chính lao động sáng tạo của mình.\" có trong hình ảnh nhưng bị thiếu trong Markdown.",
+          "severity": "critical"
+        },
+        {
+          "type": "missing_content",
+          "description": "Nội dung \"2. Đồng tác giả sáng kiến là những Tác giả cùng nhau tạo ra sáng kiến. Chỉ những đồng tác giả sáng kiến có tỷ lệ đóng góp từ 05% (năm %) trở lên mới được Tập đoàn xem xét cấp Giấy chứng nhận sáng kiến.\" có trong hình ảnh nhưng bị thiếu trong Markdown.",
+          "severity": "critical"
+        },
+        {
+          "type": "missing_content",
+          "description": "Nội dung \"3. Người chỉ hỗ trợ trong quá trình tạo ra sáng kiến không được coi là Tác giả sáng kiến.\" có trong hình ảnh nhưng bị thiếu trong Markdown.",
+          "severity": "critical"
+        },
+        {
+          "type": "missing_content",
+          "description": "Nội dung \"Điều 6. Sáng kiến cấp cơ sở và Sáng kiến cấp Tập đoàn\" có trong hình ảnh nhưng bị thiếu trong Markdown.",
+          "severity": "critical"
+        },
+        {
+          "type": "missing_content",
+          "description": "Nội dung \"1. Sáng kiến cấp cơ sở: là sáng kiến do Tập đoàn/Đơn vị tiếp nhận đơn yêu cầu công nhận sáng kiến, thẩm định và ra quyết định công nhận.\" có trong hình ảnh nhưng bị thiếu trong Markdown.",
+          "severity": "critical"
+        },
+        {
+          "type": "missing_content",
+          "description": "Nội dung \"2. Sáng kiến cấp Tập đoàn: là sáng kiến cấp cơ sở đáp ứng các tiêu chí sau đây: a) Mang lại lợi ích kinh tế trong năm đầu tiên áp dụng (số tiền làm lợi trực tiếp) ít nhất từ 5 (năm) tỷ đồng trở lên; và/hoặc\" có trong hình ảnh nhưng bị thiếu trong Markdown.",
+          "severity": "critical"
+        },
+        {
+          "type": "embedded_page_number",
+          "description": "Số trang \"5 / 20\" bị nhúng vào giữa câu văn.",
+          "severity": "critical"
+        }
+      ],
+      "md_snippet_preview": "\n---\n\n## MỤC LỤC\n\n| Chương | Nội dung | Trang |\n|---|---|---|\n| **Chương I** | **Những quy định chung** | 03 |\n| | Điều 1. Giải thích từ ngữ | |\n| | Điều 2. Phạm vi điều chỉnh và đối tượng áp dụng | |"
     },
     {
-      "page_num": 11,
-      "md_line_start": 186,
-      "md_line_end": 256,
+      "page_num": 9,
+      "md_line_start": 147,
+      "md_line_end": 217,
       "severity": "ok",
       "issues": [],
-      "md_snippet_preview": "\n#### Điều 9. Xét công nhận sáng kiến\n1. Sáng kiến cấp cơ sở\n   a) Việc xét công nhận Sáng kiến cấp cơ sở được thực hiện trong thời hạn 90 ngày kể từ ngày chấp nhận đơn yêu cầu công nhận sáng kiến quy"
+      "md_snippet_preview": "3. Một giải pháp được coi là mang lại lợi ích thiết thực nếu áp dụng mang lại hiệu quả kinh tế (lợi ích kinh tế tính ra được bằng tiền/số tiền làm lợi trực tiếp, nâng cao năng suất lao động, giảm chi "
     },
     {
-      "page_num": 14,
-      "md_line_start": 240,
-      "md_line_end": 310,
+      "page_num": 15,
+      "md_line_start": 264,
+      "md_line_end": 334,
       "severity": "ok",
       "issues": [],
-      "md_snippet_preview": "   b) Phổ biến nhân rộng áp dụng sáng kiến trong phạm vi Đơn vị/Tập đoàn Dầu khí Quốc gia Việt Nam và/hoặc chuyển giao sáng kiến cho doanh nghiệp/đơn vị khác trong Tập đoàn Dầu khí Quốc gia Việt Nam á"
+      "md_snippet_preview": "3. Tiền làm lợi trực tiếp do áp dụng sáng kiến được xác định trên cơ sở so sánh thực trạng kinh tế, kỹ thuật trước và sau khi áp dụng sáng kiến.\n\n#### **Điều 16. Quyền và nghĩa vụ liên quan đến sáng k"
     },
     {
       "page_num": 20,
-      "md_line_start": 376,
+      "md_line_start": 352,
       "md_line_end": 420,
-      "severity": "ok",
-      "issues": [],
-      "md_snippet_preview": "> *(ký, ghi rõ họ tên)*\n\n*(đã ký)*\n*(đã ký)*\n\n---\n\n**BM.02-SK/PVN**\n\n|  |  |\n|---|---|\n| TẬP ĐOÀN DẦU KHÍ QUỐC GIA VIỆT NAM | **CỘNG HOÀ XÃ HỘI CHỦ NGHĨA VIỆT NAM** |\n| **ĐƠN VỊ** | **Độc lập - Tự do "
+      "severity": "critical",
+      "issues": [
+        {
+          "type": "missing_content",
+          "description": "Nội dung từ dòng 353 đến dòng 420 của file Markdown không có trong hình ảnh.",
+          "severity": "critical"
+        },
+        {
+          "type": "running_header",
+          "description": "Dòng 'Quy chế quản lý hoạt động sáng kiến, sáng chế' bị lọt vào nội dung.",
+          "severity": "warning"
+        },
+        {
+          "type": "structure_error",
+          "description": "Cấu trúc Heading level sai. Heading 'I. Tình hình hoạt động sáng kiến, sáng chế:' và 'II. Các kết quả cụ thể:' và 'III. Kiến nghị và kết luận:' có cấp độ heading sai so với hình ảnh gốc.",
+          "severity": "critical"
+        },
+        {
+          "type": "structure_error",
+          "description": "Cấu trúc list nesting sai. Các mục con của 'III. Kiến nghị và kết luận:' có cấp độ list sai so với hình ảnh gốc.",
+          "severity": "critical"
+        }
+      ],
+      "md_snippet_preview": "Danh sách đồng Tác giả (nếu có):\nTôi/Chúng tôi có tên dưới đây là đồng Tác giả của giải pháp đăng ký sáng kiến, cùng thỏa thuận về đóng góp của từng người, ký tên cam kết mọi quyền lợi, trách nhiệm có"
     }
   ]
 }

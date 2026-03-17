@@ -1,0 +1,152 @@
+{
+  "filename": "QĐ_6389_2012 Quy che quan ly SKSC PVN 3 1.pdf",
+  "total_issues": 13,
+  "fixed_count": 13,
+  "failed_count": 0,
+  "skipped_count": 0,
+  "fixes": [
+    {
+      "page_num": 5,
+      "line_start": 75,
+      "line_end": 90,
+      "issue_type": "missing_content",
+      "issue_description": "Nội dung \"Quy chế quản lý hoạt động sáng kiến, sáng chế\" ở đầu trang bị thiếu.",
+      "original_snippet_preview": "\n#### Điều 5. Tác giả sáng kiến\n1. Tác giả sáng kiến là người trực tiếp tạo ra sáng kiến bằng chính lao động sáng tạo của mình.\n2. Đồng Tác giả sáng kiến là những Tác giả cùng nhau tạo ra sáng kiến. C",
+      "fixed_snippet_preview": "Quy chế quản lý hoạt động sáng kiến, sáng chế\n\nc) Không trùng với giải pháp của người khác đã được áp dụng hoặc áp dụng thử, hoặc đưa vào kế hoạch áp dụng, phổ biến hoặc chuẩn bị các điều kiện để áp d",
+      "success": true,
+      "log_message": "Đã sửa (batched 13 issues, 2342 ký tự)"
+    },
+    {
+      "page_num": 5,
+      "line_start": 75,
+      "line_end": 90,
+      "issue_type": "missing_content",
+      "issue_description": "Nội dung \"c) Không trùng với giải pháp của người khác đã được áp dụng hoặc áp dụng thử, hoặc đưa vào kế hoạch áp dụng, phổ biến hoặc chuẩn bị các điều kiện để áp dụng, phổ biến;\" bị thiếu.",
+      "original_snippet_preview": "\n#### Điều 5. Tác giả sáng kiến\n1. Tác giả sáng kiến là người trực tiếp tạo ra sáng kiến bằng chính lao động sáng tạo của mình.\n2. Đồng Tác giả sáng kiến là những Tác giả cùng nhau tạo ra sáng kiến. C",
+      "fixed_snippet_preview": "Quy chế quản lý hoạt động sáng kiến, sáng chế\n\nc) Không trùng với giải pháp của người khác đã được áp dụng hoặc áp dụng thử, hoặc đưa vào kế hoạch áp dụng, phổ biến hoặc chuẩn bị các điều kiện để áp d",
+      "success": true,
+      "log_message": "Đã sửa (batched 13 issues, 2342 ký tự)"
+    },
+    {
+      "page_num": 5,
+      "line_start": 75,
+      "line_end": 90,
+      "issue_type": "missing_content",
+      "issue_description": "Nội dung \"d) Không trùng với nội dung của giải pháp trong đơn đăng ký sáng kiến nộp trước.\" bị thiếu.",
+      "original_snippet_preview": "\n#### Điều 5. Tác giả sáng kiến\n1. Tác giả sáng kiến là người trực tiếp tạo ra sáng kiến bằng chính lao động sáng tạo của mình.\n2. Đồng Tác giả sáng kiến là những Tác giả cùng nhau tạo ra sáng kiến. C",
+      "fixed_snippet_preview": "Quy chế quản lý hoạt động sáng kiến, sáng chế\n\nc) Không trùng với giải pháp của người khác đã được áp dụng hoặc áp dụng thử, hoặc đưa vào kế hoạch áp dụng, phổ biến hoặc chuẩn bị các điều kiện để áp d",
+      "success": true,
+      "log_message": "Đã sửa (batched 13 issues, 2342 ký tự)"
+    },
+    {
+      "page_num": 5,
+      "line_start": 75,
+      "line_end": 90,
+      "issue_type": "missing_content",
+      "issue_description": "Nội dung \"3. Một giải pháp được coi là mang lại lợi ích thiết thực nếu áp dụng mang lại hiệu quả kinh tế (lợi ích kinh tế tính ra được bằng tiền/số tiền làm lợi trực tiếp, nâng cao năng suất lao động, giảm chi phí sản xuất, nâng cao chất lượng sản phẩm, dịch vụ, các tiêu chí, thông số kỹ thuật cao hơn trước...), hoặc lợi ích xã hội (góp phần bảo vệ chủ quyền, an ninh quốc gia, an ninh năng lượng quốc gia, nâng cao điều kiện an toàn lao động, cải thiện điều kiện sống, làm việc, bảo vệ môi trường, sức khỏe con người...).\" bị thiếu.",
+      "original_snippet_preview": "\n#### Điều 5. Tác giả sáng kiến\n1. Tác giả sáng kiến là người trực tiếp tạo ra sáng kiến bằng chính lao động sáng tạo của mình.\n2. Đồng Tác giả sáng kiến là những Tác giả cùng nhau tạo ra sáng kiến. C",
+      "fixed_snippet_preview": "Quy chế quản lý hoạt động sáng kiến, sáng chế\n\nc) Không trùng với giải pháp của người khác đã được áp dụng hoặc áp dụng thử, hoặc đưa vào kế hoạch áp dụng, phổ biến hoặc chuẩn bị các điều kiện để áp d",
+      "success": true,
+      "log_message": "Đã sửa (batched 13 issues, 2342 ký tự)"
+    },
+    {
+      "page_num": 5,
+      "line_start": 75,
+      "line_end": 90,
+      "issue_type": "missing_content",
+      "issue_description": "Nội dung \"Điều 4. Sáng chế ngành Dầu khí Việt Nam\" bị thiếu.",
+      "original_snippet_preview": "\n#### Điều 5. Tác giả sáng kiến\n1. Tác giả sáng kiến là người trực tiếp tạo ra sáng kiến bằng chính lao động sáng tạo của mình.\n2. Đồng Tác giả sáng kiến là những Tác giả cùng nhau tạo ra sáng kiến. C",
+      "fixed_snippet_preview": "Quy chế quản lý hoạt động sáng kiến, sáng chế\n\nc) Không trùng với giải pháp của người khác đã được áp dụng hoặc áp dụng thử, hoặc đưa vào kế hoạch áp dụng, phổ biến hoặc chuẩn bị các điều kiện để áp d",
+      "success": true,
+      "log_message": "Đã sửa (batched 13 issues, 2342 ký tự)"
+    },
+    {
+      "page_num": 5,
+      "line_start": 75,
+      "line_end": 90,
+      "issue_type": "missing_content",
+      "issue_description": "Nội dung \"Sáng chế ngành Dầu khí Việt Nam là giải pháp kỹ thuật dưới dạng sản phẩm hoặc quy trình nhằm giải quyết một vấn đề để xác định bằng việc ứng dụng các quy luật tự nhiên; có tính mới, có trình độ sáng tạo và có khả năng áp dụng trong ngành Dầu khí Việt Nam; và được Cơ quan quản lý về sở hữu trí tuệ cấp Bằng độc quyền sáng chế hoặc Bằng độc quyền giải pháp hữu ích.\" bị thiếu.",
+      "original_snippet_preview": "\n#### Điều 5. Tác giả sáng kiến\n1. Tác giả sáng kiến là người trực tiếp tạo ra sáng kiến bằng chính lao động sáng tạo của mình.\n2. Đồng Tác giả sáng kiến là những Tác giả cùng nhau tạo ra sáng kiến. C",
+      "fixed_snippet_preview": "Quy chế quản lý hoạt động sáng kiến, sáng chế\n\nc) Không trùng với giải pháp của người khác đã được áp dụng hoặc áp dụng thử, hoặc đưa vào kế hoạch áp dụng, phổ biến hoặc chuẩn bị các điều kiện để áp d",
+      "success": true,
+      "log_message": "Đã sửa (batched 13 issues, 2342 ký tự)"
+    },
+    {
+      "page_num": 5,
+      "line_start": 75,
+      "line_end": 90,
+      "issue_type": "wrong_number",
+      "issue_description": "Số thứ tự của mục 2 trong Điều 6 là \"2\" thay vì \"b)\".",
+      "original_snippet_preview": "\n#### Điều 5. Tác giả sáng kiến\n1. Tác giả sáng kiến là người trực tiếp tạo ra sáng kiến bằng chính lao động sáng tạo của mình.\n2. Đồng Tác giả sáng kiến là những Tác giả cùng nhau tạo ra sáng kiến. C",
+      "fixed_snippet_preview": "Quy chế quản lý hoạt động sáng kiến, sáng chế\n\nc) Không trùng với giải pháp của người khác đã được áp dụng hoặc áp dụng thử, hoặc đưa vào kế hoạch áp dụng, phổ biến hoặc chuẩn bị các điều kiện để áp d",
+      "success": true,
+      "log_message": "Đã sửa (batched 13 issues, 2342 ký tự)"
+    },
+    {
+      "page_num": 5,
+      "line_start": 75,
+      "line_end": 90,
+      "issue_type": "wrong_number",
+      "issue_description": "Số thứ tự của mục 2a trong Điều 6 là \"a)\" thay vì \"2.a)\".",
+      "original_snippet_preview": "\n#### Điều 5. Tác giả sáng kiến\n1. Tác giả sáng kiến là người trực tiếp tạo ra sáng kiến bằng chính lao động sáng tạo của mình.\n2. Đồng Tác giả sáng kiến là những Tác giả cùng nhau tạo ra sáng kiến. C",
+      "fixed_snippet_preview": "Quy chế quản lý hoạt động sáng kiến, sáng chế\n\nc) Không trùng với giải pháp của người khác đã được áp dụng hoặc áp dụng thử, hoặc đưa vào kế hoạch áp dụng, phổ biến hoặc chuẩn bị các điều kiện để áp d",
+      "success": true,
+      "log_message": "Đã sửa (batched 13 issues, 2342 ký tự)"
+    },
+    {
+      "page_num": 5,
+      "line_start": 75,
+      "line_end": 90,
+      "issue_type": "wrong_number",
+      "issue_description": "Số thứ tự của mục 2b trong Điều 6 là \"b)\" thay vì \"2.b)\".",
+      "original_snippet_preview": "\n#### Điều 5. Tác giả sáng kiến\n1. Tác giả sáng kiến là người trực tiếp tạo ra sáng kiến bằng chính lao động sáng tạo của mình.\n2. Đồng Tác giả sáng kiến là những Tác giả cùng nhau tạo ra sáng kiến. C",
+      "fixed_snippet_preview": "Quy chế quản lý hoạt động sáng kiến, sáng chế\n\nc) Không trùng với giải pháp của người khác đã được áp dụng hoặc áp dụng thử, hoặc đưa vào kế hoạch áp dụng, phổ biến hoặc chuẩn bị các điều kiện để áp d",
+      "success": true,
+      "log_message": "Đã sửa (batched 13 issues, 2342 ký tự)"
+    },
+    {
+      "page_num": 5,
+      "line_start": 75,
+      "line_end": 90,
+      "issue_type": "ocr_gibberish",
+      "issue_description": "Lỗi OCR: \"năm %\" thay vì \"năm %\"",
+      "original_snippet_preview": "\n#### Điều 5. Tác giả sáng kiến\n1. Tác giả sáng kiến là người trực tiếp tạo ra sáng kiến bằng chính lao động sáng tạo của mình.\n2. Đồng Tác giả sáng kiến là những Tác giả cùng nhau tạo ra sáng kiến. C",
+      "fixed_snippet_preview": "Quy chế quản lý hoạt động sáng kiến, sáng chế\n\nc) Không trùng với giải pháp của người khác đã được áp dụng hoặc áp dụng thử, hoặc đưa vào kế hoạch áp dụng, phổ biến hoặc chuẩn bị các điều kiện để áp d",
+      "success": true,
+      "log_message": "Đã sửa (batched 13 issues, 2342 ký tự)"
+    },
+    {
+      "page_num": 5,
+      "line_start": 75,
+      "line_end": 90,
+      "issue_type": "ocr_gibberish",
+      "issue_description": "Lỗi OCR: \"(năm)\" thay vì \"(năm)\"",
+      "original_snippet_preview": "\n#### Điều 5. Tác giả sáng kiến\n1. Tác giả sáng kiến là người trực tiếp tạo ra sáng kiến bằng chính lao động sáng tạo của mình.\n2. Đồng Tác giả sáng kiến là những Tác giả cùng nhau tạo ra sáng kiến. C",
+      "fixed_snippet_preview": "Quy chế quản lý hoạt động sáng kiến, sáng chế\n\nc) Không trùng với giải pháp của người khác đã được áp dụng hoặc áp dụng thử, hoặc đưa vào kế hoạch áp dụng, phổ biến hoặc chuẩn bị các điều kiện để áp d",
+      "success": true,
+      "log_message": "Đã sửa (batched 13 issues, 2342 ký tự)"
+    },
+    {
+      "page_num": 5,
+      "line_start": 75,
+      "line_end": 90,
+      "issue_type": "ocr_gibberish",
+      "issue_description": "Lỗi OCR: \"năm đầu tiên\" thay vì \"năm đầu tiên\"",
+      "original_snippet_preview": "\n#### Điều 5. Tác giả sáng kiến\n1. Tác giả sáng kiến là người trực tiếp tạo ra sáng kiến bằng chính lao động sáng tạo của mình.\n2. Đồng Tác giả sáng kiến là những Tác giả cùng nhau tạo ra sáng kiến. C",
+      "fixed_snippet_preview": "Quy chế quản lý hoạt động sáng kiến, sáng chế\n\nc) Không trùng với giải pháp của người khác đã được áp dụng hoặc áp dụng thử, hoặc đưa vào kế hoạch áp dụng, phổ biến hoặc chuẩn bị các điều kiện để áp d",
+      "success": true,
+      "log_message": "Đã sửa (batched 13 issues, 2342 ký tự)"
+    },
+    {
+      "page_num": 5,
+      "line_start": 75,
+      "line_end": 90,
+      "issue_type": "ocr_gibberish",
+      "issue_description": "Lỗi OCR: \"tỷ đồng trở lên; và/hoặc\" thay vì \"tỷ đồng trở lên; và/hoặc\"",
+      "original_snippet_preview": "\n#### Điều 5. Tác giả sáng kiến\n1. Tác giả sáng kiến là người trực tiếp tạo ra sáng kiến bằng chính lao động sáng tạo của mình.\n2. Đồng Tác giả sáng kiến là những Tác giả cùng nhau tạo ra sáng kiến. C",
+      "fixed_snippet_preview": "Quy chế quản lý hoạt động sáng kiến, sáng chế\n\nc) Không trùng với giải pháp của người khác đã được áp dụng hoặc áp dụng thử, hoặc đưa vào kế hoạch áp dụng, phổ biến hoặc chuẩn bị các điều kiện để áp d",
+      "success": true,
+      "log_message": "Đã sửa (batched 13 issues, 2342 ký tự)"
+    }
+  ]
+}

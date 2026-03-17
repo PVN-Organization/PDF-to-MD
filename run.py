@@ -122,6 +122,17 @@ def parse_args() -> argparse.Namespace:
         help="Số vòng tối đa cho final check loop (mặc định: 3)",
     )
     parser.add_argument(
+        "--min-score",
+        type=float,
+        default=8.0,
+        help="Ngưỡng điểm chấp nhận được để dừng fix sớm (mặc định: 8.0)",
+    )
+    parser.add_argument(
+        "--no-integrity",
+        action="store_true",
+        help="Bỏ qua bước kiểm tra tính toàn vẹn (page + article coverage)",
+    )
+    parser.add_argument(
         "--clear-cache",
         action="store_true",
         help="Xóa cache cũ trước khi chạy (buộc Gemini convert lại tất cả)",
@@ -213,7 +224,9 @@ async def main() -> None:
         output_dir=Path(args.output_dir),
         skip_gemini_confidence=args.skip_confidence,
         use_tesseract=not args.no_tesseract,
+        integrity_check=not args.no_integrity,
         max_fix_rounds=args.max_fix_rounds,
+        min_acceptable_score=args.min_score,
     )
 
     # Determine PDF files to process

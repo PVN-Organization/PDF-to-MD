@@ -1,0 +1,99 @@
+{
+  "filename": "QĐ_6389_2012 Quy che quan ly SKSC PVN 3 1.pdf",
+  "total_checks": 3,
+  "critical_count": 1,
+  "warning_count": 0,
+  "ok_count": 2,
+  "results": [
+    {
+      "page_num": 2,
+      "md_line_start": 30,
+      "md_line_end": 45,
+      "severity": "ok",
+      "issues": [],
+      "md_snippet_preview": "Chương II Công nhận sáng kiến\nĐiều 7. Yêu cầu công nhận sáng kiến\nĐiều 8. Tiếp nhận và xử lý đơn yêu cầu công nhận sáng kiến\nĐiều 9. Xét công nhận sáng kiến\nĐiều 10. Hội đồng sáng kiến\n\nChương III Quy"
+    },
+    {
+      "page_num": 5,
+      "md_line_start": 75,
+      "md_line_end": 90,
+      "severity": "critical",
+      "issues": [
+        {
+          "type": "missing_content",
+          "description": "Nội dung \"Quy chế quản lý hoạt động sáng kiến, sáng chế\" ở đầu trang bị thiếu.",
+          "severity": "critical"
+        },
+        {
+          "type": "missing_content",
+          "description": "Nội dung \"c) Không trùng với giải pháp của người khác đã được áp dụng hoặc áp dụng thử, hoặc đưa vào kế hoạch áp dụng, phổ biến hoặc chuẩn bị các điều kiện để áp dụng, phổ biến;\" bị thiếu.",
+          "severity": "critical"
+        },
+        {
+          "type": "missing_content",
+          "description": "Nội dung \"d) Không trùng với nội dung của giải pháp trong đơn đăng ký sáng kiến nộp trước.\" bị thiếu.",
+          "severity": "critical"
+        },
+        {
+          "type": "missing_content",
+          "description": "Nội dung \"3. Một giải pháp được coi là mang lại lợi ích thiết thực nếu áp dụng mang lại hiệu quả kinh tế (lợi ích kinh tế tính ra được bằng tiền/số tiền làm lợi trực tiếp, nâng cao năng suất lao động, giảm chi phí sản xuất, nâng cao chất lượng sản phẩm, dịch vụ, các tiêu chí, thông số kỹ thuật cao hơn trước...), hoặc lợi ích xã hội (góp phần bảo vệ chủ quyền, an ninh quốc gia, an ninh năng lượng quốc gia, nâng cao điều kiện an toàn lao động, cải thiện điều kiện sống, làm việc, bảo vệ môi trường, sức khỏe con người...).\" bị thiếu.",
+          "severity": "critical"
+        },
+        {
+          "type": "missing_content",
+          "description": "Nội dung \"Điều 4. Sáng chế ngành Dầu khí Việt Nam\" bị thiếu.",
+          "severity": "critical"
+        },
+        {
+          "type": "missing_content",
+          "description": "Nội dung \"Sáng chế ngành Dầu khí Việt Nam là giải pháp kỹ thuật dưới dạng sản phẩm hoặc quy trình nhằm giải quyết một vấn đề để xác định bằng việc ứng dụng các quy luật tự nhiên; có tính mới, có trình độ sáng tạo và có khả năng áp dụng trong ngành Dầu khí Việt Nam; và được Cơ quan quản lý về sở hữu trí tuệ cấp Bằng độc quyền sáng chế hoặc Bằng độc quyền giải pháp hữu ích.\" bị thiếu.",
+          "severity": "critical"
+        },
+        {
+          "type": "wrong_number",
+          "description": "Số thứ tự của mục 2 trong Điều 6 là \"2\" thay vì \"b)\".",
+          "severity": "critical"
+        },
+        {
+          "type": "wrong_number",
+          "description": "Số thứ tự của mục 2a trong Điều 6 là \"a)\" thay vì \"2.a)\".",
+          "severity": "critical"
+        },
+        {
+          "type": "wrong_number",
+          "description": "Số thứ tự của mục 2b trong Điều 6 là \"b)\" thay vì \"2.b)\".",
+          "severity": "critical"
+        },
+        {
+          "type": "ocr_gibberish",
+          "description": "Lỗi OCR: \"năm %\" thay vì \"năm %\"",
+          "severity": "warning"
+        },
+        {
+          "type": "ocr_gibberish",
+          "description": "Lỗi OCR: \"(năm)\" thay vì \"(năm)\"",
+          "severity": "warning"
+        },
+        {
+          "type": "ocr_gibberish",
+          "description": "Lỗi OCR: \"năm đầu tiên\" thay vì \"năm đầu tiên\"",
+          "severity": "warning"
+        },
+        {
+          "type": "ocr_gibberish",
+          "description": "Lỗi OCR: \"tỷ đồng trở lên; và/hoặc\" thay vì \"tỷ đồng trở lên; và/hoặc\"",
+          "severity": "warning"
+        }
+      ],
+      "md_snippet_preview": "\n#### Điều 5. Tác giả sáng kiến\n1. Tác giả sáng kiến là người trực tiếp tạo ra sáng kiến bằng chính lao động sáng tạo của mình.\n2. Đồng Tác giả sáng kiến là những Tác giả cùng nhau tạo ra sáng kiến. C"
+    },
+    {
+      "page_num": 20,
+      "md_line_start": 300,
+      "md_line_end": 317,
+      "severity": "ok",
+      "issues": [],
+      "md_snippet_preview": "- Số sáng kiến, sáng chế trên tổng số cán bộ công nhân viên.\n- Số sáng kiến, sáng chế được công nhận trên tổng số giải pháp đăng ký.\n- Số sáng kiến, sáng chế đã được áp dụng.\n- Danh sách các sáng kiến"
+    }
+  ]
+}

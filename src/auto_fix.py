@@ -3,6 +3,9 @@
 Uses Gemini to compare the original PDF page image against the markdown
 snippet containing the error, then replaces the faulty section with
 the corrected version.
+
+Batches all issues from the same SpotCheckResult into a single Gemini call
+to reduce API usage.
 """
 from __future__ import annotations
 
@@ -101,6 +104,17 @@ class AutoFixReport:
         return ", ".join(parts)
 
 
+def _build_batched_issue_text(issues: list) -> tuple[str, str]:
+    """Combine multiple issues into a single issue_type + description string."""
+    if len(issues) == 1:
+        return issues[0].type, issues[0].description
+    types = list(dict.fromkeys(i.type for i in issues))
+    combined_type = " + ".join(types)
+    descriptions = [f"- [{i.severity}] {i.type}: {i.description}" for i in issues]
+    combined_desc = "\n".join(descriptions)
+    return combined_type, combined_desc
+
+
 def _call_auto_fix(
     client: genai.Client,
     model_name: str,
@@ -111,7 +125,6 @@ def _call_auto_fix(
     issue_type: str,
     issue_description: str,
 ) -> str | None:
-    """Call Gemini to fix a markdown snippet based on the original PDF page."""
     prompt = (
         AUTO_FIX_PROMPT
         .replace("{issue_type}", issue_type)
@@ -156,7 +169,6 @@ def _replace_snippet_in_markdown(
     line_end: int,
     fixed_snippet: str,
 ) -> list[str]:
-    """Replace lines [line_start:line_end] with the fixed snippet."""
     fixed_lines = fixed_snippet.split("\n")
     return md_lines[:line_start] + fixed_lines + md_lines[line_end:]
 
@@ -166,16 +178,20 @@ def auto_fix(
     markdown: str,
     spot_report: SpotCheckReport,
     config: Config,
+    skip_pages: set[int] | None = None,
 ) -> tuple[str, AutoFixReport]:
     """Attempt to auto-fix issues found by spot-check.
 
+    Batches all issues from the same SpotCheckResult into one Gemini call.
+    Pages in skip_pages are excluded.
     Returns the (possibly modified) markdown and an AutoFixReport.
     """
     pdf_path = Path(pdf_path)
+    skip = skip_pages or set()
 
     fixable_results = [
         r for r in spot_report.results
-        if r.severity in ("critical", "warning") and r.issues
+        if r.severity in ("critical", "warning") and r.issues and r.page_num not in skip
     ]
 
     report = AutoFixReport(
@@ -183,26 +199,31 @@ def auto_fix(
         total_issues=sum(len(r.issues) for r in fixable_results),
     )
 
+    skipped_by_page = [
+        r for r in spot_report.results
+        if r.severity in ("critical", "warning") and r.issues and r.page_num in skip
+    ]
+    report.skipped_count = sum(len(r.issues) for r in skipped_by_page)
+
     if not fixable_results:
         logger.info("Auto-fix: không có lỗi cần sửa")
         return markdown, report
 
     if not config.gemini_api_key:
         logger.warning("Auto-fix: thiếu Gemini API key, bỏ qua")
-        report.skipped_count = report.total_issues
+        report.skipped_count += report.total_issues
         return markdown, report
 
     try:
         client = genai.Client(api_key=config.gemini_api_key)
     except Exception as e:
         logger.warning("Auto-fix: không khởi tạo được Gemini client: %s", e)
-        report.skipped_count = report.total_issues
+        report.skipped_count += report.total_issues
         return markdown, report
 
     doc = fitz.open(str(pdf_path))
     md_lines = markdown.split("\n")
 
-    # Sort by line_start descending so replacements don't shift indices
     fixable_results.sort(key=lambda r: r.md_line_start, reverse=True)
 
     for result in fixable_results:
@@ -218,41 +239,69 @@ def auto_fix(
             report.skipped_count += len(result.issues)
             continue
 
+        if line_start >= line_end or line_start < 0 or line_end > len(md_lines):
+            logger.warning(
+                "Auto-fix: trang %d, line range lỗi (%d-%d, tổng %d dòng), bỏ qua",
+                page_num + 1, line_start, line_end, len(md_lines),
+            )
+            report.skipped_count += len(result.issues)
+            continue
+
         original_snippet = "\n".join(md_lines[line_start:line_end])
 
         page = doc.load_page(page_num)
         pix = page.get_pixmap(dpi=config.spot_check_dpi)
         page_image = pix.tobytes("png")
 
-        for issue in result.issues:
-            logger.info(
-                "Auto-fix: [%s] Trang %d, dòng %d-%d | %s: %s",
-                issue.severity.upper(),
-                page_num + 1,
-                line_start + 1,
-                line_end,
-                issue.type,
-                issue.description,
-            )
+        combined_type, combined_desc = _build_batched_issue_text(result.issues)
+        n_issues = len(result.issues)
 
-            fixed_text = _call_auto_fix(
-                client,
-                config.gemini_model,
-                page_image,
-                original_snippet,
-                line_start,
-                line_end,
-                issue.type,
-                issue.description,
-            )
+        logger.info(
+            "Auto-fix: Trang %d, dòng %d-%d | %d lỗi: %s",
+            page_num + 1, line_start + 1, line_end, n_issues, combined_type,
+        )
 
-            if fixed_text and fixed_text.strip() != original_snippet.strip():
-                md_lines = _replace_snippet_in_markdown(
-                    md_lines, line_start, line_end, fixed_text,
+        fixed_text = _call_auto_fix(
+            client,
+            config.gemini_verify_model,
+            page_image,
+            original_snippet,
+            line_start,
+            line_end,
+            combined_type,
+            combined_desc,
+        )
+
+        MAX_SIZE_RATIO = 3.0
+        if fixed_text and len(fixed_text) > len(original_snippet) * MAX_SIZE_RATIO:
+            logger.warning(
+                "  -> TỪ CHỐI: trang %d — fix quá lớn (%d ký tự vs gốc %d, ratio %.1fx), "
+                "có thể hallucinate",
+                page_num + 1, len(fixed_text), len(original_snippet),
+                len(fixed_text) / max(len(original_snippet), 1),
+            )
+            for issue in result.issues:
+                fix = FixAttempt(
+                    page_num=page_num,
+                    line_start=line_start,
+                    line_end=line_end,
+                    issue_type=issue.type,
+                    issue_description=issue.description,
+                    original_snippet=result.md_snippet,
+                    fixed_snippet="",
+                    success=False,
+                    log_message=f"Fix quá lớn ({len(fixed_text)} vs {len(original_snippet)} ký tự)",
                 )
-                original_snippet = fixed_text
-                line_end = line_start + len(fixed_text.split("\n"))
+                report.fixes.append(fix)
+                report.failed_count += 1
+            continue
 
+        if fixed_text and fixed_text.strip() != original_snippet.strip():
+            md_lines = _replace_snippet_in_markdown(
+                md_lines, line_start, line_end, fixed_text,
+            )
+
+            for issue in result.issues:
                 fix = FixAttempt(
                     page_num=page_num,
                     line_start=line_start,
@@ -262,16 +311,18 @@ def auto_fix(
                     original_snippet=result.md_snippet,
                     fixed_snippet=fixed_text[:500],
                     success=True,
-                    log_message=f"Đã sửa thành công ({len(fixed_text)} ký tự)",
+                    log_message=f"Đã sửa (batched {n_issues} issues, {len(fixed_text)} ký tự)",
                 )
                 report.fixes.append(fix)
                 report.fixed_count += 1
-                logger.info(
-                    "  -> ĐÃ SỬA: %s trang %d (%d ký tự)",
-                    issue.type, page_num + 1, len(fixed_text),
-                )
-            else:
-                reason = "Gemini trả về kết quả giống hệt" if fixed_text else "Gemini không trả về kết quả"
+
+            logger.info(
+                "  -> ĐÃ SỬA: %d lỗi trang %d (%d ký tự)",
+                n_issues, page_num + 1, len(fixed_text),
+            )
+        else:
+            reason = "Gemini trả về kết quả giống hệt" if fixed_text else "Gemini không trả về kết quả"
+            for issue in result.issues:
                 fix = FixAttempt(
                     page_num=page_num,
                     line_start=line_start,
@@ -285,10 +336,10 @@ def auto_fix(
                 )
                 report.fixes.append(fix)
                 report.failed_count += 1
-                logger.warning(
-                    "  -> THẤT BẠI: %s trang %d - %s",
-                    issue.type, page_num + 1, reason,
-                )
+
+            logger.warning(
+                "  -> THẤT BẠI: trang %d - %s", page_num + 1, reason,
+            )
 
     doc.close()
 
