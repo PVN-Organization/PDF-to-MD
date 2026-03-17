@@ -11,12 +11,14 @@ from rich.progress import Progress, SpinnerColumn, TextColumn, BarColumn, TimeEl
 
 from .analyzer import PDFAnalysis, analyze_pdf
 from .assembler import assemble
+from .auto_fix import AutoFixReport, auto_fix
 from .config import Config
 from .converter import convert_chunks
 from .extractor import ChunkExtraction, extract_chunk
 from .planner import ChunkPlan, create_plan
 from .quality import QualityReport, check_quality
 from .renderer import RenderResult, render_pages
+from .spot_check import SpotCheckReport, run_spot_check
 
 logger = logging.getLogger(__name__)
 console = Console()
@@ -29,6 +31,8 @@ class PipelineResult:
     analysis: PDFAnalysis
     chunks: list[ChunkPlan]
     quality_report: QualityReport | None
+    spot_check_report: SpotCheckReport | None
+    auto_fix_report: AutoFixReport | None
     output_path: Path
     elapsed_seconds: float
 
@@ -37,6 +41,8 @@ async def process_pdf(
     pdf_path: str | Path,
     config: Config,
     run_quality_check: bool = True,
+    run_spot_check_flag: bool = True,
+    run_auto_fix_flag: bool = True,
 ) -> PipelineResult:
     pdf_path = Path(pdf_path)
     start_time = time.time()
@@ -145,7 +151,7 @@ async def process_pdf(
         # Phase 7: Quality check
         quality_report = None
         if run_quality_check:
-            task = progress.add_task("[7/7] Kiểm tra chất lượng...", total=None)
+            task = progress.add_task("[7/8] Kiểm tra chất lượng...", total=None)
             quality_report = check_quality(
                 pdf_path, final_markdown, analysis, config
             )
@@ -153,8 +159,54 @@ async def process_pdf(
             quality_report.save(report_path)
             progress.update(
                 task, completed=True,
-                description=f"[7/7] Chất lượng: {quality_report.overall_score:.1f}/10",
+                description=f"[7/8] Chất lượng: {quality_report.overall_score:.1f}/10",
             )
+
+        # Phase 8: Spot check
+        spot_check_report = None
+        if run_spot_check_flag:
+            task = progress.add_task(
+                f"[8/9] Spot-check {config.spot_check_count} vị trí...", total=None
+            )
+            spot_check_report = run_spot_check(
+                pdf_path, final_markdown, chunk_results, config
+            )
+            sc_path = output_dir / "spot_check_report.json"
+            spot_check_report.save(sc_path)
+            sc_log_path = output_dir / "spot_check.log"
+            spot_check_report.save_log(sc_log_path)
+            desc = f"[8/9] Spot-check: {spot_check_report.ok_count} OK"
+            if spot_check_report.critical_count:
+                desc += f", {spot_check_report.critical_count} critical"
+            if spot_check_report.warning_count:
+                desc += f", {spot_check_report.warning_count} warning"
+            progress.update(task, completed=True, description=desc)
+
+        # Phase 9: Auto-fix
+        auto_fix_report = None
+        if (
+            run_auto_fix_flag
+            and spot_check_report
+            and (spot_check_report.critical_count + spot_check_report.warning_count) > 0
+        ):
+            total_fixable = spot_check_report.critical_count + spot_check_report.warning_count
+            task = progress.add_task(
+                f"[9/9] Auto-fix {total_fixable} lỗi...", total=None
+            )
+            final_markdown, auto_fix_report = auto_fix(
+                pdf_path, final_markdown, spot_check_report, config
+            )
+            af_path = output_dir / "auto_fix_report.json"
+            auto_fix_report.save(af_path)
+            af_log_path = output_dir / "auto_fix.log"
+            auto_fix_report.save_log(af_log_path)
+
+            output_path.write_text(final_markdown, encoding="utf-8")
+
+            desc = f"[9/9] Auto-fix: {auto_fix_report.fixed_count} sửa"
+            if auto_fix_report.failed_count:
+                desc += f", {auto_fix_report.failed_count} thất bại"
+            progress.update(task, completed=True, description=desc)
 
     elapsed = time.time() - start_time
 
@@ -164,6 +216,8 @@ async def process_pdf(
         analysis=analysis,
         chunks=chunks,
         quality_report=quality_report,
+        spot_check_report=spot_check_report,
+        auto_fix_report=auto_fix_report,
         output_path=output_path,
         elapsed_seconds=elapsed,
     )
@@ -173,6 +227,8 @@ async def process_batch(
     pdf_dir: str | Path,
     config: Config,
     run_quality_check: bool = True,
+    run_spot_check_flag: bool = True,
+    run_auto_fix_flag: bool = True,
 ) -> list[PipelineResult]:
     """Process all PDFs in a directory."""
     pdf_dir = Path(pdf_dir)
@@ -192,7 +248,10 @@ async def process_batch(
     for i, pdf_file in enumerate(pdf_files, 1):
         console.rule(f"[bold cyan]File {i}/{len(pdf_files)}: {pdf_file.name}")
         try:
-            result = await process_pdf(pdf_file, config, run_quality_check)
+            result = await process_pdf(
+                pdf_file, config, run_quality_check,
+                run_spot_check_flag, run_auto_fix_flag,
+            )
             results.append(result)
             console.print(
                 f"[green]Hoàn thành trong {result.elapsed_seconds:.1f}s → "
@@ -219,6 +278,8 @@ def _print_summary(results: list[PipelineResult]) -> None:
     table.add_column("Chunks", justify="right")
     table.add_column("Ký tự MD", justify="right")
     table.add_column("Chất lượng", justify="right")
+    table.add_column("Spot-check", justify="right")
+    table.add_column("Fixed", justify="right")
     table.add_column("Thời gian", justify="right")
 
     for r in results:
@@ -227,12 +288,30 @@ def _print_summary(results: list[PipelineResult]) -> None:
             if r.quality_report
             else "N/A"
         )
+        sc = r.spot_check_report
+        if sc and sc.total_checks > 0:
+            parts = []
+            if sc.critical_count:
+                parts.append(f"{sc.critical_count}C")
+            if sc.warning_count:
+                parts.append(f"{sc.warning_count}W")
+            parts.append(f"{sc.ok_count}OK")
+            spot_str = "/".join(parts)
+        else:
+            spot_str = "N/A"
+        af = r.auto_fix_report
+        if af and af.total_issues > 0:
+            fix_str = f"{af.fixed_count}/{af.total_issues}"
+        else:
+            fix_str = "N/A"
         table.add_row(
             r.filename[:48],
             str(r.analysis.total_pages),
             str(len(r.chunks)),
             f"{len(r.markdown):,}",
             quality_str,
+            spot_str,
+            fix_str,
             f"{r.elapsed_seconds:.1f}s",
         )
 

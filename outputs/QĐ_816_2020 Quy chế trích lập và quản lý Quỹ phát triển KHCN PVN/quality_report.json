@@ -1,37 +1,15 @@
 {
   "filename": "QĐ_816_2020 Quy chế trích lập và quản lý Quỹ phát triển KHCN PVN.pdf",
   "total_pages": 40,
-  "text_completeness": 0.948,
+  "text_completeness": 1.0,
   "structure_score": 8.0,
   "table_score": 10.0,
   "vietnamese_score": 8.0,
-  "ai_review": {
-    "completeness": 2,
-    "accuracy": 4,
-    "structure": 3,
-    "tables": 4,
-    "overall": 3,
-    "issues": [
-      "**Missing Content (Completeness):**",
-      "- The entire content of Image 1 (title page) is missing from the Markdown.",
-      "- The entire content of Image 3 (CHƯƠNG III, Điều 9, etc.) is missing from the Markdown.",
-      "- From Image 2, the bullet points 'Chi các khoản công tác phí phát sinh...', 'Chi cho hoạt động của bộ máy quản lý Quỹ...', 'Các khoản chi khác có liên quan...' are missing.",
-      "- From Image 2, the section 'b. Quy định về các hạn mức chi phí:' and its three subsequent paragraphs are missing.",
-      "- From Image 4, the explanations for table columns (4) through (10) under 'Chú giải:' are missing.",
-      "**Extraneous Content (Completeness/Accuracy):** The Markdown includes 'Điều 2', 'Điều 3', 'Nơi nhận', and a signature table that are not present in any of the provided image pages. This indicates the Markdown is not a direct conversion of *these specific images*.",
-      "**Accuracy - Typographical Error/Page Break Handling:** The text '9 động sản xuất' should be 'hoạt động sản xuất'. The '9' is a page number from the original document, incorrectly transcribed as part of the text.",
-      "**Accuracy - Cut-off Text:** The explanation for column (3) in Image 4 is cut off: 'Ngày ký Hợp đồng: ngày Hợp đồng có hiệu' should be 'ngày Hợp đồng có hiệu lực'.",
-      "**Accuracy - Table Header Mismatch:** In the table header row (numbers) for Image 4, column (7) is 'Nội dung Hợp đồng' in the image, but the Markdown incorrectly shows '(V)'. The '(V)' in the image is a parenthetical note under the column title, not the column number itself.",
-      "**Structure - Incorrect Heading Levels:**",
-      "- '5. Hoạt động quản lý Quỹ PT KHCN' (Image 2) should be a heading (e.g., `##`), but is formatted as regular text.",
-      "- 'a. Nội dung chi hoạt động quản lý Quỹ PT KHCN, bao gồm:' (Image 2) should be a heading (e.g., `###`), but is formatted as regular text.",
-      "- 'Chú giải:' (Image 4) should be a heading (e.g., `##`), but is formatted as bold text.",
-      "**Structure - Incorrect List Formatting in 'Chú giải':** The 'Chú giải' section in the Markdown uses numbered list items `(1)`, `(2)`, `(3)` which is not how it appears in the image. In the image, these are the column numbers being explained, not list item numbers.",
-      "**Missing Page Numbers:** The Markdown does not include page numbers from the original document."
-    ]
-  },
-  "overall_score": 7.74,
+  "ai_review": null,
+  "overall_score": 8.7,
   "issues": [
-    "Phát hiện 1 lần ký tự mojibake encoding bị lỗi"
+    "Tìm thấy 142 lần từ \"Điều\" nhưng không có heading Điều nào",
+    "Phát hiện 1 lần ký tự mojibake encoding bị lỗi",
+    "AI review thất bại: 429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'Your project has exceeded its spending cap.', 'status': 'RESOURCE_EXHAUSTED'}}"
   ]
 }

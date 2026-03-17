@@ -59,6 +59,16 @@ def parse_args() -> argparse.Namespace:
         help="Bỏ qua bước kiểm tra chất lượng",
     )
     parser.add_argument(
+        "--no-spot-check",
+        action="store_true",
+        help="Bỏ qua bước spot-check ngẫu nhiên",
+    )
+    parser.add_argument(
+        "--no-auto-fix",
+        action="store_true",
+        help="Bỏ qua bước tự động sửa lỗi sau spot-check",
+    )
+    parser.add_argument(
         "--chunk-size",
         type=int,
         default=10,
@@ -73,14 +83,14 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument(
         "--model",
         type=str,
-        default="gemini-2.5-flash",
-        help="Tên model Gemini cho convert gốc (mặc định: gemini-2.5-flash)",
+        default="gemini-3-flash-preview",
+        help="Tên model Gemini cho convert gốc (mặc định: gemini-3-flash-preview)",
     )
     parser.add_argument(
         "--verify-model",
         type=str,
-        default="gemini-2.0-flash-lite",
-        help="Tên model Gemini cho verify/polish (mặc định: gemini-2.0-flash-lite)",
+        default="gemini-2.5-flash-lite",
+        help="Tên model Gemini cho verify/polish (mặc định: gemini-2.5-flash-lite)",
     )
     parser.add_argument(
         "--skip-confidence",
@@ -104,6 +114,11 @@ def parse_args() -> argparse.Namespace:
         type=int,
         default=12,
         help="Giây chờ giữa các chunk (mặc định: 12, tăng nếu bị rate limit)",
+    )
+    parser.add_argument(
+        "--clear-cache",
+        action="store_true",
+        help="Xóa cache cũ trước khi chạy (buộc Gemini convert lại tất cả)",
     )
     parser.add_argument(
         "--dry-run",
@@ -224,18 +239,37 @@ async def main() -> None:
 
     console.print(f"[dim]Model: {config.gemini_model}[/dim]")
 
+    if args.clear_cache:
+        import shutil
+        cache_root = config.temp_dir
+        if cache_root.exists():
+            shutil.rmtree(cache_root)
+            console.print("[yellow]Cache đã được xóa.[/yellow]")
+        else:
+            console.print("[dim]Không có cache để xóa.[/dim]")
+
     from src.pipeline import process_batch, process_pdf
+
+    do_quality = not args.no_quality_check
+    do_spot = not args.no_spot_check
+    do_fix = not args.no_auto_fix
 
     if args.input:
         result = await process_pdf(
-            pdf_files[0], config, run_quality_check=not args.no_quality_check
+            pdf_files[0], config,
+            run_quality_check=do_quality,
+            run_spot_check_flag=do_spot,
+            run_auto_fix_flag=do_fix,
         )
         console.print(
             f"\n[bold green]Hoàn thành! Output: {result.output_path}[/bold green]"
         )
     else:
         results = await process_batch(
-            Path(args.input_dir), config, run_quality_check=not args.no_quality_check
+            Path(args.input_dir), config,
+            run_quality_check=do_quality,
+            run_spot_check_flag=do_spot,
+            run_auto_fix_flag=do_fix,
         )
         console.print(
             f"\n[bold green]Hoàn thành {len(results)} file![/bold green]"

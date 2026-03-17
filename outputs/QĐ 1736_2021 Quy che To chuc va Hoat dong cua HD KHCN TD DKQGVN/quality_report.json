@@ -2,32 +2,23 @@
   "filename": "QĐ 1736_2021 Quy che To chuc va Hoat dong cua HD KHCN TD DKQGVN.pdf",
   "total_pages": 15,
   "text_completeness": 1.0,
-  "structure_score": 7.0,
+  "structure_score": 6.0,
   "table_score": 10.0,
   "vietnamese_score": 8.0,
   "ai_review": {
     "completeness": 3,
-    "accuracy": 6,
-    "structure": 3,
-    "tables": 10,
+    "accuracy": 4,
+    "structure": 6,
+    "tables": 9,
     "overall": 4,
     "issues": [
-      "**Thiếu nội dung nghiêm trọng:** Các Điều 4, Điều 5 (một phần), Điều 9, Điều 10 (một phần), Điều 11 (một phần), Điều 12 và Điều 13 hoàn toàn bị thiếu hoặc chỉ có các điểm nhỏ bị đặt sai vị trí.",
-      "**Kết thúc đột ngột:** Nội dung Markdown kết thúc đột ngột ở giữa một câu/điểm (điểm 4 của Điều 11 bị đặt sai vị trí và không hoàn chỉnh).",
-      "**Lỗi cấu trúc và đánh số:**",
-      "   - Các điểm 5, 6, 7 (thực chất là của Điều 5) bị đặt sai vị trí và đánh số không chính xác, nằm ngay sau định nghĩa '5. TTHĐ' (thuộc Điều 3).",
-      "   - Điểm 3 (thực chất là của Điều 10) bị đặt sai vị trí dưới 'Điều 8. Thường trực Hội đồng'.",
-      "   - Điểm 4 (thực chất là của Điều 11) bị đặt sai vị trí dưới 'Điều 8. Thường trực Hội đồng' và không hoàn chỉnh.",
-      "   - Thiếu các tiêu đề cấp bậc cho các Điều 4, Điều 5, Điều 9, Điều 10, Điều 11, Điều 12, Điều 13.",
-      "**Lỗi chính tả/diễn đạt:**",
-      "   - Trong điểm 5 (của Điều 5 bị đặt sai vị trí), cụm từ 'đầu đào, tạo sự' phải là 'đầu tư, đào tạo, sử dụng'.",
-      "   - Trong điểm 6 (của Điều 5 bị đặt sai vị trí), cụm từ 'phong cách chức danh khoa học' phải là 'phong tặng chức danh khoa học'.",
-      "   - Trong Điều 7, điểm 1, 'Ban Tổ chức và Quản trị Nguồn nhân lực' phải là 'Ban Tổ chức và Quản lý Nguồn nhân lực'.",
-      "   - Trong Điều 7, điểm 4, gạch đầu dòng thứ ba, 'Kỳ họp cuối nhiệm kỳ' nên là 'kỳ họp cuối nhiệm kỳ' (lỗi viết hoa).",
-      "   - Trong Điều 7, điểm 4, gạch đầu dòng thứ tư, 'ứng viên chỉ được giới thiệu vào một Tiểu ban KHCN.' nên là 'mỗi ứng viên chỉ được giới thiệu vào một Tiểu ban KHCN.' (lỗi diễn đạt nhỏ)."
+      "Thiếu toàn bộ nội dung văn bản tại trang 3 (Điều 1, 2, 3 của Quy chế) và trang 5 (Điều 21, 22, 23 của Quy chế).",
+      "Nội dung phần Quy chế trong Markdown hoàn toàn không khớp với hình ảnh cung cấp (tự ý thêm Điều 12 và các nội dung liên quan không có trong 5 trang ảnh).",
+      "Thiếu các thông tin viết tay quan trọng như ngày '07' và tháng '4' trong phần tiêu đề của Quy chế ở trang 3.",
+      "Phần nội dung sau 'CHƯƠNG I' bị sai lệch hoàn toàn so với bản gốc trong ảnh."
     ]
   },
-  "overall_score": 7.9,
+  "overall_score": 7.7,
   "issues": [
     "Markdown dài hơn nhiều so với text PDF gốc — có thể có nội dung thừa",
     "Phát hiện 1 lần ký tự mojibake encoding bị lỗi"

@@ -1,0 +1,49 @@
+{
+  "filename": "QĐ_6389_2012 Quy che quan ly SKSC PVN 3 1.pdf",
+  "total_checks": 5,
+  "critical_count": 0,
+  "warning_count": 0,
+  "ok_count": 5,
+  "results": [
+    {
+      "page_num": 0,
+      "md_line_start": 0,
+      "md_line_end": 41,
+      "severity": "ok",
+      "issues": [],
+      "md_snippet_preview": "<!-- Chuyển đổi tự động từ PDF sang Markdown -->\n<!-- File gốc: QĐ_6389_2012 Quy che quan ly SKSC PVN 3 1.pdf -->\n<!-- Số trang: 21 | Kích thước: 0.4 MB -->\n<!-- Thời gian: 2026-03-16 23:20:41 -->\n\n\n-"
+    },
+    {
+      "page_num": 6,
+      "md_line_start": 90,
+      "md_line_end": 160,
+      "severity": "ok",
+      "issues": [],
+      "md_snippet_preview": "2. Mot gi:ii phap dugc coi 1a mai so vai trinh do cong ngh~, ky thu~t , quan 1y cua nganh D~u k..~i Vi~t Nam nSu tinh dSn truac ngay nop don yeu c~u cong nh~n sang kiSn, ho~c ngay b~t d~u ap d\\lng thu"
+    },
+    {
+      "page_num": 10,
+      "md_line_start": 179,
+      "md_line_end": 249,
+      "severity": "ok",
+      "issues": [],
+      "md_snippet_preview": "\nc) Trong trnang hQ'P ill ch6i congnh~n sang ki€n, T~p doan/DO'n vi thong bao cho Tac gia sang ki€n, trong do neu r6 ly do tu ch6i.\n\nd) Trong tmo·ng hqp c~n thi€t, d6i vai cac giai phap co tinh khoa h"
+    },
+    {
+      "page_num": 13,
+      "md_line_start": 244,
+      "md_line_end": 314,
+      "severity": "ok",
+      "issues": [],
+      "md_snippet_preview": "T~p doan/Ban vi ap dl,mg sang ki~n co nghla V\\l tnl thli lao cho nhfrng nguai tham gia t6 chuc ap d1,lng sang ki~n l~n d:~u vai muc t5i thi€u b~ng 20 % muc thli lao cho Tac gia sang ki~n quy dinh t~i "
+    },
+    {
+      "page_num": 20,
+      "md_line_start": 371,
+      "md_line_end": 441,
+      "severity": "ok",
+      "issues": [],
+      "md_snippet_preview": "\nSo di~n tho~i: .......... .......... ..\n\nDanh sach d6ng Tac gia (n~u c6):\n\nToi/Chllng toi c6 ten du6\"i day la d6ng Tac gia cua giai phap dang kY sang ki~n , cung th6a thu@.n v~ dong g6p cua ttrng ngu"
+    }
+  ]
+}

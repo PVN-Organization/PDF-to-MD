@@ -17,8 +17,8 @@ TEMP_DIR = PROJECT_ROOT / "temp"
 @dataclass
 class Config:
     gemini_api_key: str = field(default_factory=lambda: os.getenv("GEMINI_API_KEY", ""))
-    gemini_model: str = "gemini-2.5-flash"
-    gemini_verify_model: str = "gemini-2.0-flash-lite"
+    gemini_model: str = "gemini-3-flash-preview"
+    gemini_verify_model: str = "gemini-2.5-flash-lite"
 
     # Chunking
     default_chunk_pages: int = 10
@@ -40,6 +40,10 @@ class Config:
 
     # Quality check
     quality_sample_pages: int = 5
+
+    # Spot check
+    spot_check_count: int = 5
+    spot_check_dpi: int = 150
 
     def validate(self) -> None:
         if not self.gemini_api_key:

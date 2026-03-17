@@ -439,8 +439,14 @@ def _dataframe_to_markdown(df) -> str:
         str(c).startswith("Col") and str(c)[3:].isdigit() for c in cols
     )
     if auto_cols and len(df) > 0:
-        header_vals = [str(v).replace("\n", " ").strip() for v in df.iloc[0]]
-        df = df.iloc[1:]
+        first_row = [str(v).replace("\n", " ").strip() for v in df.iloc[0]]
+        has_real_header = any(v.strip() for v in first_row)
+        if has_real_header:
+            header_vals = first_row
+            df = df.iloc[1:]
+        else:
+            header_vals = [""] * len(cols)
+            df = df.iloc[1:]
     else:
         header_vals = [str(c).replace("\n", " ").strip() if str(c) not in ("nan", "None") else "" for c in cols]
 

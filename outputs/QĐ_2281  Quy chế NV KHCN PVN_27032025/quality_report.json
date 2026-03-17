@@ -2,26 +2,28 @@
   "filename": "QĐ_2281  Quy chế NV KHCN PVN_27032025.pdf",
   "total_pages": 104,
   "text_completeness": 0.8,
-  "structure_score": 6.0,
+  "structure_score": 4.5,
   "table_score": 5.0,
-  "vietnamese_score": 8.0,
+  "vietnamese_score": 6.0,
   "ai_review": {
-    "completeness": 3,
-    "accuracy": 8,
-    "structure": 4,
+    "completeness": 2,
+    "accuracy": 4,
+    "structure": 2,
     "tables": 1,
-    "overall": 4,
+    "overall": 2,
     "issues": [
-      "Thiếu tiêu đề 'Điều 7. Trách nhiệm và quyền hạn của Tổng Giám đốc'. Nội dung của Điều 7 được trình bày như một danh sách cấp cao nhất mà không có tiêu đề phù hợp.",
-      "Nội dung của Điều 7 (bao gồm các mục 1, 2, 3 và các gạch đầu dòng con) bị lặp lại hoàn toàn trong Markdown trước tiêu đề 'Điều 8'. Đây là một lỗi nghiêm trọng về cấu trúc và đầy đủ.",
-      "Dưới 'Điều 8. Trách nhiệm và quyền hạn của các Phó Tổng Giám đốc', mục 3, có 3 trong số 4 gạch đầu dòng bị thiếu trong Markdown so với tài liệu gốc.",
-      "Bảng trong Markdown ('Nhóm tiêu chí đánh giá', 'Điểm đánh giá', 'Hệ số', 'Điểm', 'Tổng điểm', 'Điểm tối đa') không tồn tại trong bất kỳ trang ảnh gốc nào được cung cấp. Ngoài ra, hàng thứ hai của bảng trong Markdown bị định dạng sai (chỉ là một chuỗi dài các dấu gạch ngang).",
-      "Do việc lặp lại nội dung của Điều 7, cấu trúc danh sách và cấp bậc bị sai lệch so với tài liệu gốc."
+      "Thiếu hoàn toàn nội dung của các trang 41, 47 và 63.",
+      "Bỏ sót nhiều căn cứ pháp lý ở cuối trang 1.",
+      "Bỏ sót phần đầu của trang 4 (các định nghĩa NCKH, NV KHCN, NV NCKH, NV TKTN, NVTX, Quỹ PT KHCN PVN, SXKD, XDNT và mục 2a).",
+      "Nội dung phần sau dấu phân cách '---' thứ hai không khớp với các trang hình ảnh được cung cấp (có thể thuộc về các trang khác trong tài liệu gốc 104 trang nhưng không có trong 5 ảnh mẫu).",
+      "Không chuyển đổi các bảng biểu xuất hiện ở trang 41 và trang 63.",
+      "Cấu trúc các mục liệt kê (a, b, c) bị nhảy cóc và không đầy đủ."
     ]
   },
-  "overall_score": 6.35,
+  "overall_score": 5.35,
   "issues": [
-    "10 bảng có số cột không đồng nhất giữa các dòng",
-    "Phát hiện 17 lần ký tự mojibake encoding bị lỗi"
+    "7 bảng có số cột không đồng nhất giữa các dòng",
+    "Phát hiện 15 lần ký tự mojibake encoding bị lỗi",
+    "Phát hiện 2 lần Chuỗi ??? — có thể ký tự không nhận được"
   ]
 }
