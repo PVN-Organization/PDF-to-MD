@@ -1,0 +1,15 @@
+{
+  "filename": "QĐ_6389_2012 Quy che quan ly SKSC PVN 3 1.pdf",
+  "total_pages": 21,
+  "text_completeness": 0.997,
+  "structure_score": 6.5,
+  "table_score": 10.0,
+  "vietnamese_score": 5.0,
+  "ai_review": null,
+  "overall_score": 7.94,
+  "issues": [
+    "Ít danh sách có thứ tự — có thể cần kiểm tra khoản/điểm",
+    "Phát hiện 1 lần ký tự mojibake encoding bị lỗi",
+    "Tỷ lệ ký tự tiếng Việt thấp (4.4%) — có thể mất dấu thanh"
+  ]
+}

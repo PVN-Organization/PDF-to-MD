@@ -1,0 +1,130 @@
+{
+  "filename": "QĐ_6389_2012 Quy che quan ly SKSC PVN 3 1.pdf",
+  "total_issues": 11,
+  "fixed_count": 11,
+  "failed_count": 0,
+  "skipped_count": 0,
+  "fixes": [
+    {
+      "page_num": 19,
+      "line_start": 323,
+      "line_end": 393,
+      "issue_type": "missing_content",
+      "issue_description": "Thiếu số hiệu Điều '11' và '13' trong đoạn văn cam kết cuối trang: 'quy định tại Điều và Điều Quy chế quản lý sáng kiến...'",
+      "original_snippet_preview": "*(đã ký)*\n*(đã ký)*\n\n## **Chương VI**\n## **ĐIỀU KHOẢN THI HÀNH**\n\n#### **Điều 24. Điều khoản thi hành**\n1. Quy chế này bao gồm Chương, 24 Điều và Biểu mẫu kèm theo.\n2. Trong quá trình thực hiện, Đơn v",
+      "fixed_snippet_preview": "*(đã ký)*\n*(đã ký)*\n\n## **Chương VI**\n## **ĐIỀU KHOẢN THI HÀNH**\n\n#### **Điều 24. Điều khoản thi hành**\n1. Quy chế này bao gồm Chương, 24 Điều và Biểu mẫu kèm theo.\n2. Trong quá trình thực hiện, Đơn v",
+      "success": true,
+      "log_message": "Đã sửa thành công (2966 ký tự)"
+    },
+    {
+      "page_num": 19,
+      "line_start": 323,
+      "line_end": 399,
+      "issue_type": "missing_content",
+      "issue_description": "Thiếu dòng running header 'Quy chế quản lý hoạt động sáng kiến, sáng chế' ở đầu trang.",
+      "original_snippet_preview": "*(đã ký)*\n*(đã ký)*\n\n## **Chương VI**\n## **ĐIỀU KHOẢN THI HÀNH**\n\n#### **Điều 24. Điều khoản thi hành**\n1. Quy chế này bao gồm Chương, 24 Điều và Biểu mẫu kèm theo.\n2. Trong quá trình thực hiện, Đơn v",
+      "fixed_snippet_preview": "*Quy chế quản lý hoạt động sáng kiến, sáng chế*\n\n*(đã ký)*\n*(đã ký)*\n\n## **Chương VI**\n## **ĐIỀU KHOẢN THI HÀNH**\n\n#### **Điều 24. Điều khoản thi hành**\n1. Quy chế này bao gồm Chương, 24 Điều và Biểu ",
+      "success": true,
+      "log_message": "Đã sửa thành công (3113 ký tự)"
+    },
+    {
+      "page_num": 19,
+      "line_start": 323,
+      "line_end": 395,
+      "issue_type": "missing_content",
+      "issue_description": "Thiếu số trang '19 / 20' ở cuối trang.",
+      "original_snippet_preview": "*(đã ký)*\n*(đã ký)*\n\n## **Chương VI**\n## **ĐIỀU KHOẢN THI HÀNH**\n\n#### **Điều 24. Điều khoản thi hành**\n1. Quy chế này bao gồm Chương, 24 Điều và Biểu mẫu kèm theo.\n2. Trong quá trình thực hiện, Đơn v",
+      "fixed_snippet_preview": "*(đã ký)*\n*(đã ký)*\n\n## **Chương VI**\n## **ĐIỀU KHOẢN THI HÀNH**\n\n#### **Điều 24. Điều khoản thi hành**\n1. Quy chế này bao gồm Chương, 24 Điều và Biểu mẫu kèm theo.\n2. Trong quá trình thực hiện, Đơn v",
+      "success": true,
+      "log_message": "Đã sửa thành công (2957 ký tự)"
+    },
+    {
+      "page_num": 14,
+      "line_start": 237,
+      "line_end": 292,
+      "issue_type": "missing_content",
+      "issue_description": "Thiếu phần lớn nội dung của trang 14: phần còn lại của Khoản 5 Điều 17, toàn bộ Điều 18 và Điều 19.",
+      "original_snippet_preview": "#### **Điều 13. Quyền của Tập đoàn, Đơn vị, Tác giả sáng kiến và người tham gia tổ chức áp dụng sáng kiến lần đầu**\n1. Đối với sáng kiến đã được công nhận, Tập đoàn/Đơn vị có các quyền sau đây:\n   a) ",
+      "fixed_snippet_preview": "#### **Điều 13. Quyền của Tập đoàn, Đơn vị, Tác giả sáng kiến và người tham gia tổ chức áp dụng sáng kiến lần đầu**\n1. Đối với sáng kiến đã được công nhận, Tập đoàn/Đơn vị có các quyền sau đây:\n   a) ",
+      "success": true,
+      "log_message": "Đã sửa thành công (5092 ký tự)"
+    },
+    {
+      "page_num": 14,
+      "line_start": 237,
+      "line_end": 289,
+      "issue_type": "ocr_gibberish",
+      "issue_description": "Văn bản bị cắt cụt ở cuối: 'Tích cực tham gia Hội thi sá'.",
+      "original_snippet_preview": "#### **Điều 13. Quyền của Tập đoàn, Đơn vị, Tác giả sáng kiến và người tham gia tổ chức áp dụng sáng kiến lần đầu**\n1. Đối với sáng kiến đã được công nhận, Tập đoàn/Đơn vị có các quyền sau đây:\n   a) ",
+      "fixed_snippet_preview": "#### **Điều 13. Quyền của Tập đoàn, Đơn vị, Tác giả sáng kiến và người tham gia tổ chức áp dụng sáng kiến lần đầu**\n1. Đối với sáng kiến đã được công nhận, Tập đoàn/Đơn vị có các quyền sau đây:\n   a) ",
+      "success": true,
+      "log_message": "Đã sửa thành công (5071 ký tự)"
+    },
+    {
+      "page_num": 14,
+      "line_start": 237,
+      "line_end": 254,
+      "issue_type": "structure_error",
+      "issue_description": "Markdown bao gồm nội dung từ các trang trước (Điều 13 đến Điều 16) không thuộc trang 14; xuất hiện các ký tự lạ '*(đã ký)*' không có trong văn bản gốc.",
+      "original_snippet_preview": "#### **Điều 13. Quyền của Tập đoàn, Đơn vị, Tác giả sáng kiến và người tham gia tổ chức áp dụng sáng kiến lần đầu**\n1. Đối với sáng kiến đã được công nhận, Tập đoàn/Đơn vị có các quyền sau đây:\n   a) ",
+      "fixed_snippet_preview": "## Chương IV\n## CÁC BIỆN PHÁP THÚC ĐẨY HOẠT ĐỘNG SÁNG KIẾN, SÁNG CHẾ\n\n#### **Điều 17. Khuyến khích phong trào thi đua lao động sáng tạo**\nĐơn vị/Người đại diện của Tập đoàn có trách nhiệm chỉ đạo thực",
+      "success": true,
+      "log_message": "Đã sửa thành công (2306 ký tự)"
+    },
+    {
+      "page_num": 14,
+      "line_start": 237,
+      "line_end": 256,
+      "issue_type": "running_header",
+      "issue_description": "Thiếu dòng tiêu đề 'Quy chế quản lý hoạt động sáng kiến, sáng chế'.",
+      "original_snippet_preview": "#### **Điều 13. Quyền của Tập đoàn, Đơn vị, Tác giả sáng kiến và người tham gia tổ chức áp dụng sáng kiến lần đầu**\n1. Đối với sáng kiến đã được công nhận, Tập đoàn/Đơn vị có các quyền sau đây:\n   a) ",
+      "fixed_snippet_preview": "Quy chế quản lý hoạt động sáng kiến, sáng chế\n\n## Chương IV\n## CÁC BIỆN PHÁP THÚC ĐẨY HOẠT ĐỘNG SÁNG KIẾN, SÁNG CHẾ\n\n#### **Điều 17. Khuyến khích phong trào thi đua lao động sáng tạo**\nĐơn vị/Người đạ",
+      "success": true,
+      "log_message": "Đã sửa thành công (2353 ký tự)"
+    },
+    {
+      "page_num": 14,
+      "line_start": 237,
+      "line_end": 256,
+      "issue_type": "embedded_page_number",
+      "issue_description": "Thiếu số trang '14 / 20' ở cuối trang.",
+      "original_snippet_preview": "#### **Điều 13. Quyền của Tập đoàn, Đơn vị, Tác giả sáng kiến và người tham gia tổ chức áp dụng sáng kiến lần đầu**\n1. Đối với sáng kiến đã được công nhận, Tập đoàn/Đơn vị có các quyền sau đây:\n   a) ",
+      "fixed_snippet_preview": "## Chương IV\n## CÁC BIỆN PHÁP THÚC ĐẨY HOẠT ĐỘNG SÁNG KIẾN, SÁNG CHẾ\n\n#### **Điều 17. Khuyến khích phong trào thi đua lao động sáng tạo**\nĐơn vị/Người đại diện của Tập đoàn có trách nhiệm chỉ đạo thực",
+      "success": true,
+      "log_message": "Đã sửa thành công (2315 ký tự)"
+    },
+    {
+      "page_num": 8,
+      "line_start": 133,
+      "line_end": 146,
+      "issue_type": "missing_content",
+      "issue_description": "Toàn bộ nội dung trong hình ảnh (bao gồm các điểm 2, 3 của Điều 8 và toàn bộ Điều 9 trên trang 8) hoàn toàn thiếu trong đoạn Markdown được cung cấp. Đoạn Markdown lại chứa nội dung của các Điều 1, 3, 4, 5 và 6, vốn thuộc các trang trước đó của tài liệu.",
+      "original_snippet_preview": "1. Quy chế này quy định chi tiết về điều kiện, thủ tục công nhận sáng kiến, quyền và nghĩa vụ của Tập đoàn, Đơn vị, Tác giả sáng kiến, người tham gia tổ chức áp dụng sáng kiến lần đầu; các biện pháp t",
+      "fixed_snippet_preview": "việc chấp nhận đơn, yêu cầu sửa đổi, bổ sung hoặc từ chối chấp nhận đơn trong thời hạn 30 ngày kể từ ngày nhận đơn.\n2. Trường hợp chấp nhận đơn, Tập đoàn/Đơn vị phải thông báo cho người nộp đơn bằng v",
+      "success": true,
+      "log_message": "Đã sửa thành công (2242 ký tự)"
+    },
+    {
+      "page_num": 4,
+      "line_start": 64,
+      "line_end": 145,
+      "issue_type": "missing_content",
+      "issue_description": "Toàn bộ nội dung của trang 4 trong hình ảnh (bao gồm định nghĩa 'Người đứng đầu Đơn vị', Điều 2 và Điều 3) hoàn toàn thiếu trong đoạn Markdown được cung cấp. Đoạn Markdown kết thúc đột ngột ở giữa Điều 1 (định nghĩa về Tập đoàn).",
+      "original_snippet_preview": "*Hà Nội, 08/2012*\n\n---\n\n## MỤC LỤC\n\n| Chương | Nội dung | Trang |\n|---|---|---|\n| **Chương I** | **Những quy định chung** | 03 |\n| | Điều 1. Giải thích từ ngữ | |\n| | Điều 2. Phạm vi điều chỉnh và đối",
+      "fixed_snippet_preview": "*Hà Nội, 08/2012*\n\n---\n\n## MỤC LỤC\n\n| Chương | Nội dung | Trang |\n|---|---|---|\n| **Chương I** | **Những quy định chung** | 03 |\n| | Điều 1. Giải thích từ ngữ | |\n| | Điều 2. Phạm vi điều chỉnh và đối",
+      "success": true,
+      "log_message": "Đã sửa thành công (6104 ký tự)"
+    },
+    {
+      "page_num": 0,
+      "line_start": 0,
+      "line_end": 52,
+      "issue_type": "missing_content",
+      "issue_description": "Thiếu phần lớn nội dung trong mục 'Nơi nhận' (từ dòng '- P.TGĐ N.Q.Thập (e-copy);' đến hết) và toàn bộ phần chữ ký, chức danh của người ký (TM. HỘI ĐỒNG THÀNH VIÊN CHỦ TỊCH Phùng Đình Thực).",
+      "original_snippet_preview": "<!-- Chuyển đổi tự động từ PDF sang Markdown -->\n<!-- File gốc: QĐ_6389_2012 Quy che quan ly SKSC PVN 3 1.pdf -->\n<!-- Số trang: 21 | Kích thước: 0.4 MB -->\n<!-- Thời gian: 2026-03-17 10:49:19 -->\n\n\n-",
+      "fixed_snippet_preview": "<!-- Chuyển đổi tự động từ PDF sang Markdown -->\n<!-- File gốc: QĐ_6389_2012 Quy che quan ly SKSC PVN 3 1.pdf -->\n<!-- Số trang: 21 | Kích thước: 0.4 MB -->\n<!-- Thời gian: 2026-03-17 10:49:19 -->\n\n\n-",
+      "success": true,
+      "log_message": "Đã sửa thành công (2226 ký tự)"
+    }
+  ]
+}

@@ -1,0 +1,38 @@
+2026-03-17 11:30:54,936 [INFO] offline: ============================================================
+2026-03-17 11:30:54,936 [INFO] offline: Pipeline offline: QĐ_6389_2012 Quy che quan ly SKSC PVN 3 1.pdf
+2026-03-17 11:30:54,937 [INFO] offline: Strategy: auto | Device: mps | Ollama: False
+2026-03-17 11:30:54,937 [INFO] offline: ============================================================
+2026-03-17 11:30:54,938 [INFO] offline: Phase 1: Convert (strategy=auto)
+2026-03-17 11:30:54,938 [INFO] offline.converter_marker: Smart convert (auto): extracting text from QĐ_6389_2012 Quy che quan ly SKSC PVN 3 1.pdf...
+2026-03-17 11:30:55,109 [INFO] offline.converter_marker:   pdftext: 21 pages text-extractable, 0 scanned, 33434 chars
+2026-03-17 11:30:55,111 [INFO] offline.converter_marker:   pdftext Vietnamese quality: 0.0%
+2026-03-17 11:30:55,111 [INFO] offline.converter_marker: Auto: pdftext VN quality low (0.0%), trying marker OCR...
+2026-03-17 11:31:01,897 [DEBUG] tensorflow: Falling back to TensorFlow client; we recommended you install the Cloud TPU client directly with pip install cloud-tpu-client.
+2026-03-17 11:31:02,154 [DEBUG] h5py._conv: Creating converter from 7 to 5
+2026-03-17 11:31:02,154 [DEBUG] h5py._conv: Creating converter from 5 to 7
+2026-03-17 11:31:02,155 [DEBUG] h5py._conv: Creating converter from 7 to 5
+2026-03-17 11:31:02,155 [DEBUG] h5py._conv: Creating converter from 5 to 7
+2026-03-17 11:31:03,073 [INFO] numexpr.utils: NumExpr defaulting to 8 threads.
+2026-03-17 11:31:05,806 [INFO] offline.converter_marker: Loading marker models (device=mps)...
+2026-03-17 11:31:13,751 [INFO] offline.converter_marker: Models loaded in 7.9s
+2026-03-17 11:31:13,755 [INFO] offline.converter_marker: Converting QĐ_6389_2012 Quy che quan ly SKSC PVN 3 1.pdf...
+2026-03-17 11:39:59,164 [INFO] offline.converter_marker: Converted QĐ_6389_2012 Quy che quan ly SKSC PVN 3 1.pdf: 21 pages, 34883 chars in 525.3s
+2026-03-17 11:39:59,263 [INFO] offline.converter_marker:   marker Vietnamese quality: 4.4%
+2026-03-17 11:39:59,267 [INFO] offline: Phase 1 done: 21 pages, 34883 chars, VN=4.4%, strategy=marker(auto-best), 544.3s
+2026-03-17 11:39:59,270 [INFO] offline: Phase 2: Post-processing
+2026-03-17 11:39:59,288 [INFO] offline: Phase 2 done: 34883 -> 34777 chars
+2026-03-17 11:39:59,300 [INFO] offline: Saved output: outputs_offline/QĐ_6389_2012 Quy che quan ly SKSC PVN 3 1/output_QĐ_6389_2012 Quy che quan ly SKSC PVN 3 1.md (35004 chars, VN=4.4%)
+2026-03-17 11:39:59,301 [INFO] offline: Phase 4: Quality check
+2026-03-17 11:39:59,346 [INFO] offline.quality_offline: Quality check: bắt đầu kiểm tra QĐ_6389_2012 Quy che quan ly SKSC PVN 3 1.pdf (21 trang)
+2026-03-17 11:39:59,504 [INFO] offline.quality_offline:   Text completeness: 99.7%
+2026-03-17 11:39:59,510 [INFO] offline.quality_offline:   Structure score: 6.5/10
+2026-03-17 11:39:59,516 [INFO] offline.quality_offline:   Table score: 10.0/10
+2026-03-17 11:39:59,524 [INFO] offline.quality_offline:   Vietnamese score: 5.0/10
+2026-03-17 11:39:59,525 [INFO] offline.quality_offline: Quality check hoàn thành: QĐ_6389_2012 Quy che quan ly SKSC PVN 3 1.pdf — overall=7.9/10
+2026-03-17 11:39:59,526 [INFO] offline.quality_offline:   Issue: Ít danh sách có thứ tự — có thể cần kiểm tra khoản/điểm
+2026-03-17 11:39:59,529 [INFO] offline.quality_offline:   Issue: Phát hiện 1 lần ký tự mojibake encoding bị lỗi
+2026-03-17 11:39:59,530 [INFO] offline.quality_offline:   Issue: Tỷ lệ ký tự tiếng Việt thấp (4.4%) — có thể mất dấu thanh
+2026-03-17 11:39:59,540 [INFO] offline: Phase 4 done: overall=7.9/10
+2026-03-17 11:39:59,541 [INFO] offline:   Issue: Ít danh sách có thứ tự — có thể cần kiểm tra khoản/điểm
+2026-03-17 11:39:59,541 [INFO] offline:   Issue: Phát hiện 1 lần ký tự mojibake encoding bị lỗi
+2026-03-17 11:39:59,542 [INFO] offline:   Issue: Tỷ lệ ký tự tiếng Việt thấp (4.4%) — có thể mất dấu thanh

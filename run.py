@@ -116,6 +116,12 @@ def parse_args() -> argparse.Namespace:
         help="Giây chờ giữa các chunk (mặc định: 12, tăng nếu bị rate limit)",
     )
     parser.add_argument(
+        "--max-fix-rounds",
+        type=int,
+        default=3,
+        help="Số vòng tối đa cho final check loop (mặc định: 3)",
+    )
+    parser.add_argument(
         "--clear-cache",
         action="store_true",
         help="Xóa cache cũ trước khi chạy (buộc Gemini convert lại tất cả)",
@@ -207,6 +213,7 @@ async def main() -> None:
         output_dir=Path(args.output_dir),
         skip_gemini_confidence=args.skip_confidence,
         use_tesseract=not args.no_tesseract,
+        max_fix_rounds=args.max_fix_rounds,
     )
 
     # Determine PDF files to process

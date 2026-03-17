@@ -1,28 +1,14 @@
 {
   "filename": "QĐ_6389_2012 Quy che quan ly SKSC PVN 3 1.pdf",
   "total_pages": 21,
-  "text_completeness": 0.938,
-  "structure_score": 6.5,
+  "text_completeness": 0.934,
+  "structure_score": 7.0,
   "table_score": 10.0,
   "vietnamese_score": 8.0,
-  "ai_review": {
-    "completeness": 3,
-    "accuracy": 7,
-    "structure": 4,
-    "tables": 1,
-    "overall": 3,
-    "issues": [
-      "Thiếu hoàn toàn nội dung của trang 5 (bao gồm Điều 4, Điều 5, Điều 6).",
-      "Thiếu hoàn toàn nội dung của trang 18 (Chương VI, Điều 24).",
-      "Thiếu hoàn toàn nội dung của trang 20 (Biểu mẫu báo cáo BM.02-SK/PVN).",
-      "Nội dung Điều 17 (trang 14) bị cắt ngang ở giữa chừng (dừng lại ở 'Nhà nước và T').",
-      "Thiếu các Điều 18 và Điều 19 có trong trang 14.",
-      "Xuất hiện nội dung không có trong các hình ảnh được cung cấp: Bảng mục lục ở đầu văn bản, nội dung về 'Tiền làm lợi' và 'Điều 16'.",
-      "Việc chèn các dòng '(đã ký)' không phản ánh đúng cấu trúc chữ ký nháy ở cuối mỗi trang trong bản gốc."
-    ]
-  },
-  "overall_score": 7.41,
+  "ai_review": null,
+  "overall_score": 8.3,
   "issues": [
-    "Phát hiện 3 lần ký tự mojibake encoding bị lỗi"
+    "Phát hiện 3 lần ký tự mojibake encoding bị lỗi",
+    "AI review thất bại: 403 PERMISSION_DENIED. {'error': {'code': 403, 'message': 'Your API key was reported as leaked. Please use another API key.', 'status': 'PERMISSION_DENIED'}}"
   ]
 }

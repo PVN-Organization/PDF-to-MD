@@ -1,7 +1,8 @@
 <!-- Chuyển đổi offline từ PDF sang Markdown (marker-pdf) -->
 <!-- File gốc: QĐ_6389_2012 Quy che quan ly SKSC PVN 3 1.pdf -->
 <!-- Số trang: 21 -->
-<!-- Thời gian: 2026-03-17 09:05:51 -->
+<!-- Strategy: marker(auto-best) -->
+<!-- Thời gian: 2026-03-17 11:39:59 -->
 
 ## T~P DOAN DAU KHi VI~TNAM
 

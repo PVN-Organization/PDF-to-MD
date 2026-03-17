@@ -8,42 +8,42 @@
     {
       "page_num": 0,
       "md_line_start": 0,
-      "md_line_end": 41,
+      "md_line_end": 43,
       "severity": "ok",
       "issues": [],
-      "md_snippet_preview": "<!-- Chuyển đổi tự động từ PDF sang Markdown -->\n<!-- File gốc: QĐ_6389_2012 Quy che quan ly SKSC PVN 3 1.pdf -->\n<!-- Số trang: 21 | Kích thước: 0.4 MB -->\n<!-- Thời gian: 2026-03-16 23:20:41 -->\n\n\n-"
+      "md_snippet_preview": "<!-- Chuyển đổi tự động từ PDF sang Markdown -->\n<!-- File gốc: QĐ_6389_2012 Quy che quan ly SKSC PVN 3 1.pdf -->\n<!-- Số trang: 21 | Kích thước: 0.4 MB -->\n<!-- Thời gian: 2026-03-17 11:53:56 -->\n\n\n-"
     },
     {
-      "page_num": 6,
-      "md_line_start": 90,
-      "md_line_end": 160,
+      "page_num": 4,
+      "md_line_start": 50,
+      "md_line_end": 120,
       "severity": "ok",
       "issues": [],
-      "md_snippet_preview": "2. Mot gi:ii phap dugc coi 1a mai so vai trinh do cong ngh~, ky thu~t , quan 1y cua nganh D~u k..~i Vi~t Nam nSu tinh dSn truac ngay nop don yeu c~u cong nh~n sang kiSn, ho~c ngay b~t d~u ap d\\lng thu"
+      "md_snippet_preview": "\n*(đã ký và đóng dấu)*\n\n**Phùng Đình Thực**\n\n---\n\nTẬP ĐOÀN DẦU KHÍ VIỆT NAM\n\n*(logo đơn vị)*\n\n**QUY CHẾ**\n**QUẢN LÝ HOẠT ĐỘNG SÁNG KIẾN, SÁNG CHẾ**\n\n*Hà Nội, 08/2012*\n\n---\n\n## MỤC LỤC\n\n| Chương | Nội "
     },
     {
-      "page_num": 10,
-      "md_line_start": 179,
-      "md_line_end": 249,
+      "page_num": 11,
+      "md_line_start": 186,
+      "md_line_end": 256,
       "severity": "ok",
       "issues": [],
-      "md_snippet_preview": "\nc) Trong trnang hQ'P ill ch6i congnh~n sang ki€n, T~p doan/DO'n vi thong bao cho Tac gia sang ki€n, trong do neu r6 ly do tu ch6i.\n\nd) Trong tmo·ng hqp c~n thi€t, d6i vai cac giai phap co tinh khoa h"
+      "md_snippet_preview": "\n#### Điều 9. Xét công nhận sáng kiến\n1. Sáng kiến cấp cơ sở\n   a) Việc xét công nhận Sáng kiến cấp cơ sở được thực hiện trong thời hạn 90 ngày kể từ ngày chấp nhận đơn yêu cầu công nhận sáng kiến quy"
     },
     {
-      "page_num": 13,
-      "md_line_start": 244,
-      "md_line_end": 314,
+      "page_num": 14,
+      "md_line_start": 240,
+      "md_line_end": 310,
       "severity": "ok",
       "issues": [],
-      "md_snippet_preview": "T~p doan/Ban vi ap dl,mg sang ki~n co nghla V\\l tnl thli lao cho nhfrng nguai tham gia t6 chuc ap d1,lng sang ki~n l~n d:~u vai muc t5i thi€u b~ng 20 % muc thli lao cho Tac gia sang ki~n quy dinh t~i "
+      "md_snippet_preview": "   b) Phổ biến nhân rộng áp dụng sáng kiến trong phạm vi Đơn vị/Tập đoàn Dầu khí Quốc gia Việt Nam và/hoặc chuyển giao sáng kiến cho doanh nghiệp/đơn vị khác trong Tập đoàn Dầu khí Quốc gia Việt Nam á"
     },
     {
       "page_num": 20,
-      "md_line_start": 371,
-      "md_line_end": 441,
+      "md_line_start": 376,
+      "md_line_end": 420,
       "severity": "ok",
       "issues": [],
-      "md_snippet_preview": "\nSo di~n tho~i: .......... .......... ..\n\nDanh sach d6ng Tac gia (n~u c6):\n\nToi/Chllng toi c6 ten du6\"i day la d6ng Tac gia cua giai phap dang kY sang ki~n , cung th6a thu@.n v~ dong g6p cua ttrng ngu"
+      "md_snippet_preview": "> *(ký, ghi rõ họ tên)*\n\n*(đã ký)*\n*(đã ký)*\n\n---\n\n**BM.02-SK/PVN**\n\n|  |  |\n|---|---|\n| TẬP ĐOÀN DẦU KHÍ QUỐC GIA VIỆT NAM | **CỘNG HOÀ XÃ HỘI CHỦ NGHĨA VIỆT NAM** |\n| **ĐƠN VỊ** | **Độc lập - Tự do "
     }
   ]
 }

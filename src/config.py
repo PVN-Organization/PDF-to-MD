@@ -45,6 +45,9 @@ class Config:
     spot_check_count: int = 5
     spot_check_dpi: int = 150
 
+    # Final check loop
+    max_fix_rounds: int = 3
+
     def validate(self) -> None:
         if not self.gemini_api_key:
             raise ValueError(

@@ -7,11 +7,15 @@ PROJECT_ROOT = Path(__file__).resolve().parent.parent
 INPUTS_DIR = PROJECT_ROOT / "inputs"
 OUTPUTS_DIR = PROJECT_ROOT / "outputs_offline"
 
+VALID_STRATEGIES = ("auto", "marker", "pdftext", "hybrid")
+
 
 @dataclass
 class OfflineConfig:
     marker_device: str = "mps"
     marker_languages: tuple[str, ...] = ("vi", "en")
+
+    extraction_strategy: str = "auto"
 
     use_ollama: bool = False
     ollama_model: str = "qwen3-vl:8b"
@@ -26,4 +30,9 @@ class OfflineConfig:
     def validate(self) -> None:
         if not self.input_dir.exists():
             raise FileNotFoundError(f"Input directory not found: {self.input_dir}")
+        if self.extraction_strategy not in VALID_STRATEGIES:
+            raise ValueError(
+                f"Invalid strategy '{self.extraction_strategy}', "
+                f"must be one of {VALID_STRATEGIES}"
+            )
         self.output_dir.mkdir(parents=True, exist_ok=True)

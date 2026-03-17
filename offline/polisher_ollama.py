@@ -133,3 +133,112 @@ def polish_with_ollama(
 
     logger.info("Ollama polish complete: %d chunks processed", len(polished_chunks))
     return "\n".join(polished_chunks)
+
+
+_DIACRITICS_REPAIR_PROMPT = """\
+Đoạn văn bản tiếng Việt bên dưới bị mất dấu thanh do lỗi OCR.
+Hãy phục hồi toàn bộ dấu thanh tiếng Việt cho đoạn văn bản.
+
+Quy tắc:
+- Giữ nguyên cấu trúc Markdown (heading, list, table, bold, italic)
+- Giữ nguyên CHÍNH XÁC tất cả số hiệu, mã số, ngày tháng
+- CHỈ sửa dấu thanh, KHÔNG thay đổi nội dung hay cấu trúc
+- Nếu không chắc chắn, giữ nguyên
+
+Trả về CHỈ văn bản đã sửa dấu. KHÔNG giải thích.
+
+Đoạn cần sửa:
+{text}
+"""
+
+_VN_CHARS = set("àáảãạăắằẳẵặâấầẩẫậèéẻẽẹêếềểễệìíỉĩịòóỏõọôốồổỗộơớờởỡợùúủũụưứừửữựỳýỷỹỵđ"
+                "ÀÁẢÃẠĂẮẰẲẴẶÂẤẦẨẪẬÈÉẺẼẸÊẾỀỂỄỆÌÍỈĨỊÒÓỎÕỌÔỐỒỔỖỘƠỚỜỞỠỢÙÚỦŨỤƯỨỪỬỮỰỲÝỶỸỴĐ")
+
+
+def _vn_ratio(text: str) -> float:
+    alpha = sum(1 for c in text if c.isalpha())
+    if alpha < 20:
+        return 1.0
+    return sum(1 for c in text if c in _VN_CHARS) / alpha
+
+
+def repair_vietnamese_diacritics(
+    markdown: str,
+    pdf_path: Path | str | None = None,
+    model: str = "qwen3-vl:8b",
+    base_url: str = "http://localhost:11434",
+    render_dpi: int = 150,
+    vn_threshold: float = 0.05,
+) -> str:
+    """Detect sections with low Vietnamese diacritics and repair them using Ollama."""
+    import ollama
+
+    if not _check_ollama_available(base_url):
+        logger.warning("Ollama not available at %s, skipping diacritics repair", base_url)
+        return markdown
+
+    client = ollama.Client(host=base_url)
+
+    page_images: list[str] = []
+    total_pages = 0
+    if pdf_path:
+        pdf_path = Path(pdf_path)
+        if pdf_path.exists():
+            try:
+                import fitz
+                doc = fitz.open(str(pdf_path))
+                total_pages = doc.page_count
+                for page in doc:
+                    pix = page.get_pixmap(dpi=render_dpi)
+                    page_images.append(base64.b64encode(pix.tobytes("png")).decode())
+                doc.close()
+            except Exception as e:
+                logger.warning("Could not render PDF pages for repair: %s", e)
+
+    chunks = _split_into_chunks(markdown, max_chars=2500)
+    repaired_chunks: list[str] = []
+    repair_count = 0
+
+    for i, chunk in enumerate(chunks):
+        ratio = _vn_ratio(chunk)
+        if ratio >= vn_threshold:
+            repaired_chunks.append(chunk)
+            continue
+
+        logger.info(
+            "Repair chunk %d/%d (VN ratio=%.1f%%, below %.0f%%)...",
+            i + 1, len(chunks), ratio * 100, vn_threshold * 100,
+        )
+
+        prompt = _DIACRITICS_REPAIR_PROMPT.replace("{text}", chunk[:3500])
+
+        messages: list[dict] = []
+        if page_images and total_pages > 0:
+            page_idx = min(i * total_pages // max(len(chunks), 1), len(page_images) - 1)
+            messages = [{"role": "user", "content": prompt, "images": [page_images[page_idx]]}]
+        else:
+            messages = [{"role": "user", "content": prompt}]
+
+        try:
+            response = client.chat(
+                model=model, messages=messages,
+                options={"temperature": 0.1},
+            )
+            result = response.get("message", {}).get("content", "")
+            if result and len(result) > len(chunk) * 0.3:
+                new_ratio = _vn_ratio(result)
+                if new_ratio > ratio:
+                    repaired_chunks.append(result)
+                    repair_count += 1
+                    logger.info("  Repaired: VN ratio %.1f%% -> %.1f%%", ratio * 100, new_ratio * 100)
+                else:
+                    repaired_chunks.append(chunk)
+                    logger.info("  Repair did not improve VN ratio, keeping original")
+            else:
+                repaired_chunks.append(chunk)
+        except Exception as e:
+            logger.warning("  Repair failed for chunk %d: %s", i, e)
+            repaired_chunks.append(chunk)
+
+    logger.info("Diacritics repair complete: %d/%d chunks repaired", repair_count, len(chunks))
+    return "\n".join(repaired_chunks)
