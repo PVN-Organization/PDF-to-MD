@@ -1,3 +1,12 @@
 .env
 *.env
 .cursor-history/
+.DS_Store
+._*
+**/.DS_Store
+**/._*
+__pycache__/
+**/__pycache__/
+*.pyc
+.venv/
+temp/

@@ -55,31 +55,44 @@ flowchart TD
     PDF[PDF Input] --> P1
 
     subgraph conversion [Chuyển đổi]
-        P1["Phase 1: Phân tích PDF<br/>analyzer.py"] --> P2
-        P2["Phase 2: Lên kế hoạch chunk<br/>planner.py"] --> P3
-        P3["Phase 3: Render trang → ảnh<br/>renderer.py"] --> P4
-        P4["Phase 4: Trích xuất table hints<br/>extractor.py + Tesseract OCR"] --> P5
-        P5["Phase 5: Gemini convert<br/>converter.py + prompts.py"] --> P6
-        P6["Phase 6: Ghép nối Markdown<br/>assembler.py + postprocess.py"]
+        P1["1. Phân tích PDF"] --> P2
+        P2["2. Chia chunk"] --> P3
+        P3["3. Render trang → ảnh"] --> P4
+        P4["4. Trích xuất table hints + OCR"] --> P5
+        P5["5. Gemini convert từng chunk"] --> P6
+        P6["6. Ghép nối Markdown"]
     end
 
     P6 --> P7
 
     subgraph verification [Kiểm tra & Sửa lỗi]
-        P7["Phase 7: Spot-check<br/>spot_check.py<br/>(N vị trí ngẫu nhiên)"]
-        P7 -->|"critical + warning > 0"| P8
-        P7 -->|"all OK"| P10
-        P8["Phase 8: Auto-fix<br/>auto_fix.py<br/>(sửa lỗi lần 1)"]
+        P7["7. Spot-check ngẫu nhiên"]
+        P7 -->|"có lỗi"| P8
+        P7 -->|"OK"| P10
+        P8["8. Auto-fix lần 1"]
         P8 -->|"còn CRITICAL"| P9
         P8 -->|"hết CRITICAL"| P10
-        P9["Phase 9: Final Check Loop<br/>(spot-check lại → fix lại)<br/>Tối đa N vòng"]
-        P9 -->|"hết CRITICAL hoặc hết vòng"| P10
+        P9["9. Final Check Loop<br/>(tối đa N vòng)"]
+        P9 -->|"xong"| P10
     end
 
-    P10["Phase 10: Quality Check<br/>quality.py<br/>(chấm điểm /10 trên bản cuối)"]
-
-    P10 --> Output["Markdown + Reports<br/>pipeline.log<br/>quality_report.json<br/>spot_check_report.json<br/>auto_fix_report.json"]
+    P10["10. Chấm điểm chất lượng"] --> Output["Markdown + Reports + Logs"]
 ```
+
+### Diễn giải chi tiết từng phase (Online)
+
+| Phase | Input | Hành động | Output |
+|-------|-------|-----------|--------|
+| 1. Phân tích PDF | File PDF gốc | Đọc metadata: số trang, kích thước, tỷ lệ scanned, có bảng/ảnh không, ước tính token | `PDFAnalysis` (thông tin cấu trúc PDF) |
+| 2. Chia chunk | `PDFAnalysis` + config chunk_size | Chia PDF thành nhiều nhóm trang (chunk), mỗi chunk ~10 trang, ưu tiên giữ nguyên bảng trong cùng chunk | Danh sách `ChunkPlan` (trang bắt đầu/kết thúc, chiến lược) |
+| 3. Render ảnh | PDF + danh sách chunk | Render từng trang PDF thành ảnh PNG ở DPI cao (300) để gửi cho Gemini | Ảnh PNG mỗi trang trong `temp/` |
+| 4. Table hints + OCR | PDF + ảnh trang | PyMuPDF trích xuất text + bảng có sẵn trong PDF; Tesseract OCR cho trang scanned | `ChunkExtraction` (text, bảng, confidence mỗi trang) |
+| 5. Gemini convert | Ảnh trang + table hints + prompt | Gửi ảnh + context cho Gemini, nhận về Markdown cho từng chunk; có cache để không gọi lại | Markdown thô cho từng chunk |
+| 6. Ghép nối | Markdown các chunk | Nối các chunk lại, loại bỏ heading trùng, chạy hậu xử lý (xóa rác, sửa bảng, chuẩn hóa) | File `.md` hoàn chỉnh (bản đầu tiên) |
+| 7. Spot-check | Markdown + PDF gốc | Chọn ngẫu nhiên N vị trí, gửi ảnh trang gốc + đoạn Markdown tương ứng cho Gemini so sánh | `SpotCheckReport` (danh sách lỗi: critical/warning/ok) |
+| 8. Auto-fix lần 1 | Markdown + danh sách lỗi + PDF gốc | Với mỗi lỗi, gửi ảnh trang gốc + đoạn lỗi + mô tả cho Gemini sửa, thay thế vào Markdown | Markdown đã sửa + `AutoFixReport` |
+| 9. Final Check Loop | Markdown đã sửa + PDF gốc | Spot-check lại → nếu còn CRITICAL thì fix tiếp → lặp tối đa N vòng | Markdown cuối cùng + report mỗi vòng |
+| 10. Chấm điểm | Markdown cuối + PDF gốc | So sánh tổng thể: độ đầy đủ text, cấu trúc heading, bảng, tiếng Việt → cho điểm /10 | `quality_report.json` (điểm + chi tiết) |
 
 ### Final Check Loop (Phase 9)
 
@@ -161,53 +174,72 @@ flowchart TD
     PDF[PDF Input] --> P1
 
     subgraph conversion [Chuyển đổi]
-        P1["Phase 1: Smart Convert<br/>converter_marker.py"]
+        P1["1. Smart Convert"]
         P1 --> Strategy{Chiến lược?}
 
-        Strategy -->|pdftext OK| DirectExtract["pdftext extract<br/>(text trực tiếp)"]
-        Strategy -->|scanned / low quality| MarkerOCR["marker-pdf OCR<br/>(Surya OCR)"]
-        Strategy -->|auto| AutoDetect["Tự phát hiện<br/>kiểm tra VN%"]
+        Strategy -->|"text có sẵn"| DirectExtract["Trích xuất trực tiếp"]
+        Strategy -->|"scanned"| MarkerOCR["OCR bằng marker-pdf"]
+        Strategy -->|"auto"| AutoDetect["Tự phát hiện"]
 
         DirectExtract --> P2
         MarkerOCR --> P2
         AutoDetect --> P2
     end
 
-    P2["Phase 2: Post-processing<br/>postprocess.py"] --> VNCheck
+    P2["2. Hậu xử lý"] --> VNCheck
 
-    VNCheck{"VN diacritics<br/>ratio < 5%?"}
-    VNCheck -->|Có| P3["Phase 3: Ollama<br/>diacritics repair"]
-    VNCheck -->|Không| P3b["Phase 3: Ollama polish<br/>(optional)"]
+    VNCheck{"Tỷ lệ dấu<br/>tiếng Việt thấp?"}
+    VNCheck -->|Có| P3["3. Ollama sửa dấu"]
+    VNCheck -->|Không| P3b["3. Ollama polish"]
     P3 --> P4
     P3b --> P4
 
     subgraph checks [Kiểm tra & Sửa lỗi]
-        P4["Phase 4: Quality Check<br/>quality_offline.py"]
-        P4 --> P5["Phase 5: Spot-check<br/>spot_check_offline.py<br/>(Ollama)"]
-        P5 -->|"có lỗi"| P6["Phase 6: Auto-fix<br/>auto_fix_offline.py<br/>(Ollama)"]
-        P5 -->|"all OK"| Save
+        P4["4. Chấm điểm chất lượng"]
+        P4 --> P5["5. Spot-check ngẫu nhiên"]
+        P5 -->|"có lỗi"| P6["6. Auto-fix"]
+        P5 -->|"OK"| Save
     end
 
-    P6 --> Save["Lưu output + reports"]
+    P6 --> Save["Lưu kết quả"]
 
-    Save --> Output["Markdown + Reports<br/>pipeline.log<br/>quality_report.json<br/>spot_check_report.json<br/>auto_fix_report.json"]
+    Save --> Output["Markdown + Reports + Logs"]
 ```
 
 ### Smart Text Extraction (Phase 1)
 
 ```mermaid
 flowchart TD
-    Input["PDF Page"] --> Check{"Trang có text<br/>embedded?"}
-    Check -->|Có| PDFText["pdftext extract<br/>(giữ nguyên Unicode)"]
-    Check -->|Không| Marker["marker-pdf OCR"]
+    Input["Trang PDF"] --> Check{"Có text embedded?"}
+    Check -->|Có| PDFText["Trích xuất trực tiếp"]
+    Check -->|Không| Marker["OCR"]
 
-    PDFText --> VNCheck{"Kiểm tra VN%"}
-    VNCheck -->|"> 5%"| Good["Text tốt → dùng"]
-    VNCheck -->|"< 5%"| Marker
+    PDFText --> VNCheck{"Tỷ lệ tiếng Việt?"}
+    VNCheck -->|"tốt"| Good["Dùng luôn"]
+    VNCheck -->|"kém"| Marker
 
     Marker --> Result["Kết quả"]
     Good --> Result
 ```
+
+### Diễn giải chi tiết từng phase (Offline)
+
+| Phase | Input | Hành động | Output |
+|-------|-------|-----------|--------|
+| 1. Smart Convert | File PDF gốc | Tự chọn chiến lược: thử trích xuất text trực tiếp (pdftext) trước, kiểm tra tỷ lệ tiếng Việt; nếu kém thì chuyển sang OCR bằng marker-pdf (Surya) | Markdown thô + thông tin strategy đã dùng |
+| 2. Hậu xử lý | Markdown thô | Loại prompt leak, sửa bảng vỡ, xóa số trang nhúng, chuẩn hóa heading, xóa rác OCR | Markdown đã làm sạch |
+| 3. Ollama sửa dấu / polish | Markdown + ảnh trang PDF | Nếu tỷ lệ dấu tiếng Việt < 5%: gửi từng đoạn kèm ảnh gốc cho Ollama phục hồi dấu thanh. Nếu >= 5%: Ollama polish chỉnh sửa nhẹ | Markdown với tiếng Việt đúng dấu |
+| 4. Chấm điểm | Markdown + PDF gốc | Kiểm tra độ đầy đủ text, cấu trúc, bảng, tiếng Việt; tùy chọn gửi Ollama đánh giá AI | `quality_report.json` (điểm /10) |
+| 5. Spot-check | Markdown + PDF gốc | Chọn ngẫu nhiên 5 vị trí, gửi ảnh trang + Markdown cho Ollama so sánh tìm lỗi | `SpotCheckReport` (critical/warning/ok) |
+| 6. Auto-fix | Markdown + danh sách lỗi + PDF gốc | Với mỗi lỗi, gửi ảnh + đoạn lỗi cho Ollama sửa, thay vào Markdown | Markdown cuối + `AutoFixReport` |
+
+### Smart Text Extraction (Phase 1 chi tiết)
+
+| Bước | Input | Hành động | Output |
+|------|-------|-----------|--------|
+| Kiểm tra text | Trang PDF | Thử trích xuất text trực tiếp bằng pdftext (không OCR) | Text thô (có thể rỗng nếu trang scanned) |
+| Kiểm tra chất lượng | Text thô | Tính tỷ lệ ký tự tiếng Việt có dấu (ă, ơ, ê, ố...) | Tỷ lệ VN% |
+| Quyết định | Tỷ lệ VN% | Nếu > 5% → dùng text trực tiếp. Nếu <= 5% → fallback sang marker-pdf OCR | Text cuối cùng cho trang đó |
 
 ### Sử dụng
 
